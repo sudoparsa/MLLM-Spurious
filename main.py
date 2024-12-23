@@ -119,7 +119,8 @@ def get_corners(arr):
 def get_masked_images(split, wnid, fname):
     print(f"{split=}, {wnid=}, {fname=}")
     mask = Image.open(os.path.join(_MASK_ROOT, split, f"{wnid}_{wnid}_{fname}.JPEG"))
-    img = Image.open(os.path.join(HARD_IMAGE_NET_DIR, split, f"{wnid}_{wnid}_{fname}.JPEG")).convert('RGB')
+    # img = Image.open(os.path.join(HARD_IMAGE_NET_DIR, split, f"{wnid}_{wnid}_{fname}.JPEG")).convert('RGB')
+    img = Image.open(os.path.join(_IMAGENET_ROOT, split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
     
     img_array = np.array(img)
     mask_array = np.array(mask)
@@ -290,7 +291,7 @@ def get_acc_for_prompt(model, processor, prompt, correct_answer, split, wnid, id
         image = Image.open(os.path.join(_IMAGENET_ROOT, split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
         if mask_object:
             image, masked_image, bbox_image, mask = get_masked_images(split, wnid, fname)
-            print(f"post-fetch {image.size=}, {mask.size=}")
+            # print(f"post-fetch {image.size=}, {mask.size=}")
             if drop_mask:
                 image = np.array(image).transpose(2, 0, 1)
                 image = rescale_tensor(image, processor, upscale_factor=1).astype("uint8")
@@ -300,6 +301,7 @@ def get_acc_for_prompt(model, processor, prompt, correct_answer, split, wnid, id
                     print(f"skipping {i=}")
                     continue
             else:
+                print(f"using bbox_image")
                 image = bbox_image
         if blank_image:
             image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
@@ -307,8 +309,9 @@ def get_acc_for_prompt(model, processor, prompt, correct_answer, split, wnid, id
             print(f"dropping mask")
             res = get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask)[0]
         else:
+            print(f"dropping mask")
             res = get_vllm_output(model, processor, prompt, image)[0]
-        print(f"{prompt=}, {res=}")
+        # print(f"{prompt=}, {res=}")
         if correct_answer in res:
             acc += 1
         tot += 1
