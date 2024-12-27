@@ -16,7 +16,7 @@ from token_dropping.ModifiedQwen import ModifiedQwen2VLForConditionalGeneration,
 from token_dropping.ModifiedQwenUtils import morph_mask, rescale_tensor
 
 device = 'cuda'
-print(f"{torch.cuda.current_device()=}")
+logging.info(f"{torch.cuda.current_device()=}")
 _MASK_ROOT = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
 _IMAGENET_ROOT = '/fs/cml-datasets/ImageNet/ILSVRC2012'
 HARD_IMAGE_NET_DIR = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
@@ -114,7 +114,7 @@ def get_model(args):
         processor = ModifiedQwen2VLProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
     else:
         processor = AutoProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
-    print(f"{type(processor)=}")
+    logging.info(f"{type(processor)=}")
 
     return model, processor
 
@@ -126,7 +126,7 @@ def get_corners(arr):
     return x_min, x_max, y_min, y_max
 
 def get_masked_images(split, wnid, fname):
-    print(f"{split=}, {wnid=}, {fname=}")
+    logger.debug(f"{split=}, {wnid=}, {fname=}")
     mask = Image.open(os.path.join(_MASK_ROOT, split, f"{wnid}_{wnid}_{fname}.JPEG"))
     # img = Image.open(os.path.join(HARD_IMAGE_NET_DIR, split, f"{wnid}_{wnid}_{fname}.JPEG")).convert('RGB')
     img = Image.open(os.path.join(_IMAGENET_ROOT, split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
@@ -146,7 +146,7 @@ def get_masked_images(split, wnid, fname):
     masked_image = Image.fromarray(masked_image_array.astype("uint8"))
     bbox_image = Image.fromarray(bbox_image_array.astype("uint8"))
     
-    # print(f"""
+    # logging.debug(f"""
     # img: {img.size}
     # mask: {mask.size}
     # img_array: {img_array.shape}
@@ -181,8 +181,8 @@ def vllm_standard_preprocessing(model, processor, prompt, image, **processor_kwa
     ]
     messages[0]['content'][1]['text'] = prompt
     text_prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
-    # print(f"vlm_standard_preprocessing {type(processor)=}")
-    # print(f"{image.size=}")
+    # logging.debug(f"vlm_standard_preprocessing {type(processor)=}")
+    # logging.debug(f"{image.size=}")
     inputs = processor(
         text=[text_prompt], images=[image], padding=True, return_tensors="pt",
         **processor_kwargs
@@ -300,27 +300,27 @@ def get_acc_for_prompt(model, processor, prompt, correct_answer, split, wnid, id
         image = Image.open(os.path.join(_IMAGENET_ROOT, split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
         if mask_object:
             image, masked_image, bbox_image, mask = get_masked_images(split, wnid, fname)
-            # print(f"post-fetch {image.size=}, {mask.size=}")
+            # logging.debug(f"post-fetch {image.size=}, {mask.size=}")
             if drop_mask:
                 image = np.array(image).transpose(2, 0, 1)
                 image = rescale_tensor(image, processor, upscale_factor=1).astype("uint8")
                 mask = np.array(mask)[np.newaxis, :, :]
                 mask = np.floor(rescale_tensor(mask, processor, upscale_factor=1)).astype("uint8")
                 if not is_mask_viable(mask):
-                    print(f"skipping {i=}")
+                    logging.debug(f"skipping {i=}")
                     continue
             else:
-                print(f"using bbox_image")
+                logging.debug(f"using bbox_image")
                 image = bbox_image
         if blank_image:
             image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
         if mask_object and drop_mask:
-            print(f"dropping mask")
+            logging.debug(f"dropping mask")
             res = get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask)[0]
         else:
-            print(f"dropping mask")
+            logging.debug(f"dropping mask")
             res = get_vllm_output(model, processor, prompt, image)[0]
-        # print(f"{prompt=}, {res=}")
+        # logging.debug(f"{prompt=}, {res=}")
         if correct_answer in res:
             acc += 1
         tot += 1
@@ -335,7 +335,7 @@ def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False,
     for idx in hard_imagenet_idx:
         class_name = imagenet_classnames[idx]
         wnid = idx_to_wnid[idx]
-        print(f"{idx=}, {class_name=}")
+        logging.debug(f"{idx=}, {class_name=}")
         
         prompt = pair['prompt'].replace('CLASSNAME', class_name)
         correct_answer = pair['correct_answer']
@@ -421,7 +421,7 @@ def run(args):
         logger.info('Loading ImageNet... (Be patient!)')
         dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
 
-    print(f"{args.drop_mask=}")
+    logging.debug(f"{args.drop_mask=}")
     for p in prompts:
         logger.info(f"Prompt: {p['prompt']}\nCorrect Answer: {p['correct_answer']}")
         if args.dataset == 'hardimagenet':
