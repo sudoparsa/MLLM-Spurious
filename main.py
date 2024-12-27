@@ -17,10 +17,10 @@ from token_dropping.ModifiedQwenUtils import morph_mask, rescale_tensor
 
 device = 'cuda'
 print(f"{torch.cuda.current_device()=}")
-_MASK_ROOT = '/cmlscratch/snawathe/spuriosity-testing/hardImageNet/'
+_MASK_ROOT = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
 _IMAGENET_ROOT = '/fs/cml-datasets/ImageNet/ILSVRC2012'
-HARD_IMAGE_NET_DIR = '/cmlscratch/snawathe/spuriosity-testing/hardImageNet'
-CACHE_DIR = '/fs/nexus-scratch/snawathe/hf_home/'
+HARD_IMAGE_NET_DIR = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
+CACHE_DIR = '/fs/nexus-scratch/parsahs/cache/huggingface/hub'
 
 
 def parse_args():
@@ -61,6 +61,13 @@ def parse_args():
     parser.add_argument("--debug", action="store_true", help="output debugging logging information")
     parser.add_argument("--save_response", action="store_true", help="save the results for later analysis")
     parser.add_argument('--drop_mask', action='store_true')
+    parser.add_argument(
+        "--split",
+        type=str,
+        default="train",
+        choices=["train", "val"],
+        help="train/val",
+    )
 
     args = parser.parse_args()
     return args
@@ -77,7 +84,7 @@ def get_model(args):
         #     model_id, torch_dtype="auto", device_map=device
         # )
         model = ModifiedQwen2VLForConditionalGeneration.from_pretrained(
-            model_id, torch_dtype="auto", device_map=device, cache_dir=CACHE_DIR
+            model_id, torch_dtype="auto", device_map=device,  cache_dir=CACHE_DIR
         )
     elif args.model =='llama':
         model_id = "meta-llama/Llama-3.2-11B-Vision-Instruct"
@@ -85,6 +92,7 @@ def get_model(args):
             model_id,
             torch_dtype=torch.bfloat16,
             device_map=device,
+            cache_dir=CACHE_DIR
         )
     elif args.model =='llava':
         model_id = "llava-hf/llava-onevision-qwen2-72b-ov-chat-hf"
@@ -92,6 +100,7 @@ def get_model(args):
         model_id, 
         torch_dtype=torch.bfloat16, 
         device_map=device,
+        cache_dir=CACHE_DIR
     )
     else:
         logger.info('Invalid Model')
@@ -104,7 +113,7 @@ def get_model(args):
     if args.model == 'qwen':
         processor = ModifiedQwen2VLProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
     else:
-        processor = AutoProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels)
+        processor = AutoProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
     print(f"{type(processor)=}")
 
     return model, processor
@@ -319,13 +328,12 @@ def get_acc_for_prompt(model, processor, prompt, correct_answer, split, wnid, id
 
 
 
-def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False, blank_image=False, spur_present=-1, drop_mask=False):
+def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False, blank_image=False, spur_present=-1, drop_mask=False, split='train'):
     class_acc = {}
     total_acc = 0
     sum_tot = 0
     for idx in hard_imagenet_idx:
         class_name = imagenet_classnames[idx]
-        split = 'train'
         wnid = idx_to_wnid[idx]
         print(f"{idx=}, {class_name=}")
         
@@ -345,14 +353,14 @@ def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False,
     class_acc['total'] = (total_acc / (sum_tot),) 
     return class_acc
 
-def run_imagenet_experiment(model, processor, pair, dset, K=300, spur_present=-1, blank_image=False):
+def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_present=-1, blank_image=False):
     class_acc = {}
     total_acc = 0
     no_samples = 0
-    for idx in img_rankings_by_idx_tr.keys():
+    for idx in rankings.keys():
         class_name = imagenet_classnames[idx]
-        top = img_rankings_by_idx_tr[idx]['top']
-        bot = img_rankings_by_idx_tr[idx]['bot']
+        top = rankings[idx]['top']
+        bot = rankings[idx]['bot']
 
         prompt = pair['prompt'].replace('CLASSNAME', class_name)
         correct_answer = pair['correct_answer']
@@ -361,7 +369,7 @@ def run_imagenet_experiment(model, processor, pair, dset, K=300, spur_present=-1
             acc = 0
             n = K
             for i in range(n):
-                image = dset[top[i]][0] if spur_present == 1 else dset[bot[i]][0]
+                image = dset[top[-1-i]][0] if spur_present == 1 else dset[bot[i]][0]
                 if blank_image:
                     image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
                 # Very small images are not compatible with qwen
@@ -406,17 +414,20 @@ def run(args):
     results = []
 
     if args.dataset == 'imagenet':
+        rankings = img_rankings_by_idx_val
+        if args.split == 'train':
+            rankings = img_rankings_by_idx_tr 
         t = transforms.Compose([transforms.Resize(224), transforms.CenterCrop(224), transforms.ToTensor()])
         logger.info('Loading ImageNet... (Be patient!)')
-        dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split='train', transform=None)
+        dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
 
     print(f"{args.drop_mask=}")
     for p in prompts:
         logger.info(f"Prompt: {p['prompt']}\nCorrect Answer: {p['correct_answer']}")
         if args.dataset == 'hardimagenet':
-            result = run_hardimagenet_experiment(model, processor, p, K=args.K, mask_object=mask_object, blank_image=blank_image, spur_present=spur_present, drop_mask=args.drop_mask)
+            result = run_hardimagenet_experiment(model, processor, p, K=args.K, mask_object=mask_object, blank_image=blank_image, spur_present=spur_present, drop_mask=args.drop_mask, split=args.split)
         elif args.dataset == 'imagenet':
-            result = run_imagenet_experiment(model, processor, p, dset, K=args.K, blank_image=blank_image, spur_present=spur_present)
+            result = run_imagenet_experiment(model, processor, p, dset, rankings=rankings, K=args.K, blank_image=blank_image, spur_present=spur_present)
         results.append({'pair': p, 'result':result})
         
     return results
@@ -444,15 +455,15 @@ if __name__=='__main__':
     idx_to_wnid = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/idx_to_wnid.pkl', 'rb'))
     paths_by_rank = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/paths_by_rank.pkl', 'rb'))
     
-    # img_rankings_by_idx_tr = pickle.load(open('../spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
-    # img_rankings_by_idx_val = pickle.load(open('../spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
+    img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
+    img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
 
     logger.info(f"hard_imagenet_idx: {hard_imagenet_idx}")
     logger.info(f"imagenet_classnames: {len(imagenet_classnames)}")
     logger.info(f"idx_to_wnid: {len(idx_to_wnid)}")
     logger.info(f"paths_by_rank: {paths_by_rank.keys()}")
 
-    # logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
+    logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
 
     if args.dataset == 'hardimagenet':
         for idx in hard_imagenet_idx:
@@ -463,6 +474,9 @@ if __name__=='__main__':
 
     logger.info('Results:')
     logger.info(results)
+
+
+
     
 
     
