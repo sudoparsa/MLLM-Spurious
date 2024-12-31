@@ -11,7 +11,7 @@ from IPython.display import display
 from transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor, LlavaOnevisionForConditionalGeneration
 import logging
 import argparse
-from data.data import ImageNetWithPaths
+from data.data import *
 from token_dropping.ModifiedQwen import ModifiedQwen2VLForConditionalGeneration, ModifiedQwen2VLProcessor
 from token_dropping.ModifiedQwenUtils import morph_mask, rescale_tensor
 
@@ -21,6 +21,7 @@ _MASK_ROOT = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
 _IMAGENET_ROOT = '/fs/cml-datasets/ImageNet/ILSVRC2012'
 HARD_IMAGE_NET_DIR = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
 CACHE_DIR = '/fs/nexus-scratch/parsahs/cache/huggingface/hub'
+SPURIOUS_IMAGENET_DIR = "/fs/nexus-scratch/parsahs/spurious/vlm/images"
 
 
 def parse_args():
@@ -37,7 +38,7 @@ def parse_args():
         "--dataset",
         type=str,
         default="hardimagenet",
-        choices=["hardimagenet", "imagenet"],
+        choices=["hardimagenet", "imagenet", "spurious_imagenet"],
         help="dataset name",
     )
     parser.add_argument(
@@ -68,12 +69,16 @@ def parse_args():
         choices=["train", "val"],
         help="train/val",
     )
+    parser.add_argument('--select_classes', action='store_true', help='Run on selected classes from spurious_imagenet ')
 
     args = parser.parse_args()
     return args
 
 def get_log_name(args):
-    return f"{args.model}-{args.mode}-{args.experiment}-{args.dataset}--{args.K}"
+    log_name = f"{args.model}-{args.mode}-{args.experiment}-{args.K}"
+    if args.dataset == 'spurious_imagenet':
+        log_name = f"{args.model}-{args.mode}-{args.experiment}-{args.select_classes}-{args.K}"
+    return log_name
 
 
 
@@ -390,6 +395,36 @@ def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_
     class_acc['total'] = (total_acc / (no_samples),) 
     return class_acc
 
+def run_spurious_imagenet_experiment(model, processor, pair, dset, K=75, select_classes=True):
+    selected_classes = get_selected_classes() if select_classes else []
+    class_acc = {}
+    total_acc = 0
+    no_classes = 0
+    for k in range(100):
+        idx = dset[75*k][1]
+        class_name = imagenet_classnames[idx]
+
+        if not select_classes or class_name in selected_classes:
+            prompt = pair['prompt'].replace('CLASSNAME', class_name)
+            correct_answer = pair['correct_answer']
+
+            acc = 0
+            for i in range(75):
+                image = dset[75*k+i][0]
+                res = get_vllm_output(model, processor, prompt, image)[0]
+                if correct_answer in res:
+                        acc += 1
+
+            logger.info(f"{idx} {class_name} {acc}/75")
+
+            class_acc[class_name] = (acc / 75,)
+            total_acc += acc
+            no_classes += 1
+
+    logger.info(f"Acc: {total_acc}/{no_classes * 75}")
+    class_acc['total'] = (total_acc / (no_classes * 75),) 
+    return class_acc
+
 def run(args):
     model, processor = get_model(args)
 
@@ -417,9 +452,11 @@ def run(args):
         rankings = img_rankings_by_idx_val
         if args.split == 'train':
             rankings = img_rankings_by_idx_tr 
-        t = transforms.Compose([transforms.Resize(224), transforms.CenterCrop(224), transforms.ToTensor()])
         logger.info('Loading ImageNet... (Be patient!)')
         dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
+    
+    if args.dataset == 'spurious_imagenet':
+        dset = SpuriousDataset(SPURIOUS_IMAGENET_DIR)
 
     logging.debug(f"{args.drop_mask=}")
     for p in prompts:
@@ -428,6 +465,8 @@ def run(args):
             result = run_hardimagenet_experiment(model, processor, p, K=args.K, mask_object=mask_object, blank_image=blank_image, spur_present=spur_present, drop_mask=args.drop_mask, split=args.split)
         elif args.dataset == 'imagenet':
             result = run_imagenet_experiment(model, processor, p, dset, rankings=rankings, K=args.K, blank_image=blank_image, spur_present=spur_present)
+        elif args.dataset == 'spurious_imagenet':
+            result = run_spurious_imagenet_experiment(model, processor, p, dset, K=args.K, select_classes=args.select_classes)
         results.append({'pair': p, 'result':result})
         
     return results
@@ -442,33 +481,34 @@ if __name__=='__main__':
 
     # create folder
     os.makedirs(f"log", exist_ok=True)
+    os.makedirs(f"log/{args.dataset}", exist_ok=True)
 
     logging.basicConfig(format="### %(message)s ###")  # level=logging_level,
 
     logger = logging.getLogger("SpurSyco")
     logger.setLevel(level=logging_level)
 
-    logger.addHandler(logging.FileHandler(f"log/{LOG_NAME}.log", mode='w'))
+    logger.addHandler(logging.FileHandler(f"log/{args.dataset}/{LOG_NAME}.log", mode='w'))
 
+    ## Load hard_imagenet data
     hard_imagenet_idx = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/hard_imagenet_idx.pkl', 'rb'))
     imagenet_classnames = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/imagenet_classnames.pkl', 'rb'))
     idx_to_wnid = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/idx_to_wnid.pkl', 'rb'))
     paths_by_rank = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/paths_by_rank.pkl', 'rb'))
-    
-    img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
-    img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
 
     logger.info(f"hard_imagenet_idx: {hard_imagenet_idx}")
     logger.info(f"imagenet_classnames: {len(imagenet_classnames)}")
     logger.info(f"idx_to_wnid: {len(idx_to_wnid)}")
     logger.info(f"paths_by_rank: {paths_by_rank.keys()}")
-
-    logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
+    
+    if args.dataset == "imagenet":    
+        img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
+        img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
+        logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
 
     if args.dataset == 'hardimagenet':
         for idx in hard_imagenet_idx:
-            logger.info(f"{idx} {imagenet_classnames[idx]} {idx_to_wnid[idx]}")
-    
+            logger.info(f"{idx} {imagenet_classnames[idx]} {idx_to_wnid[idx]}")    
 
     results = run(args)
 
@@ -486,7 +526,6 @@ if __name__=='__main__':
 
 
     
-
 
 
 
