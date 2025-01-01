@@ -9,6 +9,7 @@ import torchvision.transforms.functional as TF
 import numpy as np
 from IPython.display import display
 from transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor, LlavaOnevisionForConditionalGeneration
+from transformers import LlavaNextProcessor, LlavaNextForConditionalGeneration
 import logging
 import argparse
 from data.data import *
@@ -31,7 +32,7 @@ def parse_args():
         "--model",
         type=str,
         default="qwen",
-        choices=["qwen", "llama", "llava"],
+        choices=["qwen", "llama", "llava", "MiniCPM"],
         help="model name",
     )
     parser.add_argument(
@@ -100,25 +101,26 @@ def get_model(args):
             cache_dir=CACHE_DIR
         )
     elif args.model =='llava':
-        model_id = "llava-hf/llava-onevision-qwen2-72b-ov-chat-hf"
-        model = LlavaOnevisionForConditionalGeneration.from_pretrained(
+        model_id = "llava-hf/llava-v1.6-mistral-7b-hf"
+        model = LlavaNextForConditionalGeneration.from_pretrained(
         model_id, 
-        torch_dtype=torch.bfloat16, 
+        torch_dtype=torch.float16, low_cpu_mem_usage=True, 
         device_map=device,
         cache_dir=CACHE_DIR
     )
     else:
         logger.info('Invalid Model')
-    # default processer
-    # processor = AutoProcessor.from_pretrained(model_id)
 
     # The default range for the number of visual tokens per image in the model is 4-16384. You can set min_pixels and max_pixels according to your needs, such as a token count range of 256-1280, to balance speed and memory usage.
     min_pixels = 256*28*28
     max_pixels = 2048*28*28
     if args.model == 'qwen':
         processor = ModifiedQwen2VLProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
-    else:
+    elif args.model =='llama':
         processor = AutoProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
+    elif args.model == 'llava':
+        processor = LlavaNextProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
+    
     logging.info(f"{type(processor)=}")
 
     return model, processor

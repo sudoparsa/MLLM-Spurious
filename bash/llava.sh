@@ -3,7 +3,7 @@
 #SBATCH --job-name=log                                   # sets the job name
 #SBATCH --output=log.out.%j                               # indicates a file to redirect STDOUT to; %j is the jobid. If set, must be set to a file instead of a directory or else submission will fail.
 #SBATCH --error=log.out.%j                                # indicates a file to redirect STDERR to; %j is the jobid. If set, must be set to a file instead of a directory or else submission will fail.
-#SBATCH --time=23:00:00                                          # how long you would like your job to run; format=dd-hh:mm:ss
+#SBATCH --time=01-23:00:00                                          # how long you would like your job to run; format=dd-hh:mm:ss
 #SBATCH --account=nexus
 #SBATCH --gres=gpu:rtxa6000:1
 #SBATCH --qos=medium
@@ -26,17 +26,11 @@ python --version
 
 nvidia-smi
 
-python main.py --model llava --dataset hardimagenet --mode unbiased --experiment object_spur --K 50
-python main.py --model llava --dataset hardimagenet --mode sycophantic --experiment object_spur --K 50
+python main.py --model llava --dataset imagenet --mode unbiased --experiment object_spur --K 50
 
-python main.py --model llava --dataset hardimagenet --mode unbiased --experiment object_nospur --K 50
-python main.py --model llava --dataset hardimagenet --mode sycophantic --experiment object_nospur --K 50
+python main.py --model llava --dataset imagenet --mode unbiased --experiment object_nospur --K 50
 
-python main.py --model llava --dataset hardimagenet --mode unbiased --experiment noobject_spur --K 50
-python main.py --model llava --dataset hardimagenet --mode sycophantic --experiment noobject_spur --K 50
+python main.py --model llava --dataset imagenet --mode sycophantic --experiment object_nospur --K 50
 
-python main.py --model llava --dataset hardimagenet --mode unbiased --experiment noobject_nospur --K 50
-python main.py --model llava --dataset hardimagenet --mode sycophantic --experiment noobject_nospur --K 50
+python main.py --model llava --dataset imagenet --mode sycophantic --experiment object_spur --K 50
 
-python main.py --model llava --dataset hardimagenet --mode unbiased --experiment blank --K 50
-python main.py --model llava --dataset hardimagenet --mode sycophantic --experiment blank --K 50
