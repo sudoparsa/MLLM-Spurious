@@ -246,7 +246,6 @@ if __name__ == '__main__':
 	import os
 	import sys
 	sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-	print(f"{sys.path=}")
 	from token_dropping.ModifiedQwen import ModifiedQwen2VLForConditionalGeneration, ModifiedQwen2VLProcessor
 	from image_mask_datasets import get_image_mask_dataset
 	import argparse
@@ -261,8 +260,7 @@ if __name__ == '__main__':
 	parser.add_argument(
 		"--class_name",
 		type=str,
-		help="Name of the main object used in the prompts",
-		required=True
+		help="Name of the main object used in the prompts. Overrides the name provided by the dataset.",
 	)
 	parser.add_argument(
 		"--mllm",
@@ -324,6 +322,8 @@ if __name__ == '__main__':
 		raise Exception(f"MLLM '{mllm_name}' is not supported")
 	
 	dataset = get_image_mask_dataset(dataset_name)
+	if class_name is None:
+		class_name = dataset.get_class_name()
 	num_samples = len(dataset)
 	num_samples_per_chunk = math.ceil(num_samples/num_tot_chunks)
 	chunk_start = num_samples_per_chunk * chunk

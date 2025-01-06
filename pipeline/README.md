@@ -45,4 +45,4 @@ Available object detectors for ranking:
 - OWLv2
 - Grounding Dino
 
-All 15 HardImageNet classes are available out-of-the-box. To add additional datasets, you must have folders containing the images and masks, and register these in `get_image_mask_dataset()` in `image_mask_dataset.py`.
+HardImageNet and COCO are available out-of-the-box. To add additional datasets, you must add a dataloader in `image_mask_dataset.py` and register it in `get_image_mask_dataset()`.
