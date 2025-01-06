@@ -1,7 +1,9 @@
 import torch
 from PIL import Image
+from openai import OpenAI
 from transformers import MllamaForConditionalGeneration, AutoProcessor
 import json
+import random
 import pickle
 import os
 from torchvision import transforms
@@ -10,14 +12,16 @@ import numpy as np
 from IPython.display import display
 from transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor, LlavaOnevisionForConditionalGeneration
 from transformers import LlavaNextProcessor, LlavaNextForConditionalGeneration
+from transformers import AutoModel, AutoTokenizer
 import logging
 import argparse
 from data.data import *
+from utils.utils import *
 from token_dropping.ModifiedQwen import ModifiedQwen2VLForConditionalGeneration, ModifiedQwen2VLProcessor
 from token_dropping.ModifiedQwenUtils import morph_mask, rescale_tensor
 
+
 device = 'cuda'
-logging.info(f"{torch.cuda.current_device()=}")
 _MASK_ROOT = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
 _IMAGENET_ROOT = '/fs/cml-datasets/ImageNet/ILSVRC2012'
 HARD_IMAGE_NET_DIR = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
@@ -26,13 +30,13 @@ SPURIOUS_IMAGENET_DIR = "/fs/nexus-scratch/parsahs/spurious/vlm/images"
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Sycophancy")
+    parser = argparse.ArgumentParser(description="SC")
 
     parser.add_argument(
         "--model",
         type=str,
         default="qwen",
-        choices=["qwen", "llama", "llava", "MiniCPM"],
+        choices=["qwen", "llama", "llava", "MiniCPM", "gpt-4o"],
         help="model name",
     )
     parser.add_argument(
@@ -76,9 +80,9 @@ def parse_args():
     return args
 
 def get_log_name(args):
-    log_name = f"{args.model}-{args.mode}-{args.experiment}-{args.K}"
+    log_name = f"{args.mode}-{args.experiment}-{args.K}"
     if args.dataset == 'spurious_imagenet':
-        log_name = f"{args.model}-{args.mode}-{args.experiment}-{args.select_classes}-{args.K}"
+        log_name = f"{args.mode}-{args.experiment}-{args.select_classes}-{args.K}"
     return log_name
 
 
@@ -108,6 +112,16 @@ def get_model(args):
         device_map=device,
         cache_dir=CACHE_DIR
     )
+    elif args.model =='MiniCPM':
+        model_id = "'openbmb/MiniCPM-Llama3-V-2_5'"
+        model = AutoModel.from_pretrained(
+        model_id, 
+        torch_dtype=torch.float16,
+        device_map=device,
+        cache_dir=CACHE_DIR
+    )
+    elif args.model == 'gpt-4o':
+        model = 'gpt-4o'
     else:
         logger.info('Invalid Model')
 
@@ -120,8 +134,10 @@ def get_model(args):
         processor = AutoProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
     elif args.model == 'llava':
         processor = LlavaNextProcessor.from_pretrained(model_id, min_pixels=min_pixels, max_pixels=max_pixels, cache_dir=CACHE_DIR)
+    elif args.model == 'gpt-4o':
+        processor = OpenAI()
     
-    logging.info(f"{type(processor)=}")
+    logger.info(f"{type(processor)=}")
 
     return model, processor
 
@@ -153,7 +169,7 @@ def get_masked_images(split, wnid, fname):
     masked_image = Image.fromarray(masked_image_array.astype("uint8"))
     bbox_image = Image.fromarray(bbox_image_array.astype("uint8"))
     
-    # logging.debug(f"""
+    # logger.debug(f"""
     # img: {img.size}
     # mask: {mask.size}
     # img_array: {img_array.shape}
@@ -188,8 +204,8 @@ def vllm_standard_preprocessing(model, processor, prompt, image, **processor_kwa
     ]
     messages[0]['content'][1]['text'] = prompt
     text_prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
-    # logging.debug(f"vlm_standard_preprocessing {type(processor)=}")
-    # logging.debug(f"{image.size=}")
+    # logger.debug(f"vlm_standard_preprocessing {type(processor)=}")
+    # logger.debug(f"{image.size=}")
     inputs = processor(
         text=[text_prompt], images=[image], padding=True, return_tensors="pt",
         **processor_kwargs
@@ -229,13 +245,15 @@ def vllm_decoding(inputs, output_ids, processor) -> str:
     output_text = processor.batch_decode(
         generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True
     )
-    return output_text
+    return output_text[0]
 
 def get_vllm_output(model, processor, prompt, image):
+    if model == 'gpt-4o':
+        return get_gpt_output(processor, prompt, image)
     # package inputs in expected format
     inputs = vllm_standard_preprocessing(model, processor, prompt, image)
     # Inference: Generation of the output
-    output_ids = model.generate(**inputs, max_new_tokens=128)
+    output_ids = model.generate(**inputs, max_new_tokens=256)
     # decoding
     return vllm_decoding(inputs, output_ids, processor)
 
@@ -307,27 +325,28 @@ def get_acc_for_prompt(model, processor, prompt, correct_answer, split, wnid, id
         image = Image.open(os.path.join(_IMAGENET_ROOT, split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
         if mask_object:
             image, masked_image, bbox_image, mask = get_masked_images(split, wnid, fname)
-            # logging.debug(f"post-fetch {image.size=}, {mask.size=}")
+            # logger.debug(f"post-fetch {image.size=}, {mask.size=}")
             if drop_mask:
                 image = np.array(image).transpose(2, 0, 1)
                 image = rescale_tensor(image, processor, upscale_factor=1).astype("uint8")
                 mask = np.array(mask)[np.newaxis, :, :]
                 mask = np.floor(rescale_tensor(mask, processor, upscale_factor=1)).astype("uint8")
                 if not is_mask_viable(mask):
-                    logging.debug(f"skipping {i=}")
+                    logger.debug(f"skipping {i=}")
                     continue
             else:
-                logging.debug(f"using bbox_image")
+                logger.debug(f"using bbox_image")
                 image = bbox_image
         if blank_image:
             image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
         if mask_object and drop_mask:
-            logging.debug(f"dropping mask")
+            logger.debug(f"dropping mask")
             res = get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask)[0]
         else:
-            logging.debug(f"dropping mask")
-            res = get_vllm_output(model, processor, prompt, image)[0]
-        # logging.debug(f"{prompt=}, {res=}")
+            logger.debug(f"dropping mask")
+            res = get_vllm_output(model, processor, prompt, image)
+            # logger.info(f"RESULTS {idx=}, i={-spur_present*i + (-spur_present - 1) // 2}, img_type=natural, {prompt=} :: {res=}")
+        # logger.debug(f"{prompt=}, {res=}")
         if correct_answer in res:
             acc += 1
         tot += 1
@@ -342,7 +361,7 @@ def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False,
     for idx in hard_imagenet_idx:
         class_name = imagenet_classnames[idx]
         wnid = idx_to_wnid[idx]
-        logging.debug(f"{idx=}, {class_name=}")
+        logger.debug(f"{idx=}, {class_name=}")
         
         prompt = pair['prompt'].replace('CLASSNAME', class_name)
         correct_answer = pair['correct_answer']
@@ -376,12 +395,14 @@ def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_
             acc = 0
             n = K
             for i in range(n):
-                image = dset[top[-1-i]][0] if spur_present == 1 else dset[bot[i]][0]
+                image = None
+                if not blank_image:
+                    image = dset[top[-1-i]][0] if spur_present == 1 else dset[bot[i]][0]
                 if blank_image:
                     image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
                 # Very small images are not compatible with qwen
                 if image.size[0] >= 28 and image.size[1] >= 28:
-                    res = get_vllm_output(model, processor, prompt, image)[0]
+                    res = get_vllm_output(model, processor, prompt, image)
                     if correct_answer in res:
                         acc += 1
                 else:
@@ -397,7 +418,8 @@ def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_
     class_acc['total'] = (total_acc / (no_samples),) 
     return class_acc
 
-def run_spurious_imagenet_experiment(model, processor, pair, dset, K=75, select_classes=True):
+def run_spurious_imagenet_experiment1(model, processor, pair, dset, args):
+    select_classes=args.select_classes
     selected_classes = get_selected_classes() if select_classes else []
     class_acc = {}
     total_acc = 0
@@ -411,21 +433,70 @@ def run_spurious_imagenet_experiment(model, processor, pair, dset, K=75, select_
             correct_answer = pair['correct_answer']
 
             acc = 0
-            for i in range(75):
+            for i in range(args.K):
                 image = dset[75*k+i][0]
-                res = get_vllm_output(model, processor, prompt, image)[0]
+                res = get_vllm_output(model, processor, prompt, image)
                 if correct_answer in res:
                         acc += 1
 
-            logger.info(f"{idx} {class_name} {acc}/75")
+            logger.info(f"{idx} {class_name} {acc}/{args.K}")
 
-            class_acc[class_name] = (acc / 75,)
+            class_acc[class_name] = (acc / args.K,)
             total_acc += acc
             no_classes += 1
 
-    logger.info(f"Acc: {total_acc}/{no_classes * 75}")
-    class_acc['total'] = (total_acc / (no_classes * 75),) 
+    logger.info(f"Acc: {total_acc}/{no_classes * args.K}")
+    class_acc['total'] = (total_acc / (no_classes * args.K),) 
     return class_acc
+
+
+def get_random_images(idx, dset, rankings, K, object_present, blank_image, spur_present):
+    images = []
+    while len(images) < K:
+        if blank_image:
+            images.append(Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB'))
+        elif object_present:
+            top = rankings[idx]['top']
+            bot = rankings[idx]['bot']
+            image = dset[top[-1-len(images)]][0] if spur_present == 1 else dset[bot[len(images)]][0]
+            images.append(image)
+        else:
+            sample = random.choice(dset)
+            image = sample[0]
+            if sample[1] != idx and image.size[0]>=28 and image.size[1]>=28:
+                images.append(sample[0])
+    return images
+
+def run_spurious_imagenet_experiment2(model, processor, pair, dset, rankings, K, object_present, blank_image, spur_present, select_classes):
+    classes_file = open(os.path.join(SPURIOUS_IMAGENET_DIR, "included_classes.txt"))
+    idx_classes = list(map(int, classes_file.read().split()))
+    selected_classes = get_selected_classes() if select_classes else [imagenet_classnames[idx] for idx in idx_classes]
+    class_acc = {}
+    total_acc = 0
+    no_classes = 0
+    for idx in idx_classes:
+        class_name = imagenet_classnames[idx]
+        if class_name in selected_classes:
+            prompt = pair['prompt'].replace('CLASSNAME', class_name)
+            correct_answer = pair['correct_answer']
+
+            acc = 0
+            images = get_random_images(idx, dset, rankings, K, object_present, blank_image, spur_present)
+            for image in images:
+                res = get_vllm_output(model, processor, prompt, image)
+                if correct_answer in res:
+                        acc += 1
+
+            logger.info(f"{idx} {class_name} {acc}/{K}")
+
+            class_acc[class_name] = (acc / K,)
+            total_acc += acc
+            no_classes += 1
+    
+    logger.info(f"Acc: {total_acc}/{no_classes * K}")
+    class_acc['total'] = (total_acc / (no_classes * K),) 
+    return class_acc
+
 
 def run(args):
     model, processor = get_model(args)
@@ -454,13 +525,22 @@ def run(args):
         rankings = img_rankings_by_idx_val
         if args.split == 'train':
             rankings = img_rankings_by_idx_tr 
-        logger.info('Loading ImageNet... (Be patient!)')
-        dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
+        dset = None
+        if args.experiment != 'blank':
+            logger.info('Loading ImageNet... (Be patient!)')
+            dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
     
     if args.dataset == 'spurious_imagenet':
-        dset = SpuriousDataset(SPURIOUS_IMAGENET_DIR)
+        if args.experiment == 'noobject_spur':
+            dset = SpuriousDataset(SPURIOUS_IMAGENET_DIR)
+        else:
+            rankings = img_rankings_by_idx_val
+            if args.split == 'train':
+                rankings = img_rankings_by_idx_tr 
+            logger.info('Loading ImageNet... (Be patient!)')
+            dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
 
-    logging.debug(f"{args.drop_mask=}")
+    logger.debug(f"{args.drop_mask=}")
     for p in prompts:
         logger.info(f"Prompt: {p['prompt']}\nCorrect Answer: {p['correct_answer']}")
         if args.dataset == 'hardimagenet':
@@ -468,7 +548,10 @@ def run(args):
         elif args.dataset == 'imagenet':
             result = run_imagenet_experiment(model, processor, p, dset, rankings=rankings, K=args.K, blank_image=blank_image, spur_present=spur_present)
         elif args.dataset == 'spurious_imagenet':
-            result = run_spurious_imagenet_experiment(model, processor, p, dset, K=args.K, select_classes=args.select_classes)
+            if args.experiment == 'noobject_spur':
+                result = run_spurious_imagenet_experiment1(model, processor, p, dset, args)
+            else:
+                result = run_spurious_imagenet_experiment2(model, processor, p, dset, rankings, K=args.K, object_present=not mask_object, blank_image=blank_image, spur_present=spur_present, select_classes=args.select_classes)
         results.append({'pair': p, 'result':result})
         
     return results
@@ -484,13 +567,14 @@ if __name__=='__main__':
     # create folder
     os.makedirs(f"log", exist_ok=True)
     os.makedirs(f"log/{args.dataset}", exist_ok=True)
+    os.makedirs(f"log/{args.dataset}/{args.model}", exist_ok=True)
 
     logging.basicConfig(format="### %(message)s ###")  # level=logging_level,
 
     logger = logging.getLogger("SpurSyco")
     logger.setLevel(level=logging_level)
 
-    logger.addHandler(logging.FileHandler(f"log/{args.dataset}/{LOG_NAME}.log", mode='w'))
+    logger.addHandler(logging.FileHandler(f"log/{args.dataset}/{args.model}/{LOG_NAME}.log", mode='w'))
 
     ## Load hard_imagenet data
     hard_imagenet_idx = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/hard_imagenet_idx.pkl', 'rb'))
@@ -503,10 +587,9 @@ if __name__=='__main__':
     logger.info(f"idx_to_wnid: {len(idx_to_wnid)}")
     logger.info(f"paths_by_rank: {paths_by_rank.keys()}")
     
-    if args.dataset == "imagenet":    
-        img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
-        img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
-        logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
+    img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
+    img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
+    logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
 
     if args.dataset == 'hardimagenet':
         for idx in hard_imagenet_idx:
