@@ -1,7 +1,7 @@
 import torch
 from torchvision import transforms
 from typing import List, Any
-from transformers import Owlv2ForObjectDetection, Owlv2Processor, GroundingDinoModel, GroundingDinoProcessor
+from transformers import Owlv2ForObjectDetection, Owlv2Processor, GroundingDinoModel, GroundingDinoProcessor, AutoModelForZeroShotObjectDetection, AutoProcessor
 from typing import Callable
 import functools
 
@@ -95,8 +95,8 @@ if __name__ == '__main__':
 		objdet_func = load_run_owl(owl_model, owl_processor)
 	elif model_name == 'dino':
 		model_id = "IDEA-Research/grounding-dino-base"
-		dino_model = GroundingDinoModel.from_pretrained(model_id, cache_dir=CACHE_DIR).to(device)
-		dino_processor = GroundingDinoProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
+		dino_model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id, cache_dir=CACHE_DIR).to(device)
+		dino_processor = AutoProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
 		objdet_func = load_run_dino_sep(dino_model, dino_processor)
 	else:
 		raise Exception(f"Model '{model_name}' is not supported")

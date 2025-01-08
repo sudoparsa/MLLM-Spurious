@@ -28,7 +28,7 @@ wnl = WordNetLemmatizer()
 
 def gen_spur_features(class_name: str, client: OpenAI, n: int = 16) -> List[str]:
 	system_prompt = "You are part of a study on spurious correlations in vision language models."
-	gpt_prompt_tail = "List exactly one item on a every consecutive line, followed by a period and a one sentence explanation. The object name must be less than two words. Do not number the responses. Do not output anything else."
+	gpt_prompt_tail = "List exactly one item on a every consecutive line, followed by a period and a one sentence explanation. The object must be physical and discernable in an image. The object name must be less than two words. Do not number the responses. Do not output anything else."
 	def word_filter(w: str) -> bool:
 		w = w.lower()
 		for cw in class_name.split(' '):

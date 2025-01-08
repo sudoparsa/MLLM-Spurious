@@ -1,5 +1,6 @@
 from typing import List, Any, Callable, Union
 import os
+import random
 
 def extract_feature_score_owl(owl_res: Any, spur_feat_idx: int) -> float:
 	owl_res = owl_res[0]
@@ -14,7 +15,8 @@ def extract_feature_score_dino(dino_res: Any, spur_feat_idx: int) -> float:
 def rank_images(
 		results: Union[str, List[str]],
 		spur_feat_idx: str,
-		extract_feature_score: Callable[[Any, int], float]
+		extract_feature_score: Callable[[Any, int], float],
+		randomize_before: bool
 	) -> List[int]:
 	if isinstance(results, str):
 		results = [os.path.join(results, fname) for fname in os.listdir(results)]
@@ -26,9 +28,9 @@ def rank_images(
 		score = extract_feature_score(res, spur_feat_idx)
 		j = int(res_path.split('/')[-1].split('.')[0])
 		lst.append((score, j))
-	# print(f"base {spur_feat_idx=}, {lst=}")
+	if randomize_before:
+		random.shuffle(lst)
 	lst.sort()
-	# print(f"ordered {spur_feat_idx=}, {lst=}")
 	return list(map(lambda t: t[1], lst))
 
 
@@ -63,10 +65,18 @@ if __name__ == '__main__':
 		help="File with a list of spurious features (same as that used to generate object detection results)",
 		required=True
 	)
+	parser.add_argument(
+		"--no_randomize_before",
+		help="Don't randomize the image order before sorting. Randomizing aims to prevent the same images showing up in all ranking extremes",
+		default=False,
+		action='store_true'
+	)
 	args = parser.parse_args()
 	dataset_name = args.dataset
 	model_name = args.model
 	spur_feat_file = args.spur_feat_file
+	randomize_before = (not args.no_randomize_before)
+	print(f"{randomize_before=}")
 
 	if model_name == 'owl':
 		extract_feat_score = extract_feature_score_owl
@@ -82,7 +92,7 @@ if __name__ == '__main__':
 
 	for i, spur_feat in enumerate(all_spur_features):
 		# print(f"{i=}, {spur_feat=}", flush=True)
-		sorted_idxs = rank_images(results_dir, i, extract_feat_score)
+		sorted_idxs = rank_images(results_dir, i, extract_feat_score, randomize_before)
 		with open(os.path.join(PIPELINE_STORAGE_DIR, 'rankings', dataset_name, model_name, f"{format_name(spur_feat)}.pkl"), 'wb') as f:
 			pkl.dump(sorted_idxs, f)
 		if i % 5 == 0:

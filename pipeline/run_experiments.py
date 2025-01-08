@@ -131,7 +131,8 @@ def qwen_rescale_tensor(img: torch.Tensor, qwen_processor: Qwen2VLProcessor, ups
 
 def apply_qwen_dropping(
 	qwen_model: Qwen2VLForConditionalGeneration, qwen_processor: Qwen2VLProcessor,
-	img: torch.Tensor, prompt: str, mask: Optional[torch.Tensor] = None
+	img: torch.Tensor, prompt: str, mask: Optional[torch.Tensor] = None,
+	max_new_tokens: int = 16
 ) -> str:
 	from qwen_vl_utils import process_vision_info
 	from token_dropping.ModifiedQwenUtils import morph_mask as qwen_morph_mask
@@ -178,9 +179,9 @@ def apply_qwen_dropping(
 	inputs = inputs.to('cuda')
 
 	if morphed_mask is not None:
-		generated_ids = qwen_model.generate(**inputs, max_new_tokens=16, morphed_mask=morphed_mask)
+		generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens, morphed_mask=morphed_mask)
 	else:
-		generated_ids = qwen_model.generate(**inputs, max_new_tokens=16)
+		generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens)
 	generated_ids_trimmed = [
 		out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
 	]
@@ -192,7 +193,8 @@ def apply_qwen_dropping(
 
 def apply_qwen(
 	qwen_model: Qwen2VLForConditionalGeneration, qwen_processor: Qwen2VLProcessor,
-	img: torch.Tensor, prompt: str
+	img: torch.Tensor, prompt: str,
+	max_new_tokens: int = 16
 ) -> str:
 	from qwen_vl_utils import process_vision_info
 
@@ -222,7 +224,7 @@ def apply_qwen(
 	)
 	inputs = inputs.to('cuda')
 
-	generated_ids = qwen_model.generate(**inputs, max_new_tokens=16)
+	generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens)
 	generated_ids_trimmed = [
 		out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
 	]
