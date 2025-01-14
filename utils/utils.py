@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import base64
 from io import BytesIO
+import os
 
 
 
@@ -69,4 +70,24 @@ def get_gpt_output(client, prompt, image):
                             ],
                             )
     return response.choices[0].message.content
-    
+
+
+def get_table(input_list):
+    data = []
+    for item in input_list:
+        row = {
+            'prompt': item['pair']['prompt'],
+            'target': item['pair']['target'],
+        }
+        row.update({key: value[0] for key, value in item['result'].items()})
+        data.append(row)
+
+    df = pd.DataFrame(data)
+    average_row = {col: df[col].mean() if pd.api.types.is_numeric_dtype(df[col]) else 'Average' for col in df.columns}
+    df = pd.concat([df, pd.DataFrame([average_row])], ignore_index=True)
+
+    numeric_columns = [col for col in df.columns if col not in ['prompt', 'target'] and pd.api.types.is_numeric_dtype(df[col])]
+    sorted_columns = ['prompt', 'target'] + sorted(numeric_columns, key=lambda col: average_row[col], reverse=True)
+    df = df[sorted_columns]
+
+    return df
