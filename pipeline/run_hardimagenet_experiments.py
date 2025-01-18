@@ -434,17 +434,6 @@ if __name__ == '__main__':
 
 	parser = argparse.ArgumentParser(description="HardImageNet Experiments")
 	parser.add_argument(
-		"--dataset",
-		type=str,
-		help="Dataset to run on (must be registered in `image_mask_dataset.py`)",
-		required=True
-	)
-	parser.add_argument(
-		"--class_name",
-		type=str,
-		help="Name of the main object used in the prompts. Overrides the name provided by the dataset.",
-	)
-	parser.add_argument(
 		"--mllm",
 		type=str,
 		choices=['qwen', 'llama', 'llava', 'llava-cot'],
@@ -458,25 +447,9 @@ if __name__ == '__main__':
 		choices=['natural', 'masked', 'dropped'],
 		required=True
 	)
-	parser.add_argument(
-		"--num_tot_chunks",
-		type=int,
-		default=1,
-		help="Number of chunks to divide class examples into"
-	)
-	parser.add_argument(
-		"--chunk",
-		type=int,
-		default=0,
-		help="Index of chunk to run"
-	)
 	args = parser.parse_args()
-	dataset_name = args.dataset
-	class_name = args.class_name
 	mllm_name = args.mllm
 	img_type = args.img_type
-	num_tot_chunks = args.num_tot_chunks
-	chunk = args.chunk
 
 	device = 'cuda' if torch.cuda.is_available() else 'cpu'
 	if mllm_name == 'qwen':
@@ -556,56 +529,63 @@ if __name__ == '__main__':
 	else:
 		raise Exception(f"MLLM '{mllm_name}' is not supported")
 	
-	dataset = get_image_mask_dataset(dataset_name)
-	if class_name is None:
-		class_name = dataset.get_class_name()
-	num_samples = len(dataset)
-	num_samples_per_chunk = math.ceil(num_samples/num_tot_chunks)
-	chunk_start = num_samples_per_chunk * chunk
-	chunk_end = min(num_samples_per_chunk * (chunk + 1), num_samples)
-
 	if mllm_name in ['llama', 'llava-cot']:
 		downsize = transforms.Compose([transforms.Resize(size=14*35, max_size=14*40), transforms.ToPILImage(), transforms.ToTensor()])
 	else:
 		downsize = transforms.Compose([transforms.Resize(size=14*35), transforms.ToPILImage(), transforms.ToTensor()])
-	pathlib.Path(os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name)).mkdir(parents=True, exist_ok=True)
-	log_filepath = os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name, f"{img_type}_{chunk}.txt")
-	f = open(log_filepath, 'w')
 
-	for i in range(chunk_start, chunk_end):
-		set_seeds()
-		img = dataset.get_image(i)
-		if img_type == 'natural':
-			if any(d > 14*35 for d in img.shape):
-				img = downsize(img)
-			prompts = get_prompts(class_name, obj_present=True)
-			for prompt in prompts:
-				res = apply_model(model, processor, img, prompt['prompt'])
-				print(f"{i=}, img_type=natural, prompt_id={prompt['id']} :: {res=}", file=f, flush=True)
-		else:
-			prompts = get_prompts(class_name, obj_present=False)
-			mask = dataset.get_mask(i)
-			bbox = get_bbox(mask)
-			bbox = np.where(bbox > 0, 0, 1)
-			bbox_img = img * bbox
-			if any(d > 14*35 for d in img.shape):
-				img = downsize(img)
-				bbox_img = downsize(bbox_img)
-				mask = downsize(mask).ceil()
 
-			if img_type == 'masked':
-				for prompt in prompts:
-					res = apply_model(model, processor, bbox_img, prompt['prompt'])
-					print(f"{i=}, img_type=masked, prompt_id={prompt['id']} :: {res=}", file=f)
-			elif img_type == 'dropped':
-				if not is_mask_viable(mask, processor):
-					continue
-				for prompt in prompts:
-					res = apply_model(model, processor, img, prompt['prompt'], 1-mask)
-					print(f"{i=}, img_type=dropped, prompt_id={prompt['id']} :: {res=}", file=f)
+	for cls in range(15):
+		dataset_name = f"hardimagenet-{cls}"
+		dataset = get_image_mask_dataset(dataset_name)
+		class_name = dataset.get_class_name()
+
+		num_samples = len(dataset)
+    	# num_samples_per_chunk = math.ceil(num_samples/num_tot_chunks)
+    	# chunk_start = num_samples_per_chunk * chunk
+    	# chunk_end = min(num_samples_per_chunk * (chunk + 1), num_samples)
+		K = 50+20
+		chunk = list(range(K)) + list(range(num_samples-K, num_samples))
 		
-		if i % 5 == 0:
-			gc.collect()
-			torch.cuda.empty_cache()
-	f.close()
-
+		pathlib.Path(os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name)).mkdir(parents=True, exist_ok=True)
+		log_filepath = os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name, f"{img_type}.txt")
+		f = open(log_filepath, 'w')
+    
+		for i in chunk:
+			set_seeds()
+			img = dataset.get_image(i)
+			if img_type == 'natural':
+				if any(d > 14*35 for d in img.shape):
+					img = downsize(img)
+				prompts = get_prompts(class_name, obj_present=True)
+				for prompt in prompts:
+					res = apply_model(model, processor, img, prompt['prompt'])
+					print(f"{i=}, img_type=natural, prompt_id={prompt['id']} :: {res=}", file=f, flush=True)
+			else:
+				prompts = get_prompts(class_name, obj_present=False)
+				mask = dataset.get_mask(i)
+				bbox = get_bbox(mask)
+				bbox = np.where(bbox > 0, 0, 1)
+				bbox_img = img * bbox
+				if any(d > 14*35 for d in img.shape):
+					img = downsize(img)
+					bbox_img = downsize(bbox_img)
+					mask = downsize(mask).ceil()
+				
+				if img_type == 'masked':
+					for prompt in prompts:
+						res = apply_model(model, processor, bbox_img, prompt['prompt'])
+						print(f"{i=}, img_type=masked, prompt_id={prompt['id']} :: {res=}", file=f)
+				elif img_type == 'dropped':
+					if not is_mask_viable(mask, processor):
+						continue
+					for prompt in prompts:
+						res = apply_model(model, processor, img, prompt['prompt'], 1-mask)
+						print(f"{i=}, img_type=dropped, prompt_id={prompt['id']} :: {res=}", file=f)
+			
+			if i % 5 == 0:
+				gc.collect()
+				torch.cuda.empty_cache()
+		
+		f.close()
+		del dataset

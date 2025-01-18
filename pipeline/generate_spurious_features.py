@@ -1,5 +1,6 @@
 from env_vars import NLTK_CACHE_DIR, PIPELINE_STORAGE_DIR, OPENAI_API_KEY
 import os
+import pathlib
 import nltk
 from nltk.stem import WordNetLemmatizer
 from typing import List
@@ -23,7 +24,8 @@ def ask_gpt(system_prompt: str, user_prompt: str, client: OpenAI, model: str = '
 	)
 	return completion.choices[0].message.content
 
-nltk.data.path.append(NLTK_CACHE_DIR)
+if NLTK_CACHE_DIR is not None:
+	nltk.data.path.append(NLTK_CACHE_DIR)
 wnl = WordNetLemmatizer()
 
 def gen_spur_features(class_name: str, client: OpenAI, n: int = 16) -> List[str]:
