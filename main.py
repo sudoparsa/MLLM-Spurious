@@ -86,7 +86,7 @@ def parse_args():
     return args
 
 def get_log_name(args):
-    log_name = f"{args.mode}-{args.experiment}-{args.K}--{args.drop_mask}"
+    log_name = f"{args.mode}-{args.experiment}-{args.K}-{args.drop_mask}"
     return log_name
 
 
@@ -356,9 +356,9 @@ def get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask, arg
     if args.model == 'qwen':
         return apply_qwen_dropping(model, processor, prompt, image, mask)
     elif args.model == 'llama':
-        return apply_llama_dropping(model, processor, prompt, image, mask)
+        return apply_llama_dropping(model, processor, prompt, image, 1-mask)
     elif args.model == 'llava':
-        return apply_llava_dropping(model, processor, prompt, image, mask)
+        return apply_llava_dropping(model, processor, prompt, image, 1-mask)
     
 
 
@@ -463,7 +463,10 @@ def get_acc_for_prompt(model, processor, prompt, target, args, wnid, idx, K, spu
         # logger.debug(f"{prompt=}, {res=}")
         if target in res:
             acc += 1
-            logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
+            if mask_object or drop_mask or blank_image:
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
+        elif not mask_object and not blank_image and not drop_mask:
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
         tot += 1
     return acc, tot
 
