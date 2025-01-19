@@ -28,7 +28,7 @@ _MASK_ROOT = '/workspace/MLLM-Spurious/hardImageNet'
 _IMAGENET_ROOT = '/workspace/MLLM-Spurious/HardImageNet_Images'
 HARD_IMAGE_NET_DIR = '/workspace/MLLM-Spurious/hardImageNet'
 CACHE_DIR = '/workspace/huggingface/hub'
-SPURIOUS_IMAGENET_DIR = "/fs/nexus-scratch/parsahs/spurious/vlm/images"
+SPURIOUS_IMAGENET_DIR = "/workspace/MLLM-Spurious/spurious_imagenet/images"
 COCO_PATH = "/fs/cml-datasets/coco"
 
 
@@ -464,9 +464,9 @@ def get_acc_for_prompt(model, processor, prompt, target, args, wnid, idx, K, spu
         if target in res:
             acc += 1
             if mask_object or drop_mask or blank_image:
-                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
         elif not mask_object and not blank_image and not drop_mask:
-                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
         tot += 1
     return acc, tot
 
@@ -556,6 +556,8 @@ def run_spurious_imagenet_experiment1(model, processor, pair, dset, args):
                 res = get_vllm_output(model, processor, prompt, image)
                 if target in res:
                         acc += 1
+                        logger.info(f"FAILURE ::: {class_name=} ::: {idx=} ::: i={i} ::: {prompt=} ::: {res=} ::: path={dset[75*k+i][2]}")
+
 
             logger.info(f"{idx} {class_name} {acc}/{args.K}")
 

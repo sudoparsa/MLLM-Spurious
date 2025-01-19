@@ -47,7 +47,7 @@ class SpuriousDataset(Dataset):
             img = self.transform(img)
 
         label = self.targets[internal_idx]
-        return img, label
+        return img, label, self.imgs[internal_idx]
 
     def get_selected_classes(self):
         return ['seat belt', 'balance beam', 'pole', 'cowboy hat', 'bathtub',
