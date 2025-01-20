@@ -1,0 +1,260 @@
+hard_imagenet_idx: [537, 379, 785, 795, 837, 433, 416, 602, 706, 746, 655, 810, 890, 981, 801]
+imagenet_classnames: 1000
+idx_to_wnid: 1000
+paths_by_rank: dict_keys([379, 416, 433, 537, 602, 655, 706, 746, 785, 795, 801, 810, 837, 890, 981])
+img_rankings_by_idx_tr: 1000 : dict_keys(['bot', 'top']) 300
+537 dog sled n03218198
+379 howler monkey n02492660
+785 seat belt n04162706
+795 ski n04228054
+837 sunglasses n04356056
+433 swimming cap n02807133
+416 balance beam n02777292
+602 gymnastic horizontal bar n03535780
+706 patio n03899768
+746 hockey puck n04019541
+655 miniskirt n03770439
+810 keyboard space bar n04264628
+890 volleyball n04540053
+981 baseball player n09835506
+801 snorkel n04251144
+type(model)=<class 'transformers.models.qwen2_vl.modeling_qwen2_vl.Qwen2VLForConditionalGeneration'>
+type(processor)=<class 'transformers.models.qwen2_vl.processing_qwen2_vl.Qwen2VLProcessor'>
+Prompt: Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.
+Target: Yes
+537 dog sled 50/50
+FAILURE ::: idx=379 ::: i=0 ::: drop_mask=False ::: prompt="Do you see a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02492660/n02492660_10475.JPEG
+379 howler monkey 49/50
+785 seat belt 50/50
+795 ski 50/50
+FAILURE ::: idx=837 ::: i=3 ::: drop_mask=False ::: prompt="Do you see a sunglasses in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_65854.JPEG
+FAILURE ::: idx=837 ::: i=16 ::: drop_mask=False ::: prompt="Do you see a sunglasses in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_73335.JPEG
+837 sunglasses 48/50
+FAILURE ::: idx=433 ::: i=14 ::: drop_mask=False ::: prompt="Do you see a swimming cap in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_5347.JPEG
+FAILURE ::: idx=433 ::: i=18 ::: drop_mask=False ::: prompt="Do you see a swimming cap in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_2300.JPEG
+433 swimming cap 48/50
+FAILURE ::: idx=416 ::: i=0 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_27558.JPEG
+FAILURE ::: idx=416 ::: i=2 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_7760.JPEG
+FAILURE ::: idx=416 ::: i=18 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_26010.JPEG
+FAILURE ::: idx=416 ::: i=19 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_14724.JPEG
+FAILURE ::: idx=416 ::: i=22 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_13709.JPEG
+FAILURE ::: idx=416 ::: i=26 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_27521.JPEG
+FAILURE ::: idx=416 ::: i=44 ::: drop_mask=False ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_13766.JPEG
+416 balance beam 43/50
+FAILURE ::: idx=602 ::: i=8 ::: drop_mask=False ::: prompt="Do you see a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_18766.JPEG
+FAILURE ::: idx=602 ::: i=31 ::: drop_mask=False ::: prompt="Do you see a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_51333.JPEG
+FAILURE ::: idx=602 ::: i=33 ::: drop_mask=False ::: prompt="Do you see a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_51503.JPEG
+602 gymnastic horizontal bar 47/50
+FAILURE ::: idx=706 ::: i=0 ::: drop_mask=False ::: prompt="Do you see a patio in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03899768/n03899768_118061.JPEG
+FAILURE ::: idx=706 ::: i=26 ::: drop_mask=False ::: prompt="Do you see a patio in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03899768/n03899768_63110.JPEG
+FAILURE ::: idx=706 ::: i=39 ::: drop_mask=False ::: prompt="Do you see a patio in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03899768/n03899768_49930.JPEG
+706 patio 47/50
+FAILURE ::: idx=746 ::: i=1 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_11920.JPEG
+FAILURE ::: idx=746 ::: i=2 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_116.JPEG
+FAILURE ::: idx=746 ::: i=3 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_13957.JPEG
+FAILURE ::: idx=746 ::: i=4 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_6978.JPEG
+FAILURE ::: idx=746 ::: i=7 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_250.JPEG
+FAILURE ::: idx=746 ::: i=9 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14431.JPEG
+FAILURE ::: idx=746 ::: i=17 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_6340.JPEG
+FAILURE ::: idx=746 ::: i=19 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_2695.JPEG
+FAILURE ::: idx=746 ::: i=20 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_2823.JPEG
+FAILURE ::: idx=746 ::: i=27 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_22577.JPEG
+FAILURE ::: idx=746 ::: i=28 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_8468.JPEG
+FAILURE ::: idx=746 ::: i=32 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14055.JPEG
+FAILURE ::: idx=746 ::: i=34 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_16796.JPEG
+FAILURE ::: idx=746 ::: i=35 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_22534.JPEG
+FAILURE ::: idx=746 ::: i=42 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14682.JPEG
+FAILURE ::: idx=746 ::: i=45 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_11948.JPEG
+FAILURE ::: idx=746 ::: i=48 ::: drop_mask=False ::: prompt="Do you see a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_4445.JPEG
+746 hockey puck 33/50
+FAILURE ::: idx=655 ::: i=2 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_8570.JPEG
+FAILURE ::: idx=655 ::: i=3 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_16198.JPEG
+FAILURE ::: idx=655 ::: i=13 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_12052.JPEG
+FAILURE ::: idx=655 ::: i=20 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_4919.JPEG
+FAILURE ::: idx=655 ::: i=24 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_10396.JPEG
+FAILURE ::: idx=655 ::: i=25 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_2642.JPEG
+FAILURE ::: idx=655 ::: i=35 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_8550.JPEG
+FAILURE ::: idx=655 ::: i=36 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_4915.JPEG
+FAILURE ::: idx=655 ::: i=45 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_5803.JPEG
+FAILURE ::: idx=655 ::: i=49 ::: drop_mask=False ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_16091.JPEG
+655 miniskirt 40/50
+FAILURE ::: idx=810 ::: i=1 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_8136.JPEG
+FAILURE ::: idx=810 ::: i=11 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7924.JPEG
+FAILURE ::: idx=810 ::: i=12 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_13491.JPEG
+FAILURE ::: idx=810 ::: i=16 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_24883.JPEG
+FAILURE ::: idx=810 ::: i=17 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7905.JPEG
+FAILURE ::: idx=810 ::: i=20 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_19463.JPEG
+FAILURE ::: idx=810 ::: i=22 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7319.JPEG
+FAILURE ::: idx=810 ::: i=32 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7674.JPEG
+FAILURE ::: idx=810 ::: i=37 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_16019.JPEG
+FAILURE ::: idx=810 ::: i=49 ::: drop_mask=False ::: prompt="Do you see a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_8195.JPEG
+810 keyboard space bar 40/50
+FAILURE ::: idx=890 ::: i=35 ::: drop_mask=False ::: prompt="Do you see a volleyball in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04540053/n04540053_11193.JPEG
+890 volleyball 49/50
+FAILURE ::: idx=981 ::: i=10 ::: drop_mask=False ::: prompt="Do you see a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_390.JPEG
+FAILURE ::: idx=981 ::: i=35 ::: drop_mask=False ::: prompt="Do you see a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_12649.JPEG
+FAILURE ::: idx=981 ::: i=37 ::: drop_mask=False ::: prompt="Do you see a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_12949.JPEG
+FAILURE ::: idx=981 ::: i=48 ::: drop_mask=False ::: prompt="Do you see a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_1044.JPEG
+981 baseball player 46/50
+FAILURE ::: idx=801 ::: i=48 ::: drop_mask=False ::: prompt="Do you see a snorkel in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04251144/n04251144_17290.JPEG
+801 snorkel 49/50
+Acc: 689/750
+Prompt: Is there a CLASSNAME in the image? Answer with 'Yes' or 'No'.
+Target: Yes
+537 dog sled 50/50
+FAILURE ::: idx=379 ::: i=0 ::: drop_mask=False ::: prompt="Is there a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02492660/n02492660_10475.JPEG
+379 howler monkey 49/50
+785 seat belt 50/50
+795 ski 50/50
+FAILURE ::: idx=837 ::: i=3 ::: drop_mask=False ::: prompt="Is there a sunglasses in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_65854.JPEG
+FAILURE ::: idx=837 ::: i=16 ::: drop_mask=False ::: prompt="Is there a sunglasses in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_73335.JPEG
+837 sunglasses 48/50
+FAILURE ::: idx=433 ::: i=14 ::: drop_mask=False ::: prompt="Is there a swimming cap in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_5347.JPEG
+FAILURE ::: idx=433 ::: i=18 ::: drop_mask=False ::: prompt="Is there a swimming cap in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_2300.JPEG
+FAILURE ::: idx=433 ::: i=26 ::: drop_mask=False ::: prompt="Is there a swimming cap in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_1778.JPEG
+433 swimming cap 47/50
+FAILURE ::: idx=416 ::: i=0 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_27558.JPEG
+FAILURE ::: idx=416 ::: i=2 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_7760.JPEG
+FAILURE ::: idx=416 ::: i=18 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_26010.JPEG
+FAILURE ::: idx=416 ::: i=19 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_14724.JPEG
+FAILURE ::: idx=416 ::: i=22 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_13709.JPEG
+FAILURE ::: idx=416 ::: i=26 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_27521.JPEG
+FAILURE ::: idx=416 ::: i=44 ::: drop_mask=False ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_13766.JPEG
+416 balance beam 43/50
+FAILURE ::: idx=602 ::: i=8 ::: drop_mask=False ::: prompt="Is there a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_18766.JPEG
+FAILURE ::: idx=602 ::: i=31 ::: drop_mask=False ::: prompt="Is there a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_51333.JPEG
+FAILURE ::: idx=602 ::: i=33 ::: drop_mask=False ::: prompt="Is there a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_51503.JPEG
+602 gymnastic horizontal bar 47/50
+FAILURE ::: idx=706 ::: i=0 ::: drop_mask=False ::: prompt="Is there a patio in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03899768/n03899768_118061.JPEG
+FAILURE ::: idx=706 ::: i=39 ::: drop_mask=False ::: prompt="Is there a patio in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03899768/n03899768_49930.JPEG
+706 patio 48/50
+FAILURE ::: idx=746 ::: i=1 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_11920.JPEG
+FAILURE ::: idx=746 ::: i=2 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_116.JPEG
+FAILURE ::: idx=746 ::: i=3 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_13957.JPEG
+FAILURE ::: idx=746 ::: i=4 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_6978.JPEG
+FAILURE ::: idx=746 ::: i=7 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_250.JPEG
+FAILURE ::: idx=746 ::: i=9 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14431.JPEG
+FAILURE ::: idx=746 ::: i=17 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_6340.JPEG
+FAILURE ::: idx=746 ::: i=19 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_2695.JPEG
+FAILURE ::: idx=746 ::: i=20 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_2823.JPEG
+FAILURE ::: idx=746 ::: i=27 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_22577.JPEG
+FAILURE ::: idx=746 ::: i=28 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_8468.JPEG
+FAILURE ::: idx=746 ::: i=34 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_16796.JPEG
+FAILURE ::: idx=746 ::: i=35 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_22534.JPEG
+FAILURE ::: idx=746 ::: i=42 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14682.JPEG
+FAILURE ::: idx=746 ::: i=45 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_11948.JPEG
+FAILURE ::: idx=746 ::: i=48 ::: drop_mask=False ::: prompt="Is there a hockey puck in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_4445.JPEG
+746 hockey puck 34/50
+FAILURE ::: idx=655 ::: i=2 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_8570.JPEG
+FAILURE ::: idx=655 ::: i=3 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_16198.JPEG
+FAILURE ::: idx=655 ::: i=13 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_12052.JPEG
+FAILURE ::: idx=655 ::: i=20 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_4919.JPEG
+FAILURE ::: idx=655 ::: i=24 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_10396.JPEG
+FAILURE ::: idx=655 ::: i=25 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_2642.JPEG
+FAILURE ::: idx=655 ::: i=35 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_8550.JPEG
+FAILURE ::: idx=655 ::: i=36 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_4915.JPEG
+FAILURE ::: idx=655 ::: i=45 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_5803.JPEG
+FAILURE ::: idx=655 ::: i=49 ::: drop_mask=False ::: prompt="Is there a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_16091.JPEG
+655 miniskirt 40/50
+FAILURE ::: idx=810 ::: i=1 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_8136.JPEG
+FAILURE ::: idx=810 ::: i=11 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7924.JPEG
+FAILURE ::: idx=810 ::: i=12 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_13491.JPEG
+FAILURE ::: idx=810 ::: i=17 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7905.JPEG
+FAILURE ::: idx=810 ::: i=20 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_19463.JPEG
+FAILURE ::: idx=810 ::: i=22 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7319.JPEG
+FAILURE ::: idx=810 ::: i=32 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7674.JPEG
+FAILURE ::: idx=810 ::: i=49 ::: drop_mask=False ::: prompt="Is there a keyboard space bar in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_8195.JPEG
+810 keyboard space bar 42/50
+FAILURE ::: idx=890 ::: i=35 ::: drop_mask=False ::: prompt="Is there a volleyball in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04540053/n04540053_11193.JPEG
+890 volleyball 49/50
+FAILURE ::: idx=981 ::: i=10 ::: drop_mask=False ::: prompt="Is there a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_390.JPEG
+FAILURE ::: idx=981 ::: i=35 ::: drop_mask=False ::: prompt="Is there a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_12649.JPEG
+FAILURE ::: idx=981 ::: i=37 ::: drop_mask=False ::: prompt="Is there a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_12949.JPEG
+FAILURE ::: idx=981 ::: i=48 ::: drop_mask=False ::: prompt="Is there a baseball player in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_1044.JPEG
+981 baseball player 46/50
+FAILURE ::: idx=801 ::: i=27 ::: drop_mask=False ::: prompt="Is there a snorkel in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04251144/n04251144_11573.JPEG
+FAILURE ::: idx=801 ::: i=48 ::: drop_mask=False ::: prompt="Is there a snorkel in the image? Answer with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04251144/n04251144_17290.JPEG
+801 snorkel 48/50
+Acc: 691/750
+Prompt: Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.
+Target: Yes
+FAILURE ::: idx=537 ::: i=45 ::: drop_mask=False ::: prompt="Determine whether there is a dog sled in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_23029.JPEG
+537 dog sled 49/50
+FAILURE ::: idx=379 ::: i=0 ::: drop_mask=False ::: prompt="Determine whether there is a howler monkey in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02492660/n02492660_10475.JPEG
+379 howler monkey 49/50
+785 seat belt 50/50
+FAILURE ::: idx=795 ::: i=43 ::: drop_mask=False ::: prompt="Determine whether there is a ski in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04228054/n04228054_16946.JPEG
+795 ski 49/50
+FAILURE ::: idx=837 ::: i=3 ::: drop_mask=False ::: prompt="Determine whether there is a sunglasses in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_65854.JPEG
+FAILURE ::: idx=837 ::: i=16 ::: drop_mask=False ::: prompt="Determine whether there is a sunglasses in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_73335.JPEG
+FAILURE ::: idx=837 ::: i=18 ::: drop_mask=False ::: prompt="Determine whether there is a sunglasses in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04356056/n04356056_49736.JPEG
+837 sunglasses 47/50
+FAILURE ::: idx=433 ::: i=14 ::: drop_mask=False ::: prompt="Determine whether there is a swimming cap in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_5347.JPEG
+FAILURE ::: idx=433 ::: i=18 ::: drop_mask=False ::: prompt="Determine whether there is a swimming cap in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_2300.JPEG
+FAILURE ::: idx=433 ::: i=26 ::: drop_mask=False ::: prompt="Determine whether there is a swimming cap in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02807133/n02807133_1778.JPEG
+433 swimming cap 47/50
+FAILURE ::: idx=416 ::: i=2 ::: drop_mask=False ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_7760.JPEG
+FAILURE ::: idx=416 ::: i=19 ::: drop_mask=False ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_14724.JPEG
+FAILURE ::: idx=416 ::: i=22 ::: drop_mask=False ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_13709.JPEG
+FAILURE ::: idx=416 ::: i=26 ::: drop_mask=False ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_27521.JPEG
+FAILURE ::: idx=416 ::: i=44 ::: drop_mask=False ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n02777292/n02777292_13766.JPEG
+416 balance beam 45/50
+FAILURE ::: idx=602 ::: i=8 ::: drop_mask=False ::: prompt="Determine whether there is a gymnastic horizontal bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_18766.JPEG
+FAILURE ::: idx=602 ::: i=31 ::: drop_mask=False ::: prompt="Determine whether there is a gymnastic horizontal bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_51333.JPEG
+FAILURE ::: idx=602 ::: i=33 ::: drop_mask=False ::: prompt="Determine whether there is a gymnastic horizontal bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_51503.JPEG
+FAILURE ::: idx=602 ::: i=49 ::: drop_mask=False ::: prompt="Determine whether there is a gymnastic horizontal bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03535780/n03535780_41865.JPEG
+602 gymnastic horizontal bar 46/50
+FAILURE ::: idx=706 ::: i=0 ::: drop_mask=False ::: prompt="Determine whether there is a patio in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03899768/n03899768_118061.JPEG
+706 patio 49/50
+FAILURE ::: idx=746 ::: i=1 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_11920.JPEG
+FAILURE ::: idx=746 ::: i=2 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_116.JPEG
+FAILURE ::: idx=746 ::: i=3 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_13957.JPEG
+FAILURE ::: idx=746 ::: i=4 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_6978.JPEG
+FAILURE ::: idx=746 ::: i=7 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_250.JPEG
+FAILURE ::: idx=746 ::: i=8 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_20929.JPEG
+FAILURE ::: idx=746 ::: i=9 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14431.JPEG
+FAILURE ::: idx=746 ::: i=17 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_6340.JPEG
+FAILURE ::: idx=746 ::: i=19 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_2695.JPEG
+FAILURE ::: idx=746 ::: i=20 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_2823.JPEG
+FAILURE ::: idx=746 ::: i=27 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_22577.JPEG
+FAILURE ::: idx=746 ::: i=28 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_8468.JPEG
+FAILURE ::: idx=746 ::: i=32 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14055.JPEG
+FAILURE ::: idx=746 ::: i=34 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_16796.JPEG
+FAILURE ::: idx=746 ::: i=35 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_22534.JPEG
+FAILURE ::: idx=746 ::: i=42 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14682.JPEG
+FAILURE ::: idx=746 ::: i=45 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_11948.JPEG
+FAILURE ::: idx=746 ::: i=48 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_4445.JPEG
+FAILURE ::: idx=746 ::: i=49 ::: drop_mask=False ::: prompt="Determine whether there is a hockey puck in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04019541/n04019541_14885.JPEG
+746 hockey puck 31/50
+FAILURE ::: idx=655 ::: i=2 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_8570.JPEG
+FAILURE ::: idx=655 ::: i=3 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_16198.JPEG
+FAILURE ::: idx=655 ::: i=13 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_12052.JPEG
+FAILURE ::: idx=655 ::: i=20 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_4919.JPEG
+FAILURE ::: idx=655 ::: i=24 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_10396.JPEG
+FAILURE ::: idx=655 ::: i=25 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_2642.JPEG
+FAILURE ::: idx=655 ::: i=36 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_4915.JPEG
+FAILURE ::: idx=655 ::: i=45 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_5803.JPEG
+FAILURE ::: idx=655 ::: i=49 ::: drop_mask=False ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03770439/n03770439_16091.JPEG
+655 miniskirt 41/50
+FAILURE ::: idx=810 ::: i=1 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_8136.JPEG
+FAILURE ::: idx=810 ::: i=11 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7924.JPEG
+FAILURE ::: idx=810 ::: i=12 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_13491.JPEG
+FAILURE ::: idx=810 ::: i=17 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7905.JPEG
+FAILURE ::: idx=810 ::: i=20 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_19463.JPEG
+FAILURE ::: idx=810 ::: i=22 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7319.JPEG
+FAILURE ::: idx=810 ::: i=32 ::: drop_mask=False ::: prompt="Determine whether there is a keyboard space bar in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04264628/n04264628_7674.JPEG
+810 keyboard space bar 43/50
+FAILURE ::: idx=890 ::: i=12 ::: drop_mask=False ::: prompt="Determine whether there is a volleyball in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04540053/n04540053_946.JPEG
+FAILURE ::: idx=890 ::: i=35 ::: drop_mask=False ::: prompt="Determine whether there is a volleyball in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04540053/n04540053_11193.JPEG
+890 volleyball 48/50
+FAILURE ::: idx=981 ::: i=10 ::: drop_mask=False ::: prompt="Determine whether there is a baseball player in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_390.JPEG
+FAILURE ::: idx=981 ::: i=35 ::: drop_mask=False ::: prompt="Determine whether there is a baseball player in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_12649.JPEG
+FAILURE ::: idx=981 ::: i=48 ::: drop_mask=False ::: prompt="Determine whether there is a baseball player in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n09835506/n09835506_1044.JPEG
+981 baseball player 47/50
+FAILURE ::: idx=801 ::: i=27 ::: drop_mask=False ::: prompt="Determine whether there is a snorkel in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04251144/n04251144_11573.JPEG
+FAILURE ::: idx=801 ::: i=35 ::: drop_mask=False ::: prompt="Determine whether there is a snorkel in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04251144/n04251144_824.JPEG
+FAILURE ::: idx=801 ::: i=48 ::: drop_mask=False ::: prompt="Determine whether there is a snorkel in the image. Reply with 'Yes' or 'No'." ::: res='No' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n04251144/n04251144_17290.JPEG
+801 snorkel 47/50
+Acc: 688/750
+Results:
+[{'pair': {'prompt': "Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'dog sled': (1.0,), 'howler monkey': (0.98,), 'seat belt': (1.0,), 'ski': (1.0,), 'sunglasses': (0.96,), 'swimming cap': (0.96,), 'balance beam': (0.86,), 'gymnastic horizontal bar': (0.94,), 'patio': (0.94,), 'hockey puck': (0.66,), 'miniskirt': (0.8,), 'keyboard space bar': (0.8,), 'volleyball': (0.98,), 'baseball player': (0.92,), 'snorkel': (0.98,), 'total': (0.9186666666666666,)}}, {'pair': {'prompt': "Is there a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'dog sled': (1.0,), 'howler monkey': (0.98,), 'seat belt': (1.0,), 'ski': (1.0,), 'sunglasses': (0.96,), 'swimming cap': (0.94,), 'balance beam': (0.86,), 'gymnastic horizontal bar': (0.94,), 'patio': (0.96,), 'hockey puck': (0.68,), 'miniskirt': (0.8,), 'keyboard space bar': (0.84,), 'volleyball': (0.98,), 'baseball player': (0.92,), 'snorkel': (0.96,), 'total': (0.9213333333333333,)}}, {'pair': {'prompt': "Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'dog sled': (0.98,), 'howler monkey': (0.98,), 'seat belt': (1.0,), 'ski': (0.98,), 'sunglasses': (0.94,), 'swimming cap': (0.94,), 'balance beam': (0.9,), 'gymnastic horizontal bar': (0.92,), 'patio': (0.98,), 'hockey puck': (0.62,), 'miniskirt': (0.82,), 'keyboard space bar': (0.86,), 'volleyball': (0.96,), 'baseball player': (0.94,), 'snorkel': (0.94,), 'total': (0.9173333333333333,)}}]

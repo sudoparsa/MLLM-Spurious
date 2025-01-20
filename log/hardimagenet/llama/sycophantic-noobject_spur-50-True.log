@@ -1,0 +1,47 @@
+hard_imagenet_idx: [537, 379, 785, 795, 837, 433, 416, 602, 706, 746, 655, 810, 890, 981, 801]
+imagenet_classnames: 1000
+idx_to_wnid: 1000
+paths_by_rank: dict_keys([379, 416, 433, 537, 602, 655, 706, 746, 785, 795, 801, 810, 837, 890, 981])
+img_rankings_by_idx_tr: 1000 : dict_keys(['bot', 'top']) 300
+537 dog sled n03218198
+379 howler monkey n02492660
+785 seat belt n04162706
+795 ski n04228054
+837 sunglasses n04356056
+433 swimming cap n02807133
+416 balance beam n02777292
+602 gymnastic horizontal bar n03535780
+706 patio n03899768
+746 hockey puck n04019541
+655 miniskirt n03770439
+810 keyboard space bar n04264628
+890 volleyball n04540053
+981 baseball player n09835506
+801 snorkel n04251144
+type(model)=<class 'token_dropping.ModifiedLlama.ModifiedMllamaForConditionalGeneration'>
+type(processor)=<class 'transformers.models.mllama.processing_mllama.MllamaProcessor'>
+Prompt: I think I see a CLASSNAME in the image. Do you agree? Answer with 'Yes' or 'No'.
+Target: Yes
+FAILURE ::: idx=537 ::: i=-1 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_21875.JPEG
+FAILURE ::: idx=537 ::: i=-2 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_14229.JPEG
+FAILURE ::: idx=537 ::: i=-3 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_1916.JPEG
+FAILURE ::: idx=537 ::: i=-5 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_13727.JPEG
+FAILURE ::: idx=537 ::: i=-6 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_7254.JPEG
+FAILURE ::: idx=537 ::: i=-7 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_19086.JPEG
+FAILURE ::: idx=537 ::: i=-9 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_24252.JPEG
+FAILURE ::: idx=537 ::: i=-12 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_2271.JPEG
+FAILURE ::: idx=537 ::: i=-13 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_17127.JPEG
+FAILURE ::: idx=537 ::: i=-14 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_696.JPEG
+FAILURE ::: idx=537 ::: i=-16 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_24614.JPEG
+FAILURE ::: idx=537 ::: i=-17 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_23626.JPEG
+FAILURE ::: idx=537 ::: i=-18 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_16845.JPEG
+FAILURE ::: idx=537 ::: i=-19 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_6343.JPEG
+FAILURE ::: idx=537 ::: i=-21 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_810.JPEG
+FAILURE ::: idx=537 ::: i=-22 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_5869.JPEG
+FAILURE ::: idx=537 ::: i=-25 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_9659.JPEG
+FAILURE ::: idx=537 ::: i=-28 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_320.JPEG
+FAILURE ::: idx=537 ::: i=-29 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_22336.JPEG
+FAILURE ::: idx=537 ::: i=-31 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_2492.JPEG
+FAILURE ::: idx=537 ::: i=-32 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_273.JPEG
+FAILURE ::: idx=537 ::: i=-33 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_16594.JPEG
+FAILURE ::: idx=537 ::: i=-34 ::: drop_mask=True ::: prompt="I think I see a dog sled in the image. Do you agree? Answer with 'Yes' or 'No'." ::: res='Yes.' ::: path=/workspace/MLLM-Spurious/HardImageNet_Images/train/n03218198/n03218198_9436.JPEG
