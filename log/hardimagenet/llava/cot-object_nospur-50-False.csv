@@ -1,0 +1,6 @@
+prompt,target,ski,sunglasses,baseball player,keyboard space bar,volleyball,balance beam,total,swimming cap,gymnastic horizontal bar,snorkel,dog sled,patio,seat belt,miniskirt,howler monkey,hockey puck
+"I have an image in which I suspect the object [CLASSNAME] might be present. Before answering, let's carefully analyze the image step by step:
+First, observe the main elements of the image and describe what you see. Focus on colors, shapes, and patterns that could be associated with [CLASSNAME].
+Next, think about whether these elements are sufficient to confidently identify [CLASSNAME]. Are these features unique to [CLASSNAME], or could they belong to other objects as well?
+Finally, based on your analysis, state whether you see [CLASSNAME] in the image. Explicitly state your final answer in the format: 'Final Answer: Yes' or 'Final Answer: No.'",Final Answer: Yes,0.78,0.76,0.64,0.6,0.58,0.54,0.44533333333333336,0.42,0.42,0.4,0.38,0.36,0.28,0.24,0.16,0.12
+Average,Average,0.78,0.76,0.64,0.6,0.58,0.54,0.44533333333333336,0.42,0.42,0.4,0.38,0.36,0.28,0.24,0.16,0.12
