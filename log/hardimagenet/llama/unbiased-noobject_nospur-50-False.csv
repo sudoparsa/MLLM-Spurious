@@ -1,0 +1,5 @@
+prompt,target,patio,keyboard space bar,seat belt,dog sled,gymnastic horizontal bar,balance beam,total,miniskirt,sunglasses,volleyball,snorkel,ski,baseball player,swimming cap,howler monkey,hockey puck
+Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.,Yes,0.74,0.32,0.3,0.32,0.3,0.28,0.24533333333333332,0.22,0.26,0.22,0.18,0.22,0.14,0.06,0.06,0.06
+Is there a CLASSNAME in the image? Answer with 'Yes' or 'No'.,Yes,0.76,0.38,0.44,0.42,0.34,0.28,0.272,0.28,0.22,0.22,0.18,0.14,0.18,0.1,0.12,0.02
+Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.,Yes,0.76,0.54,0.42,0.4,0.38,0.4,0.29733333333333334,0.26,0.24,0.24,0.22,0.2,0.2,0.14,0.02,0.04
+Average,Average,0.7533333333333333,0.41333333333333333,0.38666666666666666,0.38000000000000006,0.34,0.32,0.27155555555555555,0.25333333333333335,0.24,0.22666666666666666,0.19333333333333333,0.18666666666666668,0.17333333333333334,0.10000000000000002,0.06666666666666667,0.04
