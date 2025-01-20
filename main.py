@@ -263,7 +263,7 @@ def get_vllm_output(model, processor, prompt, image):
     # package inputs in expected format
     inputs = vllm_standard_preprocessing(model, processor, prompt, image)
     # Inference: Generation of the output
-    output_ids = model.generate(**inputs, max_new_tokens=256)
+    output_ids = model.generate(**inputs, max_new_tokens=2048)
     # decoding
     return vllm_decoding(inputs, output_ids, processor)
 
@@ -279,7 +279,7 @@ def apply_qwen_dropping(model, processor, prompt, image, mask):
         true_image_token_counts=[true_image_token_count] # in processor_kwargs
     )
     # Inference: Generation of the output
-    output_ids = model.generate(**inputs, max_new_tokens=128, morphed_mask=morphed_mask)
+    output_ids = model.generate(**inputs, max_new_tokens=2048, morphed_mask=morphed_mask)
     # decoding
     return vllm_decoding(inputs, output_ids, processor)
 
@@ -303,7 +303,7 @@ def apply_llama_dropping(model, processor, prompt, img, mask):
 
     morphed_mask = morph_mask(mask)
 
-    output_ids = model.generate(**inputs, max_new_tokens=128, morphed_mask=morphed_mask)
+    output_ids = model.generate(**inputs, max_new_tokens=2048, morphed_mask=morphed_mask)
     # s = processor.decode(output[0])
     # return llama_pat.search(s)[1].strip()
     return vllm_decoding(inputs, output_ids, processor)
