@@ -18,6 +18,7 @@ img_rankings_by_idx_tr: 1000 : dict_keys(['bot', 'top']) 300
 890 volleyball n04540053
 981 baseball player n09835506
 801 snorkel n04251144
-type(processor)=<class 'transformers.models.qwen2_vl.processing_qwen2_vl.Qwen2VLProcessor'>
+type(model)=<class 'token_dropping.ModifiedQwen.ModifiedQwen2VLForConditionalGeneration'>
+type(processor)=<class 'token_dropping.ModifiedQwen.ModifiedQwen2VLProcessor'>
 Prompt: Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.
 Target: Yes
