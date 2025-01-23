@@ -27,9 +27,9 @@ device = 'cuda'
 _MASK_ROOT = '/workspace/MLLM-Spurious/hardImageNet'
 _IMAGENET_ROOT = '/workspace/MLLM-Spurious/HardImageNet_Images'
 HARD_IMAGE_NET_DIR = '/workspace/MLLM-Spurious/hardImageNet'
-CACHE_DIR = '/workspace/huggingface/hub'
+CACHE_DIR = "/p/vast1/cai6/parsahs/huggingface/hub"
 SPURIOUS_IMAGENET_DIR = "/workspace/MLLM-Spurious/images"
-COCO_PATH = "/fs/cml-datasets/coco"
+COCO_PATH = "/p/vast1/cai6/sumit_storage/coco"
 
 
 
@@ -67,6 +67,8 @@ def parse_args():
     parser.add_argument("--temperature", type=float, default=1.0, help="The temperature for softmax")
     parser.add_argument("--K", type=int, default=50, help="Number of samples for each class")
     parser.add_argument("--seed", type=int, default=42, help="Seed for Random")
+    parser.add_argument("--prompt_idx", type=int, default=-1, help="Prompt Index for Debug")
+
 
 
     # other
@@ -136,6 +138,8 @@ Finally, based on your analysis, state whether you see [{class_name}] in the ima
 
 def get_log_name(args):
     log_name = f"{args.mode}-{args.experiment}-{args.K}-{args.drop_mask}"
+    if args.prompt_idx >= 0:
+        log_name += f"-{args.prompt_idx}"
     return log_name
 
 
@@ -753,6 +757,9 @@ def run(args):
     if args.mode == 'cot':
         prompts = get_cot_prompts('CLASSNAME')
     
+    if args.prompt_idx >= 0:
+        prompts = [prompts[args.prompt_idx]]
+    
     results = []
 
     if args.dataset == 'imagenet':
@@ -820,21 +827,21 @@ if __name__=='__main__':
     np.random.seed(args.seed)
 
     ## Load hard_imagenet data
-    hard_imagenet_idx = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/hard_imagenet_idx.pkl', 'rb'))
-    imagenet_classnames = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/imagenet_classnames.pkl', 'rb'))
-    idx_to_wnid = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/idx_to_wnid.pkl', 'rb'))
-    paths_by_rank = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/paths_by_rank.pkl', 'rb'))
+    if 'imagenet' in args.dataset:
+        hard_imagenet_idx = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/hard_imagenet_idx.pkl', 'rb'))
+        imagenet_classnames = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/imagenet_classnames.pkl', 'rb'))
+        idx_to_wnid = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/idx_to_wnid.pkl', 'rb'))
+        paths_by_rank = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/paths_by_rank.pkl', 'rb'))
 
-    logger.info(f"hard_imagenet_idx: {hard_imagenet_idx}")
-    logger.info(f"imagenet_classnames: {len(imagenet_classnames)}")
-    logger.info(f"idx_to_wnid: {len(idx_to_wnid)}")
-    logger.info(f"paths_by_rank: {paths_by_rank.keys()}")
-    
-    img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
-    img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
-    logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
+        logger.info(f"hard_imagenet_idx: {hard_imagenet_idx}")
+        logger.info(f"imagenet_classnames: {len(imagenet_classnames)}")
+        logger.info(f"idx_to_wnid: {len(idx_to_wnid)}")
+        logger.info(f"paths_by_rank: {paths_by_rank.keys()}")
+        
+        img_rankings_by_idx_tr = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_train.pkl', 'rb'))
+        img_rankings_by_idx_val = pickle.load(open('data/spur_ranking/img_rankings_by_idx_no_relu_val.pkl', 'rb'))
+        logger.info(f"img_rankings_by_idx_tr: {len(img_rankings_by_idx_tr.keys())} : {img_rankings_by_idx_tr[537].keys()} {len(img_rankings_by_idx_tr[537]['bot'])}")
 
-    if args.dataset == 'hardimagenet':
         for idx in hard_imagenet_idx:
             logger.info(f"{idx} {imagenet_classnames[idx]} {idx_to_wnid[idx]}")    
 
