@@ -24,9 +24,9 @@ from token_dropping.ModifiedLlava import ModifiedLlavaNextForConditionalGenerati
 
 
 device = 'cuda'
-_MASK_ROOT = '/workspace/MLLM-Spurious/hardImageNet'
+_MASK_ROOT = '/p/vast1/cai6/parsahs/hardImageNet'
 _IMAGENET_ROOT = '/var/tmp/cai6/parsahs/imagenet'
-HARD_IMAGE_NET_DIR = '/workspace/MLLM-Spurious/hardImageNet'
+HARD_IMAGE_NET_DIR = '/p/vast1/cai6/parsahs/hardImageNet'
 CACHE_DIR = "/p/vast1/cai6/parsahs/huggingface/hub"
 SPURIOUS_IMAGENET_DIR = "/var/tmp/cai6/parsahs/images"
 COCO_PATH = "/p/vast1/cai6/sumit_storage/coco"
@@ -600,6 +600,8 @@ def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_
                     res = get_vllm_output(model, processor, prompt, image)
                     if target in res:
                         acc += 1
+                    else:
+                        logger.info(f"FAILURE ::: {class_name=} ::: {idx=} ::: i={i} ::: {prompt=} ::: {res=} ::: path={dset[75*k+i][2]}")
                 else:
                     n -= 1
 
@@ -662,7 +664,7 @@ def get_random_images(idx, dset, rankings, K, object_present, blank_image, spur_
             sample = random.choice(dset)
             image = sample[0]
             if sample[1] != idx and image.size[0]>=28 and image.size[1]>=28:
-                images.append(sample[0])
+                images.append(sample)
     return images
 
 def run_spurious_imagenet_experiment2(model, processor, pair, dset, rankings, K, object_present, blank_image, spur_present, select_classes):
@@ -681,9 +683,11 @@ def run_spurious_imagenet_experiment2(model, processor, pair, dset, rankings, K,
             acc = 0
             images = get_random_images(idx, dset, rankings, K, object_present, blank_image, spur_present)
             for image in images:
-                res = get_vllm_output(model, processor, prompt, image)
+                res = get_vllm_output(model, processor, prompt, image[0])
                 if target in res:
                         acc += 1
+                        logger.info(f"FAILURE ::: {class_name=} ::: idx={image[1]} ::: {prompt=} ::: {res=} ::: path={image[2]}")
+
 
             logger.info(f"{idx} {class_name} {acc}/{K}")
 
@@ -828,7 +832,8 @@ if __name__=='__main__':
 
     ## Load hard_imagenet data
     if 'imagenet' in args.dataset:
-        hard_imagenet_idx = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/hard_imagenet_idx.pkl', 'rb'))
+        hin_path = lambda x: os.path.join(HARD_IMAGE_NET_DIR, 'meta', x)
+        hard_imagenet_idx = pickle.load(open(hin_path('hard_imagenet_idx.pkl'), 'rb'))
         imagenet_classnames = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/imagenet_classnames.pkl', 'rb'))
         idx_to_wnid = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/idx_to_wnid.pkl', 'rb'))
         paths_by_rank = pickle.load(open(f'{HARD_IMAGE_NET_DIR}/meta/paths_by_rank.pkl', 'rb'))
