@@ -1,0 +1,376 @@
+type(model)=<class 'str'>
+type(processor)=<class 'openai.OpenAI'>
+Prompt: Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.
+Target: Yes
+supercategory: kitchen, size: 20792
+category: bottle, supercategory: kitchen, spur size: 12291
+FAILURE ::: cat=bottle ::: idx=509129 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000509129.jpg ::: annots=['tie', 'tie', 'person', 'person', 'cup', 'person', 'cup'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=bottle ::: idx=528587 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000528587.jpg ::: annots=['person', 'person', 'wine glass', 'person', 'person', 'cup'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=409627 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000409627.jpg ::: annots=['chair', 'chair', 'person', 'cup', 'hot dog', 'sandwich'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=244675 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000244675.jpg ::: annots=['tv', 'chair', 'chair', 'couch', 'person', 'person', 'person', 'person', 'person', 'cup', 'cup', 'dining table', 'laptop'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=202426 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000202426.jpg ::: annots=['wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'vase', 'vase', 'vase', 'vase', 'vase', 'vase', 'vase'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=396021 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000396021.jpg ::: annots=['tie', 'person', 'person', 'knife', 'cake', 'vase', 'dining table'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=bottle ::: idx=101952 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000101952.jpg ::: annots=['laptop', 'mouse', 'chair', 'keyboard', 'book', 'book', 'book', 'tv', 'book', 'book', 'cup'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=223404 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000223404.jpg ::: annots=['wine glass', 'fork', 'knife', 'fork', 'dining table', 'spoon'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=532963 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000532963.jpg ::: annots=['chair', 'chair', 'chair', 'dining table', 'wine glass', 'cup', 'cup', 'bowl', 'bowl', 'bowl', 'bowl', 'sandwich', 'sandwich', 'sandwich', 'sandwich', 'sandwich', 'cup', 'bowl', 'bowl', 'bowl', 'bowl', 'bowl', 'handbag', 'sandwich'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=207059 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000207059.jpg ::: annots=['teddy bear', 'cup', 'cup', 'spoon', 'spoon', 'spoon', 'bowl', 'bowl', 'bowl', 'bowl'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=161190 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000161190.jpg ::: annots=['tv', 'person', 'laptop', 'mouse', 'keyboard', 'cup', 'keyboard', 'cell phone'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=bottle ::: idx=54083 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000054083.jpg ::: annots=['potted plant', 'potted plant', 'tv', 'person', 'mouse', 'keyboard', 'cup', 'chair', 'chair', 'chair', 'chair', 'dining table', 'dining table', 'book'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=378028 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000378028.jpg ::: annots=['chair', 'chair', 'chair', 'dining table', 'person', 'wine glass', 'wine glass', 'cup', 'bowl', 'bowl', 'laptop', 'oven', 'sink', 'book', 'book', 'cup', 'cup', 'cup', 'cup', 'cup', 'book', 'cup', 'spoon', 'cup'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=bottle ::: idx=523114 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000523114.jpg ::: annots=['cup', 'hot dog', 'dining table'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=bottle ::: idx=408204 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000408204.jpg ::: annots=['sandwich', 'person', 'person', 'person', 'person', 'cup', 'bowl', 'bowl', 'cup', 'sandwich', 'sandwich', 'person', 'bowl', 'oven'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bottle ::: idx=412901 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000412901.jpg ::: annots=['cell phone', 'sink', 'person', 'cup', 'bowl', 'bowl', 'bowl', 'cell phone', 'cup', 'cup'] ::: prompt=Do you see a bottle in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+bottle: Acc=84/100 fp=0.16
+category: wine glass, supercategory: kitchen, spur size: 18259
+FAILURE ::: cat=wine glass ::: idx=8747 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000008747.jpg ::: annots=['toothbrush', 'person', 'person', 'person', 'cup'] ::: prompt=Do you see a wine glass in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=wine glass ::: idx=564572 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000564572.jpg ::: annots=['cell phone', 'person', 'cup', 'laptop', 'cup'] ::: prompt=Do you see a wine glass in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+wine glass: Acc=98/100 fp=0.02
+category: cup, supercategory: kitchen, spur size: 11603
+FAILURE ::: cat=cup ::: idx=187045 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000187045.jpg ::: annots=['cell phone', 'cell phone', 'person', 'wine glass', 'person'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=533522 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000533522.jpg ::: annots=['wine glass', 'book', 'book', 'book', 'book', 'book', 'person'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=312828 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000312828.jpg ::: annots=['spoon', 'bowl', 'bottle', 'carrot', 'carrot', 'carrot', 'carrot', 'carrot'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=500492 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000500492.jpg ::: annots=['bottle', 'wine glass', 'chair', 'dining table'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=457401 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000457401.jpg ::: annots=['chair', 'chair', 'spoon', 'spoon', 'oven', 'sink', 'spoon', 'bowl', 'bowl'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=305105 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000305105.jpg ::: annots=['couch', 'couch', 'person', 'person', 'person', 'spoon', 'bowl', 'remote', 'chair', 'chair', 'laptop', 'person'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=340611 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000340611.jpg ::: annots=['laptop', 'laptop', 'mouse', 'keyboard', 'book', 'book', 'book', 'bowl', 'keyboard', 'spoon', 'chair', 'book', 'book', 'book', 'book', 'book'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=261062 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000261062.jpg ::: annots=['bottle', 'bottle', 'couch', 'chair', 'chair', 'vase', 'dining table', 'potted plant'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=348913 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000348913.jpg ::: annots=['chair', 'couch', 'dining table', 'car', 'vase', 'wine glass'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cup ::: idx=195027 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000195027.jpg ::: annots=['chair', 'chair', 'dining table', 'person', 'wine glass', 'fork', 'knife', 'fork', 'knife', 'knife', 'spoon', 'spoon', 'spoon', 'spoon', 'person', 'knife', 'spoon'] ::: prompt=Do you see a cup in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+cup: Acc=90/100 fp=0.1
+category: fork, supercategory: kitchen, spur size: 17237
+FAILURE ::: cat=fork ::: idx=65979 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000065979.jpg ::: annots=['bottle', 'tie', 'tie', 'tie', 'tie', 'tie', 'tie', 'tie', 'tie', 'bottle', 'bottle', 'chair', 'chair', 'dining table', 'wine glass', 'wine glass', 'wine glass', 'person', 'person', 'person', 'tie', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'cup', 'cup', 'cup', 'cup', 'cup', 'person', 'person', 'person', 'person', 'person', 'person', 'wine glass', 'chair', 'wine glass', 'bowl', 'chair', 'cup', 'wine glass'] ::: prompt=Do you see a fork in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+fork: Acc=99/100 fp=0.01
+category: knife, supercategory: kitchen, spur size: 16466
+FAILURE ::: cat=knife ::: idx=301991 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000301991.jpg ::: annots=['chair', 'chair', 'dining table', 'person', 'person', 'wine glass', 'wine glass', 'fork', 'fork', 'chair', 'cup', 'cake', 'cake', 'cake', 'person', 'tie', 'carrot'] ::: prompt=Do you see a knife in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=knife ::: idx=93904 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000093904.jpg ::: annots=['spoon', 'bowl', 'bowl', 'bowl', 'apple', 'apple', 'apple', 'apple', 'orange', 'orange', 'bowl', 'dining table'] ::: prompt=Do you see a knife in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=knife ::: idx=297146 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000297146.jpg ::: annots=['dining table', 'bowl', 'pizza', 'pizza', 'cup', 'spoon'] ::: prompt=Do you see a knife in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+knife: Acc=97/100 fp=0.03
+category: spoon, supercategory: kitchen, spur size: 17263
+FAILURE ::: cat=spoon ::: idx=109568 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000109568.jpg ::: annots=['sandwich', 'fork', 'bowl'] ::: prompt=Do you see a spoon in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+spoon: Acc=99/100 fp=0.01
+category: bowl, supercategory: kitchen, spur size: 13681
+FAILURE ::: cat=bowl ::: idx=97053 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000097053.jpg ::: annots=['cake', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'fork', 'knife', 'dining table', 'refrigerator', 'cup', 'cup', 'cup', 'fork'] ::: prompt=Do you see a bowl in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bowl ::: idx=313228 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000313228.jpg ::: annots=['person', 'cup', 'fork', 'knife', 'dining table', 'chair', 'sandwich'] ::: prompt=Do you see a bowl in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bowl ::: idx=205108 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000205108.jpg ::: annots=['person', 'person', 'person', 'cup', 'cup', 'fork', 'knife', 'spoon', 'bottle', 'carrot', 'carrot', 'carrot', 'carrot', 'chair', 'potted plant', 'carrot', 'carrot', 'carrot', 'bottle', 'dining table'] ::: prompt=Do you see a bowl in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bowl ::: idx=267348 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000267348.jpg ::: annots=['person', 'sandwich', 'cup', 'spoon', 'spoon', 'donut', 'vase', 'cup', 'dining table', 'fork'] ::: prompt=Do you see a bowl in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bowl ::: idx=319339 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000319339.jpg ::: annots=['potted plant', 'potted plant', 'bottle', 'bottle', 'couch', 'couch', 'potted plant', 'chair', 'potted plant', 'potted plant', 'chair'] ::: prompt=Do you see a bowl in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=bowl ::: idx=141102 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000141102.jpg ::: annots=['sandwich', 'cup', 'fork', 'hot dog', 'spoon', 'hot dog', 'hot dog', 'dining table', 'person', 'sandwich'] ::: prompt=Do you see a bowl in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+bowl: Acc=94/100 fp=0.06
+supercategory: food, size: 16255
+category: banana, supercategory: food, spur size: 14012
+banana: Acc=100/100 fp=0.0
+category: apple, supercategory: food, spur size: 14669
+FAILURE ::: cat=apple ::: idx=227137 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000227137.jpg ::: annots=['wine glass', 'pizza', 'wine glass', 'dining table', 'cup', 'cup', 'cup'] ::: prompt=Do you see a apple in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=apple ::: idx=419410 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000419410.jpg ::: annots=['bottle', 'bottle', 'person', 'person', 'person', 'person', 'person', 'wine glass', 'orange', 'cell phone', 'sink', 'person', 'person'] ::: prompt=Do you see a apple in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+apple: Acc=98/100 fp=0.02
+category: sandwich, supercategory: food, spur size: 13890
+FAILURE ::: cat=sandwich ::: idx=97914 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000097914.jpg ::: annots=['hot dog', 'hot dog', 'bottle', 'refrigerator', 'chair', 'dining table', 'wine glass', 'fork', 'pizza', 'dining table', 'pizza', 'hot dog'] ::: prompt=Do you see a sandwich in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sandwich ::: idx=167870 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000167870.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'donut', 'person', 'donut', 'donut'] ::: prompt=Do you see a sandwich in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sandwich ::: idx=96884 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000096884.jpg ::: annots=['hot dog', 'hot dog', 'chair', 'chair', 'dining table'] ::: prompt=Do you see a sandwich in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sandwich ::: idx=130411 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000130411.jpg ::: annots=['chair', 'hot dog', 'bowl', 'chair', 'chair', 'chair'] ::: prompt=Do you see a sandwich in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sandwich ::: idx=6760 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000006760.jpg ::: annots=['hot dog', 'person'] ::: prompt=Do you see a sandwich in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+sandwich: Acc=95/100 fp=0.05
+category: orange, supercategory: food, spur size: 14556
+FAILURE ::: cat=orange ::: idx=400613 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000400613.jpg ::: annots=['bottle', 'person', 'person', 'person', 'cup', 'cup', 'cup', 'fork', 'spoon', 'carrot', 'person', 'person', 'fork', 'person', 'person', 'person', 'carrot', 'cell phone', 'person'] ::: prompt=Do you see a orange in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=orange ::: idx=317640 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000317640.jpg ::: annots=['cake'] ::: prompt=Do you see a orange in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=orange ::: idx=26662 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000026662.jpg ::: annots=['refrigerator', 'apple', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'carrot', 'bottle', 'bottle', 'bottle'] ::: prompt=Do you see a orange in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=orange ::: idx=365312 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000365312.jpg ::: annots=['bottle', 'refrigerator', 'bowl', 'apple', 'potted plant'] ::: prompt=Do you see a orange in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+orange: Acc=96/100 fp=0.04
+category: broccoli, supercategory: food, spur size: 14316
+FAILURE ::: cat=broccoli ::: idx=109488 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000109488.jpg ::: annots=['cell phone', 'person', 'carrot', 'carrot', 'carrot', 'carrot'] ::: prompt=Do you see a broccoli in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+broccoli: Acc=99/100 fp=0.01
+category: carrot, supercategory: food, spur size: 14572
+carrot: Acc=100/100 fp=0.0
+category: hot dog, supercategory: food, spur size: 15033
+FAILURE ::: cat=hot dog ::: idx=397980 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000397980.jpg ::: annots=['car', 'person', 'person', 'person', 'person', 'person', 'baseball bat', 'baseball bat', 'person', 'chair', 'sandwich'] ::: prompt=Do you see a hot dog in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+hot dog: Acc=99/100 fp=0.01
+category: pizza, supercategory: food, spur size: 13089
+pizza: Acc=100/100 fp=0.0
+category: donut, supercategory: food, spur size: 14732
+FAILURE ::: cat=donut ::: idx=543268 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000543268.jpg ::: annots=['sandwich', 'cup', 'cup', 'cup', 'cup', 'cup', 'cup', 'cake', 'cake', 'cake', 'cake', 'cake', 'cake', 'cake', 'oven', 'sandwich', 'sandwich', 'sandwich'] ::: prompt=Do you see a donut in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+donut: Acc=99/100 fp=0.01
+category: cake, supercategory: food, spur size: 13330
+FAILURE ::: cat=cake ::: idx=384391 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000384391.jpg ::: annots=['dining table', 'spoon', 'banana', 'apple', 'orange', 'orange', 'sandwich', 'orange', 'bottle', 'apple'] ::: prompt=Do you see a cake in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+cake: Acc=99/100 fp=0.01
+supercategory: vehicle, size: 27358
+category: bicycle, supercategory: vehicle, spur size: 24106
+FAILURE ::: cat=bicycle ::: idx=268592 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000268592.jpg ::: annots=['sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'motorcycle', 'sheep', 'sheep', 'person', 'sheep', 'sheep'] ::: prompt=Do you see a bicycle in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+bicycle: Acc=99/100 fp=0.01
+category: car, supercategory: vehicle, spur size: 15107
+FAILURE ::: cat=car ::: idx=296825 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000296825.jpg ::: annots=['person', 'truck', 'person', 'person'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=3983 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000003983.jpg ::: annots=['bus', 'person', 'person', 'person', 'backpack', 'backpack', 'backpack', 'backpack', 'backpack', 'suitcase', 'skis', 'skis', 'skis', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'backpack', 'backpack', 'backpack', 'person', 'skis', 'skis', 'person'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=463903 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000463903.jpg ::: annots=['motorcycle', 'motorcycle', 'person', 'person', 'motorcycle'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=228206 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000228206.jpg ::: annots=['dog', 'person', 'person', 'person', 'person', 'person', 'person', 'truck'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=car ::: idx=122252 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000122252.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'person', 'truck'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=294974 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000294974.jpg ::: annots=['airplane', 'person', 'truck', 'airplane'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=12679 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000012679.jpg ::: annots=['train'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=195837 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000195837.jpg ::: annots=['horse', 'person', 'truck', 'person'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=car ::: idx=344935 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000344935.jpg ::: annots=['bus', 'truck', 'stop sign'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=300303 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000300303.jpg ::: annots=['bus', 'train', 'traffic light'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=188589 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000188589.jpg ::: annots=['cow', 'cow', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'truck', 'truck', 'truck', 'handbag'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=572801 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000572801.jpg ::: annots=['truck', 'truck', 'person'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=car ::: idx=396835 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000396835.jpg ::: annots=['truck', 'person', 'truck'] ::: prompt=Do you see a car in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+car: Acc=87/100 fp=0.13
+category: motorcycle, supercategory: vehicle, spur size: 23856
+motorcycle: Acc=100/100 fp=0.0
+category: airplane, supercategory: vehicle, spur size: 24372
+airplane: Acc=100/100 fp=0.0
+category: bus, supercategory: vehicle, spur size: 23406
+FAILURE ::: cat=bus ::: idx=495814 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000495814.jpg ::: annots=['car', 'truck', 'person', 'person', 'person', 'person', 'person', 'handbag', 'person', 'person', 'handbag', 'person'] ::: prompt=Do you see a bus in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bus ::: idx=451104 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000451104.jpg ::: annots=['person', 'snowboard', 'car'] ::: prompt=Do you see a bus in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+bus: Acc=98/100 fp=0.02
+category: train, supercategory: vehicle, spur size: 23770
+train: Acc=100/100 fp=0.0
+category: truck, supercategory: vehicle, spur size: 21231
+FAILURE ::: cat=truck ::: idx=452775 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000452775.jpg ::: annots=['car', 'car', 'car', 'car', 'person', 'person', 'person', 'motorcycle', 'person', 'car', 'car', 'car', 'car', 'car', 'person'] ::: prompt=Do you see a truck in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=truck ::: idx=74863 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000074863.jpg ::: annots=['umbrella', 'umbrella', 'car', 'car', 'car', 'person', 'person', 'handbag', 'bench', 'car'] ::: prompt=Do you see a truck in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=truck ::: idx=399664 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000399664.jpg ::: annots=['airplane', 'car'] ::: prompt=Do you see a truck in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=truck ::: idx=224128 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000224128.jpg ::: annots=['dog', 'car'] ::: prompt=Do you see a truck in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+truck: Acc=96/100 fp=0.04
+category: boat, supercategory: vehicle, spur size: 24333
+boat: Acc=100/100 fp=0.0
+supercategory: furniture, size: 29481
+category: chair, supercategory: furniture, spur size: 16707
+FAILURE ::: cat=chair ::: idx=264320 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000264320.jpg ::: annots=['dog', 'fork', 'pizza', 'carrot', 'carrot', 'carrot', 'carrot', 'carrot', 'carrot', 'couch', 'book'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=471405 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000471405.jpg ::: annots=['tv', 'couch', 'couch', 'person', 'remote', 'remote', 'book', 'book', 'person', 'potted plant', 'book'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=179576 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000179576.jpg ::: annots=['dog', 'couch', 'person'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=171062 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000171062.jpg ::: annots=['tv', 'cat', 'dining table'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=91040 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000091040.jpg ::: annots=['potted plant', 'tv', 'couch', 'dining table', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=191972 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000191972.jpg ::: annots=['umbrella', 'umbrella', 'umbrella', 'umbrella', 'bench', 'potted plant'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=73201 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000073201.jpg ::: annots=['bottle', 'bottle', 'bottle', 'bottle', 'dining table', 'person', 'person', 'person', 'person', 'bench', 'cup', 'pizza', 'pizza', 'handbag', 'handbag', 'bench', 'cup', 'cup', 'pizza', 'dining table', 'person', 'dining table', 'person', 'bench', 'bottle', 'person', 'fork'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=129576 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000129576.jpg ::: annots=['tv', 'couch', 'bicycle', 'book', 'vase', 'vase', 'potted plant'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=370383 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000370383.jpg ::: annots=['bottle', 'person', 'person', 'person', 'person', 'person', 'cup', 'cup', 'cup', 'knife', 'knife', 'broccoli', 'broccoli', 'dining table', 'cell phone', 'person', 'bottle', 'fork', 'fork', 'spoon', 'broccoli'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=190277 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000190277.jpg ::: annots=['person', 'cup', 'cup', 'spoon', 'spoon', 'cake', 'cake', 'backpack', 'dining table'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=34938 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000034938.jpg ::: annots=['bed', 'suitcase', 'suitcase'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=269496 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000269496.jpg ::: annots=['cat', 'couch'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=137406 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000137406.jpg ::: annots=['cup', 'cup', 'cup', 'fork', 'knife', 'knife', 'spoon', 'dining table', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'cup', 'cup', 'cup', 'bowl', 'dining table', 'person', 'person', 'cup', 'spoon', 'dining table', 'dining table', 'dining table', 'person', 'cup', 'person'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=10176 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000010176.jpg ::: annots=['couch', 'dining table', 'person', 'person', 'person', 'cup', 'cup', 'remote', 'remote', 'backpack', 'remote', 'remote', 'remote'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=315577 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000315577.jpg ::: annots=['dog', 'couch', 'laptop', 'remote', 'book', 'person'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=242665 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000242665.jpg ::: annots=['remote', 'remote', 'remote', 'remote', 'remote', 'remote', 'bed', 'remote'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=163598 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000163598.jpg ::: annots=['tv', 'couch', 'person', 'person', 'person', 'dining table', 'vase', 'laptop'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=213579 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000213579.jpg ::: annots=['dining table', 'person', 'cup', 'fork', 'book', 'cake', 'bench'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=32868 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000032868.jpg ::: annots=['couch', 'couch', 'person', 'person', 'person', 'cup', 'person', 'remote', 'remote', 'remote', 'vase', 'potted plant', 'remote'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=chair ::: idx=289033 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000289033.jpg ::: annots=['tv', 'dining table', 'person', 'person', 'person', 'person', 'wine glass', 'fork', 'knife', 'pizza', 'person', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a chair in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+chair: Acc=80/100 fp=0.2
+category: couch, supercategory: furniture, spur size: 25058
+FAILURE ::: cat=couch ::: idx=441258 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000441258.jpg ::: annots=['bed', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'teddy bear', 'teddy bear', 'chair', 'book', 'book'] ::: prompt=Do you see a couch in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=couch ::: idx=499700 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000499700.jpg ::: annots=['bottle', 'bottle', 'bottle', 'dining table', 'tie', 'cup', 'cup', 'cup', 'person', 'person', 'person', 'person', 'person', 'person', 'cup', 'cup', 'cup', 'cup', 'cup', 'cup', 'person', 'person', 'person', 'person', 'person', 'person', 'cup', 'cup', 'pizza', 'pizza', 'person', 'chair', 'bottle', 'person'] ::: prompt=Do you see a couch in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+couch: Acc=98/100 fp=0.02
+category: potted plant, supercategory: furniture, spur size: 25029
+FAILURE ::: cat=potted plant ::: idx=100611 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000100611.jpg ::: annots=['chair', 'chair', 'person', 'person', 'person', 'pizza', 'bottle', 'cup', 'cup', 'cup', 'pizza', 'dining table'] ::: prompt=Do you see a potted plant in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=potted plant ::: idx=243158 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000243158.jpg ::: annots=['bottle', 'couch', 'couch', 'vase'] ::: prompt=Do you see a potted plant in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+potted plant: Acc=98/100 fp=0.02
+category: bed, supercategory: furniture, spur size: 25799
+FAILURE ::: cat=bed ::: idx=48126 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000048126.jpg ::: annots=['dog', 'couch', 'couch', 'person'] ::: prompt=Do you see a bed in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+bed: Acc=99/100 fp=0.01
+category: dining table, supercategory: furniture, spur size: 17644
+FAILURE ::: cat=dining table ::: idx=145610 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000145610.jpg ::: annots=['cell phone', 'chair'] ::: prompt=Do you see a dining table in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=dining table ::: idx=177529 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000177529.jpg ::: annots=['dog', 'cat', 'chair', 'chair', 'chair'] ::: prompt=Do you see a dining table in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=dining table ::: idx=517386 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000517386.jpg ::: annots=['bowl', 'bowl', 'vase', 'cup', 'cup', 'cup', 'cup', 'potted plant', 'cup', 'cup'] ::: prompt=Do you see a dining table in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=dining table ::: idx=509883 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000509883.jpg ::: annots=['wine glass', 'carrot', 'carrot', 'carrot', 'chair', 'bottle', 'carrot', 'carrot', 'carrot'] ::: prompt=Do you see a dining table in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=dining table ::: idx=405541 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000405541.jpg ::: annots=['potted plant', 'cat', 'vase'] ::: prompt=Do you see a dining table in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=dining table ::: idx=71507 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000071507.jpg ::: annots=['cell phone', 'chair'] ::: prompt=Do you see a dining table in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+dining table: Acc=94/100 fp=0.06
+category: toilet, supercategory: furniture, spur size: 26128
+toilet: Acc=100/100 fp=0.0
+supercategory: appliance, size: 7880
+category: microwave, supercategory: appliance, spur size: 6333
+FAILURE ::: cat=microwave ::: idx=259434 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000259434.jpg ::: annots=['bottle', 'bottle', 'chair', 'person', 'cake', 'cake', 'toaster', 'sink', 'knife', 'knife', 'knife', 'knife', 'knife', 'knife', 'knife', 'bottle'] ::: prompt=Do you see a microwave in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+microwave: Acc=99/100 fp=0.01
+category: oven, supercategory: appliance, spur size: 5003
+FAILURE ::: cat=oven ::: idx=280454 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000280454.jpg ::: annots=['refrigerator', 'person'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=407346 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000407346.jpg ::: annots=['chair', 'bowl', 'toaster', 'scissors', 'bottle', 'spoon', 'cake', 'book'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=203661 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000203661.jpg ::: annots=['bottle', 'chair', 'dining table', 'knife', 'knife', 'microwave', 'sink', 'knife', 'knife', 'knife', 'chair', 'book', 'cup', 'cup', 'cup', 'cup', 'bowl', 'bowl', 'bowl', 'chair', 'chair', 'knife'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=359947 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000359947.jpg ::: annots=['person', 'microwave'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=218205 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000218205.jpg ::: annots=['refrigerator', 'refrigerator', 'chair', 'chair', 'person', 'wine glass', 'cup', 'knife', 'dining table', 'chair', 'knife', 'knife', 'knife', 'knife'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=63325 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000063325.jpg ::: annots=['bottle', 'chair', 'person', 'clock', 'cup', 'cup', 'cup', 'bottle', 'bottle', 'bowl', 'sink', 'cup'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=oven ::: idx=212261 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000212261.jpg ::: annots=['sandwich', 'sandwich', 'sandwich', 'person', 'person', 'spoon', 'handbag', 'sandwich', 'sandwich', 'sandwich', 'sandwich', 'sandwich', 'refrigerator', 'person', 'sandwich', 'sandwich', 'knife', 'cup', 'sandwich', 'sandwich'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=oven ::: idx=46775 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000046775.jpg ::: annots=['bowl', 'sink', 'bowl', 'bowl', 'dining table', 'refrigerator', 'refrigerator'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=569492 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000569492.jpg ::: annots=['refrigerator', 'person', 'person', 'person', 'knife', 'bowl', 'spoon', 'person', 'person', 'person'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=oven ::: idx=137118 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000137118.jpg ::: annots=['refrigerator', 'bottle', 'bottle', 'bottle', 'chair', 'chair', 'chair', 'cup', 'microwave', 'sink', 'bottle', 'bottle', 'cup', 'bottle'] ::: prompt=Do you see a oven in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+oven: Acc=90/100 fp=0.1
+category: toaster, supercategory: appliance, spur size: 7663
+FAILURE ::: cat=toaster ::: idx=397104 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000397104.jpg ::: annots=['chair', 'dining table', 'person', 'cup', 'person', 'spoon', 'oven'] ::: prompt=Do you see a toaster in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=toaster ::: idx=248251 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000248251.jpg ::: annots=['bottle', 'bottle', 'person', 'microwave', 'bottle', 'cup', 'person'] ::: prompt=Do you see a toaster in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+toaster: Acc=98/100 fp=0.02
+category: sink, supercategory: appliance, spur size: 3202
+FAILURE ::: cat=sink ::: idx=344488 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000344488.jpg ::: annots=['chair', 'orange', 'orange', 'microwave', 'oven', 'vase', 'apple', 'apple', 'clock', 'orange', 'chair', 'apple'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sink ::: idx=549427 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000549427.jpg ::: annots=['refrigerator', 'chair', 'dining table', 'person', 'carrot', 'oven', 'bottle', 'bottle', 'bottle'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sink ::: idx=436649 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000436649.jpg ::: annots=['refrigerator', 'chair', 'person', 'person', 'knife', 'knife', 'knife', 'knife', 'knife', 'knife', 'oven'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sink ::: idx=286382 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000286382.jpg ::: annots=['refrigerator', 'person', 'person', 'person', 'person', 'oven', 'oven', 'tie', 'tie', 'spoon', 'bowl', 'oven', 'knife', 'knife', 'bottle', 'knife', 'bowl', 'bowl', 'knife', 'person', 'person'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sink ::: idx=256190 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000256190.jpg ::: annots=['chair', 'chair', 'chair', 'chair', 'dining table', 'vase', 'handbag', 'handbag', 'handbag', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'wine glass', 'chair', 'chair', 'chair', 'chair', 'oven', 'vase', 'vase', 'vase', 'person', 'person', 'bottle', 'wine glass', 'cup', 'cup', 'cup', 'cup', 'dining table', 'person', 'wine glass', 'dining table', 'cup', 'cup', 'cup'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sink ::: idx=449197 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000449197.jpg ::: annots=['bottle', 'person', 'person', 'person', 'person', 'oven', 'bottle', 'bottle', 'refrigerator', 'person', 'spoon'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sink ::: idx=387913 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000387913.jpg ::: annots=['refrigerator', 'person', 'cake', 'oven'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sink ::: idx=577520 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000577520.jpg ::: annots=['bottle', 'chair', 'chair', 'chair', 'chair', 'dining table', 'person', 'person', 'person', 'person', 'bottle', 'cup', 'fork', 'fork', 'fork', 'fork', 'fork', 'knife', 'knife', 'person', 'cup', 'cup', 'cup', 'chair', 'chair', 'oven', 'bottle', 'knife'] ::: prompt=Do you see a sink in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+sink: Acc=92/100 fp=0.08
+category: refrigerator, supercategory: appliance, spur size: 5520
+FAILURE ::: cat=refrigerator ::: idx=138536 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000138536.jpg ::: annots=['bottle', 'wine glass', 'cup', 'cup', 'knife', 'knife', 'knife', 'knife', 'knife', 'knife', 'knife', 'bowl', 'oven', 'sink', 'bottle', 'bottle', 'wine glass', 'wine glass', 'wine glass', 'bowl', 'bowl', 'microwave', 'knife', 'cup'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=refrigerator ::: idx=63325 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000063325.jpg ::: annots=['bottle', 'chair', 'person', 'clock', 'cup', 'cup', 'cup', 'bottle', 'bottle', 'bowl', 'sink', 'cup'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=refrigerator ::: idx=308507 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000308507.jpg ::: annots=['chair', 'chair', 'chair', 'dining table', 'bowl', 'microwave', 'toaster', 'book', 'book', 'book', 'book', 'book', 'book'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=refrigerator ::: idx=337390 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000337390.jpg ::: annots=['dining table', 'person', 'person', 'person', 'cake', 'backpack', 'handbag', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'cup', 'microwave'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=refrigerator ::: idx=22193 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000022193.jpg ::: annots=['bottle', 'spoon', 'bowl', 'bowl', 'oven', 'sink', 'person', 'clock', 'book', 'oven'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=refrigerator ::: idx=21796 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000021796.jpg ::: annots=['person', 'oven'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=refrigerator ::: idx=541345 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000541345.jpg ::: annots=['bowl', 'bowl', 'oven'] ::: prompt=Do you see a refrigerator in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+refrigerator: Acc=93/100 fp=0.07
+supercategory: indoor, size: 15847
+category: book, supercategory: indoor, spur size: 10515
+book: Acc=100/100 fp=0.0
+category: clock, supercategory: indoor, spur size: 11188
+FAILURE ::: cat=clock ::: idx=188693 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000188693.jpg ::: annots=['train', 'person', 'person', 'person', 'person', 'handbag', 'handbag', 'handbag', 'handbag', 'suitcase', 'suitcase', 'person', 'bench', 'handbag', 'suitcase', 'suitcase', 'book', 'person', 'handbag', 'person'] ::: prompt=Do you see a clock in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+clock: Acc=99/100 fp=0.01
+category: vase, supercategory: indoor, spur size: 12254
+FAILURE ::: cat=vase ::: idx=78305 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000078305.jpg ::: annots=['cat', 'cat', 'bed', 'teddy bear', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book'] ::: prompt=Do you see a vase in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+vase: Acc=99/100 fp=0.01
+category: scissors, supercategory: indoor, spur size: 14900
+FAILURE ::: cat=scissors ::: idx=329841 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000329841.jpg ::: annots=['bed', 'person', 'book', 'book', 'book', 'book', 'book', 'handbag', 'person', 'bed', 'book'] ::: prompt=Do you see a scissors in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+scissors: Acc=99/100 fp=0.01
+category: teddy bear, supercategory: indoor, spur size: 13707
+FAILURE ::: cat=teddy bear ::: idx=79869 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000079869.jpg ::: annots=['potted plant', 'laptop', 'mouse', 'cup', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'potted plant'] ::: prompt=Do you see a teddy bear in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=teddy bear ::: idx=271795 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000271795.jpg ::: annots=['laptop', 'mouse', 'bottle', 'bottle', 'cup', 'book', 'book', 'book'] ::: prompt=Do you see a teddy bear in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+teddy bear: Acc=98/100 fp=0.02
+category: hair drier, supercategory: indoor, spur size: 15658
+hair drier: Acc=100/100 fp=0.0
+category: toothbrush, supercategory: indoor, spur size: 14840
+toothbrush: Acc=100/100 fp=0.0
+supercategory: outdoor, size: 12880
+category: traffic light, supercategory: outdoor, spur size: 8741
+traffic light: Acc=100/100 fp=0.0
+category: fire hydrant, supercategory: outdoor, spur size: 11169
+fire hydrant: Acc=100/100 fp=0.0
+category: stop sign, supercategory: outdoor, spur size: 11146
+FAILURE ::: cat=stop sign ::: idx=372824 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000372824.jpg ::: annots=['bicycle', 'backpack', 'backpack', 'handbag', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'traffic light', 'traffic light', 'handbag', 'person', 'person', 'person', 'handbag', 'handbag', 'handbag', 'handbag', 'person', 'person'] ::: prompt=Do you see a stop sign in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=stop sign ::: idx=99046 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000099046.jpg ::: annots=['cow', 'cow', 'cow', 'cow', 'cow', 'cow', 'cow', 'bicycle', 'bicycle', 'car', 'motorcycle', 'person', 'person', 'person', 'person', 'person', 'person', 'traffic light', 'person', 'person', 'person', 'person', 'cow', 'cow', 'cow', 'person', 'cow', 'person', 'bicycle', 'person', 'person'] ::: prompt=Do you see a stop sign in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+stop sign: Acc=98/100 fp=0.02
+category: parking meter, supercategory: outdoor, spur size: 12175
+FAILURE ::: cat=parking meter ::: idx=540561 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000540561.jpg ::: annots=['bus', 'truck', 'person', 'person', 'person', 'backpack', 'person', 'person', 'car', 'traffic light', 'car', 'car', 'person', 'person', 'person'] ::: prompt=Do you see a parking meter in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=parking meter ::: idx=44960 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000044960.jpg ::: annots=['bus', 'bus', 'traffic light', 'bench', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'traffic light'] ::: prompt=Do you see a parking meter in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=parking meter ::: idx=340316 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000340316.jpg ::: annots=['fire hydrant', 'handbag', 'car', 'car', 'person'] ::: prompt=Do you see a parking meter in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+parking meter: Acc=97/100 fp=0.03
+category: bench, supercategory: outdoor, spur size: 7310
+FAILURE ::: cat=bench ::: idx=257162 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000257162.jpg ::: annots=['truck', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'truck', 'traffic light', 'handbag', 'person', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a bench in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bench ::: idx=347101 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000347101.jpg ::: annots=['stop sign', 'car', 'person', 'car', 'car', 'car', 'car', 'truck', 'car', 'car', 'car', 'car'] ::: prompt=Do you see a bench in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+bench: Acc=98/100 fp=0.02
+supercategory: electronic, size: 12944
+category: tv, supercategory: electronic, spur size: 8383
+tv: Acc=100/100 fp=0.0
+category: laptop, supercategory: electronic, spur size: 9420
+FAILURE ::: cat=laptop ::: idx=553126 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000553126.jpg ::: annots=['cell phone', 'cell phone', 'keyboard'] ::: prompt=Do you see a laptop in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+laptop: Acc=99/100 fp=0.01
+category: mouse, supercategory: electronic, spur size: 11068
+mouse: Acc=100/100 fp=0.0
+category: remote, supercategory: electronic, spur size: 9868
+FAILURE ::: cat=remote ::: idx=35434 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000035434.jpg ::: annots=['cell phone', 'person'] ::: prompt=Do you see a remote in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+remote: Acc=99/100 fp=0.01
+category: keyboard, supercategory: electronic, spur size: 10829
+FAILURE ::: cat=keyboard ::: idx=43712 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000043712.jpg ::: annots=['cat', 'laptop', 'laptop'] ::: prompt=Do you see a keyboard in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=keyboard ::: idx=517582 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000517582.jpg ::: annots=['bottle', 'tv', 'laptop', 'mouse'] ::: prompt=Do you see a keyboard in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=keyboard ::: idx=279762 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000279762.jpg ::: annots=['couch', 'person', 'person', 'person', 'laptop', 'remote', 'remote', 'book', 'clock'] ::: prompt=Do you see a keyboard in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=keyboard ::: idx=393692 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000393692.jpg ::: annots=['cell phone', 'cell phone', 'cell phone', 'laptop', 'mouse', 'cell phone'] ::: prompt=Do you see a keyboard in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=keyboard ::: idx=288290 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000288290.jpg ::: annots=['person', 'person', 'person', 'laptop', 'laptop', 'laptop'] ::: prompt=Do you see a keyboard in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+keyboard: Acc=95/100 fp=0.05
+category: cell phone, supercategory: electronic, spur size: 8141
+FAILURE ::: cat=cell phone ::: idx=223114 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000223114.jpg ::: annots=['dog', 'couch', 'remote', 'person'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cell phone ::: idx=405188 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000405188.jpg ::: annots=['tv', 'keyboard', 'mouse'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=cell phone ::: idx=711 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000000711.jpg ::: annots=['cat', 'couch', 'potted plant', 'remote', 'knife', 'chair', 'potted plant', 'potted plant', 'vase', 'vase', 'potted plant', 'potted plant', 'vase', 'vase', 'book', 'couch'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cell phone ::: idx=170952 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000170952.jpg ::: annots=['person', 'person', 'person', 'bottle', 'couch', 'person', 'person', 'chair', 'remote', 'clock'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cell phone ::: idx=102641 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000102641.jpg ::: annots=['remote', 'apple', 'apple', 'apple', 'apple', 'apple', 'apple', 'apple'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cell phone ::: idx=258093 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000258093.jpg ::: annots=['tv', 'bed', 'remote', 'chair'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=cell phone ::: idx=495592 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000495592.jpg ::: annots=['tv', 'person', 'person', 'person', 'baseball bat', 'baseball bat', 'baseball bat', 'person'] ::: prompt=Do you see a cell phone in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+cell phone: Acc=93/100 fp=0.07
+supercategory: sports, size: 23218
+category: frisbee, supercategory: sports, spur size: 21034
+frisbee: Acc=100/100 fp=0.0
+category: skis, supercategory: sports, spur size: 20136
+skis: Acc=100/100 fp=0.0
+category: snowboard, supercategory: sports, spur size: 21564
+snowboard: Acc=100/100 fp=0.0
+category: sports ball, supercategory: sports, spur size: 18956
+FAILURE ::: cat=sports ball ::: idx=104421 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000104421.jpg ::: annots=['dog', 'frisbee'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=152963 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000152963.jpg ::: annots=['person', 'person', 'person', 'person', 'frisbee', 'dog', 'dog', 'person', 'backpack'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=157704 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000157704.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'baseball glove', 'baseball glove', 'person', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sports ball ::: idx=310262 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000310262.jpg ::: annots=['dog', 'person', 'frisbee'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=280008 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000280008.jpg ::: annots=['frisbee', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=455615 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000455615.jpg ::: annots=['person', 'frisbee'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=304997 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000304997.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'baseball bat', 'baseball glove', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=254822 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000254822.jpg ::: annots=['person', 'person', 'person', 'person', 'baseball glove', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'chair', 'person', 'baseball glove', 'baseball glove', 'person', 'baseball glove', 'baseball glove', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=314758 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000314758.jpg ::: annots=['person', 'person', 'person', 'frisbee'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sports ball ::: idx=441751 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000441751.jpg ::: annots=['person', 'person', 'tennis racket', 'person', 'person', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=524401 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000524401.jpg ::: annots=['person', 'person', 'person', 'baseball bat', 'car', 'person', 'person', 'person', 'person', 'bench', 'baseball glove', 'chair'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=94422 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000094422.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'baseball bat', 'baseball glove', 'person', 'person', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sports ball ::: idx=190906 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000190906.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'frisbee', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=462899 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000462899.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'baseball bat', 'baseball glove', 'bench', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=39447 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000039447.jpg ::: annots=['chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'person', 'person', 'person', 'tennis racket', 'backpack', 'person', 'person', 'chair'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=381492 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000381492.jpg ::: annots=['person', 'tennis racket'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=248745 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000248745.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'frisbee', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=sports ball ::: idx=212893 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000212893.jpg ::: annots=['dog', 'couch', 'person', 'frisbee'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=sports ball ::: idx=556547 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000556547.jpg ::: annots=['chair', 'tennis racket', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'chair', 'person', 'chair', 'person', 'person', 'person'] ::: prompt=Do you see a sports ball in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+sports ball: Acc=81/100 fp=0.19
+category: kite, supercategory: sports, spur size: 20957
+kite: Acc=100/100 fp=0.0
+category: baseball bat, supercategory: sports, spur size: 20712
+baseball bat: Acc=100/100 fp=0.0
+category: baseball glove, supercategory: sports, spur size: 20589
+baseball glove: Acc=100/100 fp=0.0
+category: skateboard, supercategory: sports, spur size: 19742
+skateboard: Acc=100/100 fp=0.0
+category: surfboard, supercategory: sports, spur size: 19732
+FAILURE ::: cat=surfboard ::: idx=139294 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000139294.jpg ::: annots=['person', 'snowboard', 'person'] ::: prompt=Do you see a surfboard in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+surfboard: Acc=99/100 fp=0.01
+category: tennis racket, supercategory: sports, spur size: 19824
+tennis racket: Acc=100/100 fp=0.0
+supercategory: accessory, size: 17691
+category: backpack, supercategory: accessory, spur size: 12163
+FAILURE ::: cat=backpack ::: idx=405041 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000405041.jpg ::: annots=['suitcase'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=backpack ::: idx=400516 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000400516.jpg ::: annots=['cell phone', 'handbag', 'handbag', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'handbag', 'cell phone', 'person', 'handbag', 'person', 'cell phone', 'cell phone'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=backpack ::: idx=168316 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000168316.jpg ::: annots=['person', 'bowl', 'teddy bear', 'teddy bear', 'teddy bear', 'potted plant', 'potted plant', 'teddy bear', 'teddy bear', 'teddy bear', 'teddy bear', 'person', 'suitcase', 'suitcase', 'teddy bear', 'teddy bear', 'teddy bear'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=387903 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000387903.jpg ::: annots=['bed', 'bed', 'handbag', 'handbag', 'bed'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=558467 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000558467.jpg ::: annots=['cat', 'cat', 'suitcase'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=546126 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000546126.jpg ::: annots=['umbrella', 'handbag', 'handbag', 'person', 'person', 'person', 'umbrella', 'handbag', 'handbag', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'umbrella', 'person'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=backpack ::: idx=464810 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000464810.jpg ::: annots=['umbrella', 'chair', 'person', 'person', 'vase', 'chair'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=433305 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000433305.jpg ::: annots=['person', 'giraffe', 'handbag', 'teddy bear', 'person', 'giraffe', 'person'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+FAILURE ::: cat=backpack ::: idx=177090 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000177090.jpg ::: annots=['potted plant', 'knife', 'knife', 'knife', 'knife', 'spoon', 'spoon', 'bowl', 'oven', 'toaster', 'toaster', 'sink', 'scissors', 'suitcase', 'bottle', 'cup', 'cup', 'scissors', 'scissors', 'scissors', 'scissors', 'scissors', 'scissors', 'bottle', 'knife', 'bowl', 'bottle', 'bottle', 'bottle', 'bottle', 'cup', 'cup'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=51943 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000051943.jpg ::: annots=['bicycle', 'truck', 'person', 'person', 'person', 'person', 'person', 'handbag', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'handbag', 'person'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=522185 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000522185.jpg ::: annots=['cell phone', 'person', 'toilet', 'handbag'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=backpack ::: idx=91808 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000091808.jpg ::: annots=['bottle', 'tie', 'person', 'handbag', 'person', 'person', 'person'] ::: prompt=Do you see a backpack in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+backpack: Acc=88/100 fp=0.12
+category: umbrella, supercategory: accessory, spur size: 13723
+umbrella: Acc=100/100 fp=0.0
+category: handbag, supercategory: accessory, spur size: 10850
+FAILURE ::: cat=handbag ::: idx=475108 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000475108.jpg ::: annots=['cat', 'suitcase'] ::: prompt=Do you see a handbag in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=handbag ::: idx=86448 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000086448.jpg ::: annots=['bicycle', 'person', 'person', 'backpack', 'person', 'bicycle'] ::: prompt=Do you see a handbag in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=handbag ::: idx=397606 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000397606.jpg ::: annots=['cat', 'suitcase'] ::: prompt=Do you see a handbag in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+handbag: Acc=97/100 fp=0.03
+category: tie, supercategory: accessory, spur size: 13881
+FAILURE ::: cat=tie ::: idx=99104 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000099104.jpg ::: annots=['person', 'person', 'person', 'suitcase', 'person', 'person', 'person'] ::: prompt=Do you see a tie in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+tie: Acc=99/100 fp=0.01
+category: suitcase, supercategory: accessory, spur size: 15289
+FAILURE ::: cat=suitcase ::: idx=91006 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000091006.jpg ::: annots=['cat', 'cat', 'bowl', 'bed', 'backpack'] ::: prompt=Do you see a suitcase in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=suitcase ::: idx=193021 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000193021.jpg ::: annots=['chair', 'chair', 'oven', 'backpack', 'bottle', 'bottle', 'dining table', 'cell phone', 'bottle', 'bottle', 'person'] ::: prompt=Do you see a suitcase in the image? Answer with 'Yes' or 'No'. ::: res=Yes.
+suitcase: Acc=98/100 fp=0.02
+supercategory: animal, size: 23989
+category: bird, supercategory: animal, spur size: 20752
+FAILURE ::: cat=bird ::: idx=52360 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000052360.jpg ::: annots=['giraffe'] ::: prompt=Do you see a bird in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bird ::: idx=409568 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000409568.jpg ::: annots=['tv', 'cat', 'book'] ::: prompt=Do you see a bird in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+bird: Acc=98/100 fp=0.02
+category: cat, supercategory: animal, spur size: 19875
+cat: Acc=100/100 fp=0.0
+category: dog, supercategory: animal, spur size: 19604
+dog: Acc=100/100 fp=0.0
+category: horse, supercategory: animal, spur size: 21048
+FAILURE ::: cat=horse ::: idx=292271 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000292271.jpg ::: annots=['zebra', 'zebra', 'zebra', 'zebra'] ::: prompt=Do you see a horse in the image? Answer with 'Yes' or 'No'. ::: res=Yes
+horse: Acc=99/100 fp=0.01
+category: sheep, supercategory: animal, spur size: 22460
+sheep: Acc=100/100 fp=0.0
+category: cow, supercategory: animal, spur size: 22021
+cow: Acc=100/100 fp=0.0
+category: elephant, supercategory: animal, spur size: 21846
+elephant: Acc=100/100 fp=0.0
+category: bear, supercategory: animal, spur size: 23029
+bear: Acc=100/100 fp=0.0
+category: zebra, supercategory: animal, spur size: 22073
+zebra: Acc=100/100 fp=0.0
+category: giraffe, supercategory: animal, spur size: 21443
+giraffe: Acc=100/100 fp=0.0
+total: Acc=7700/7900 fp=0.025316455696202556
+Results:
+[{'pair': {'prompt': "Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'bottle': (0.16,), 'wine glass': (0.02,), 'cup': (0.1,), 'fork': (0.01,), 'knife': (0.03,), 'spoon': (0.01,), 'bowl': (0.06,), 'banana': (0.0,), 'apple': (0.02,), 'sandwich': (0.05,), 'orange': (0.04,), 'broccoli': (0.01,), 'carrot': (0.0,), 'hot dog': (0.01,), 'pizza': (0.0,), 'donut': (0.01,), 'cake': (0.01,), 'bicycle': (0.01,), 'car': (0.13,), 'motorcycle': (0.0,), 'airplane': (0.0,), 'bus': (0.02,), 'train': (0.0,), 'truck': (0.04,), 'boat': (0.0,), 'chair': (0.2,), 'couch': (0.02,), 'potted plant': (0.02,), 'bed': (0.01,), 'dining table': (0.06,), 'toilet': (0.0,), 'microwave': (0.01,), 'oven': (0.1,), 'toaster': (0.02,), 'sink': (0.08,), 'refrigerator': (0.07,), 'book': (0.0,), 'clock': (0.01,), 'vase': (0.01,), 'scissors': (0.01,), 'teddy bear': (0.02,), 'hair drier': (0.0,), 'toothbrush': (0.0,), 'traffic light': (0.0,), 'fire hydrant': (0.0,), 'stop sign': (0.02,), 'parking meter': (0.03,), 'bench': (0.02,), 'tv': (0.0,), 'laptop': (0.01,), 'mouse': (0.0,), 'remote': (0.01,), 'keyboard': (0.05,), 'cell phone': (0.07,), 'frisbee': (0.0,), 'skis': (0.0,), 'snowboard': (0.0,), 'sports ball': (0.19,), 'kite': (0.0,), 'baseball bat': (0.0,), 'baseball glove': (0.0,), 'skateboard': (0.0,), 'surfboard': (0.01,), 'tennis racket': (0.0,), 'backpack': (0.12,), 'umbrella': (0.0,), 'handbag': (0.03,), 'tie': (0.01,), 'suitcase': (0.02,), 'bird': (0.02,), 'cat': (0.0,), 'dog': (0.0,), 'horse': (0.01,), 'sheep': (0.0,), 'cow': (0.0,), 'elephant': (0.0,), 'bear': (0.0,), 'zebra': (0.0,), 'giraffe': (0.0,), 'total': (0.025316455696202556,)}}]

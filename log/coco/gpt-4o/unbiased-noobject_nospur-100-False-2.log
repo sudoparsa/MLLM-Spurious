@@ -1,0 +1,217 @@
+type(model)=<class 'str'>
+type(processor)=<class 'openai.OpenAI'>
+Prompt: Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.
+Target: Yes
+supercategory: kitchen, size: 20792
+category: bottle, supercategory: kitchen, spur size: 96474
+FAILURE ::: cat=bottle ::: idx=1393 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000001393.jpg ::: annots=['potted plant', 'potted plant', 'vase'] ::: prompt=Determine whether there is a bottle in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+bottle: Acc=99/100 fp=0.01
+category: wine glass, supercategory: kitchen, spur size: 96474
+wine glass: Acc=100/100 fp=0.0
+category: cup, supercategory: kitchen, spur size: 96474
+cup: Acc=100/100 fp=0.0
+category: fork, supercategory: kitchen, spur size: 96474
+FAILURE ::: cat=fork ::: idx=380898 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000380898.jpg ::: annots=['traffic light', 'person', 'car', 'person', 'car'] ::: prompt=Determine whether there is a fork in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=fork ::: idx=62068 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000062068.jpg ::: annots=['suitcase', 'person', 'person'] ::: prompt=Determine whether there is a fork in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=fork ::: idx=487217 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000487217.jpg ::: annots=['traffic light', 'traffic light', 'traffic light', 'person', 'person', 'person', 'person', 'person', 'traffic light', 'person', 'car', 'car', 'car', 'person', 'car', 'car', 'car', 'car', 'car', 'truck', 'person'] ::: prompt=Determine whether there is a fork in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=fork ::: idx=549720 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000549720.jpg ::: annots=['stop sign'] ::: prompt=Determine whether there is a fork in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=fork ::: idx=365041 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000365041.jpg ::: annots=['car', 'car', 'car', 'car', 'car', 'car', 'car', 'truck', 'car'] ::: prompt=Determine whether there is a fork in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=fork ::: idx=383777 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000383777.jpg ::: annots=['bicycle', 'car', 'person', 'truck', 'person', 'car'] ::: prompt=Determine whether there is a fork in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+fork: Acc=94/100 fp=0.06
+category: knife, supercategory: kitchen, spur size: 96474
+knife: Acc=100/100 fp=0.0
+category: spoon, supercategory: kitchen, spur size: 96474
+FAILURE ::: cat=spoon ::: idx=477438 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000477438.jpg ::: annots=['dog', 'couch', 'person', 'tie'] ::: prompt=Determine whether there is a spoon in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+spoon: Acc=99/100 fp=0.01
+category: bowl, supercategory: kitchen, spur size: 96474
+FAILURE ::: cat=bowl ::: idx=250075 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000250075.jpg ::: annots=['sink', 'sink', 'vase'] ::: prompt=Determine whether there is a bowl in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bowl ::: idx=427523 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000427523.jpg ::: annots=['horse', 'horse', 'tie', 'truck', 'person', 'person', 'person', 'person', 'person', 'person', 'truck', 'person', 'person', 'person', 'person', 'person', 'person', 'bus', 'person', 'person'] ::: prompt=Determine whether there is a bowl in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+bowl: Acc=98/100 fp=0.02
+supercategory: food, size: 16255
+category: banana, supercategory: food, spur size: 101011
+banana: Acc=100/100 fp=0.0
+category: apple, supercategory: food, spur size: 101011
+apple: Acc=100/100 fp=0.0
+category: sandwich, supercategory: food, spur size: 101011
+sandwich: Acc=100/100 fp=0.0
+category: orange, supercategory: food, spur size: 101011
+FAILURE ::: cat=orange ::: idx=271729 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000271729.jpg ::: annots=['surfboard', 'surfboard', 'surfboard', 'surfboard', 'snowboard', 'surfboard', 'surfboard', 'snowboard', 'snowboard', 'skateboard'] ::: prompt=Determine whether there is a orange in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=orange ::: idx=174137 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000174137.jpg ::: annots=['cat', 'cat', 'suitcase', 'bed'] ::: prompt=Determine whether there is a orange in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=orange ::: idx=522301 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000522301.jpg ::: annots=['fire hydrant'] ::: prompt=Determine whether there is a orange in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+orange: Acc=97/100 fp=0.03
+category: broccoli, supercategory: food, spur size: 101011
+broccoli: Acc=100/100 fp=0.0
+category: carrot, supercategory: food, spur size: 101011
+carrot: Acc=100/100 fp=0.0
+category: hot dog, supercategory: food, spur size: 101011
+hot dog: Acc=100/100 fp=0.0
+category: pizza, supercategory: food, spur size: 101011
+pizza: Acc=100/100 fp=0.0
+category: donut, supercategory: food, spur size: 101011
+donut: Acc=100/100 fp=0.0
+category: cake, supercategory: food, spur size: 101011
+cake: Acc=100/100 fp=0.0
+supercategory: vehicle, size: 27358
+category: bicycle, supercategory: vehicle, spur size: 89908
+bicycle: Acc=100/100 fp=0.0
+category: car, supercategory: vehicle, spur size: 89908
+car: Acc=100/100 fp=0.0
+category: motorcycle, supercategory: vehicle, spur size: 89908
+motorcycle: Acc=100/100 fp=0.0
+category: airplane, supercategory: vehicle, spur size: 89908
+airplane: Acc=100/100 fp=0.0
+category: bus, supercategory: vehicle, spur size: 89908
+bus: Acc=100/100 fp=0.0
+category: train, supercategory: vehicle, spur size: 89908
+FAILURE ::: cat=train ::: idx=74743 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000074743.jpg ::: annots=['couch'] ::: prompt=Determine whether there is a train in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+train: Acc=99/100 fp=0.01
+category: truck, supercategory: vehicle, spur size: 89908
+truck: Acc=100/100 fp=0.0
+category: boat, supercategory: vehicle, spur size: 89908
+FAILURE ::: cat=boat ::: idx=474233 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000474233.jpg ::: annots=['dog', 'person', 'surfboard'] ::: prompt=Determine whether there is a boat in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+boat: Acc=99/100 fp=0.01
+supercategory: furniture, size: 29481
+category: chair, supercategory: furniture, spur size: 87785
+FAILURE ::: cat=chair ::: idx=258509 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000258509.jpg ::: annots=['handbag', 'book'] ::: prompt=Determine whether there is a chair in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=534972 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000534972.jpg ::: annots=['cat', 'laptop', 'keyboard', 'person'] ::: prompt=Determine whether there is a chair in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=chair ::: idx=2154 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000002154.jpg ::: annots=['car', 'person', 'person', 'person', 'bench', 'car', 'umbrella', 'umbrella', 'umbrella', 'car', 'person', 'car', 'car'] ::: prompt=Determine whether there is a chair in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+chair: Acc=97/100 fp=0.03
+category: couch, supercategory: furniture, spur size: 87785
+FAILURE ::: cat=couch ::: idx=151637 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000151637.jpg ::: annots=['person', 'cup', 'cup', 'remote', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book', 'book'] ::: prompt=Determine whether there is a couch in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+couch: Acc=99/100 fp=0.01
+category: potted plant, supercategory: furniture, spur size: 87785
+FAILURE ::: cat=potted plant ::: idx=507958 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000507958.jpg ::: annots=['bottle', 'bottle', 'bottle', 'wine glass', 'cup', 'apple', 'microwave', 'cup', 'cup', 'cup', 'cup', 'cup', 'cup', 'cup', 'cup', 'bowl', 'bowl', 'bowl', 'bowl', 'bowl', 'bowl', 'bowl', 'bowl', 'bowl', 'cup', 'bottle', 'cup', 'cup', 'cup'] ::: prompt=Determine whether there is a potted plant in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=potted plant ::: idx=15274 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000015274.jpg ::: annots=['umbrella'] ::: prompt=Determine whether there is a potted plant in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=potted plant ::: idx=467318 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000467318.jpg ::: annots=['dog', 'person', 'person', 'book'] ::: prompt=Determine whether there is a potted plant in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=potted plant ::: idx=247714 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000247714.jpg ::: annots=['bus', 'bus', 'person'] ::: prompt=Determine whether there is a potted plant in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=potted plant ::: idx=477149 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000477149.jpg ::: annots=['person', 'person', 'vase', 'person', 'person', 'person', 'person'] ::: prompt=Determine whether there is a potted plant in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+potted plant: Acc=95/100 fp=0.05
+category: bed, supercategory: furniture, spur size: 87785
+bed: Acc=100/100 fp=0.0
+category: dining table, supercategory: furniture, spur size: 87785
+FAILURE ::: cat=dining table ::: idx=384335 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000384335.jpg ::: annots=['cell phone', 'handbag'] ::: prompt=Determine whether there is a dining table in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+dining table: Acc=99/100 fp=0.01
+category: toilet, supercategory: furniture, spur size: 87785
+toilet: Acc=100/100 fp=0.0
+supercategory: appliance, size: 7880
+category: microwave, supercategory: appliance, spur size: 109386
+microwave: Acc=100/100 fp=0.0
+category: oven, supercategory: appliance, spur size: 109386
+oven: Acc=100/100 fp=0.0
+category: toaster, supercategory: appliance, spur size: 109386
+toaster: Acc=100/100 fp=0.0
+category: sink, supercategory: appliance, spur size: 109386
+FAILURE ::: cat=sink ::: idx=143666 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000143666.jpg ::: annots=['person', 'skateboard'] ::: prompt=Determine whether there is a sink in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+sink: Acc=99/100 fp=0.01
+category: refrigerator, supercategory: appliance, spur size: 109386
+refrigerator: Acc=100/100 fp=0.0
+supercategory: indoor, size: 15847
+category: book, supercategory: indoor, spur size: 101419
+FAILURE ::: cat=book ::: idx=543171 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000543171.jpg ::: annots=['toilet', 'toilet'] ::: prompt=Determine whether there is a book in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=book ::: idx=106849 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000106849.jpg ::: annots=['cell phone', 'person', 'person', 'wine glass', 'bowl', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bottle', 'bowl', 'dining table', 'bottle', 'bowl', 'bowl', 'bottle'] ::: prompt=Determine whether there is a book in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+book: Acc=98/100 fp=0.02
+category: clock, supercategory: indoor, spur size: 101419
+clock: Acc=100/100 fp=0.0
+category: vase, supercategory: indoor, spur size: 101419
+FAILURE ::: cat=vase ::: idx=258516 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000258516.jpg ::: annots=['orange', 'bottle', 'carrot'] ::: prompt=Determine whether there is a vase in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=vase ::: idx=458821 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000458821.jpg ::: annots=['bottle', 'toilet', 'sink', 'person'] ::: prompt=Determine whether there is a vase in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+vase: Acc=98/100 fp=0.02
+category: scissors, supercategory: indoor, spur size: 101419
+scissors: Acc=100/100 fp=0.0
+category: teddy bear, supercategory: indoor, spur size: 101419
+teddy bear: Acc=100/100 fp=0.0
+category: hair drier, supercategory: indoor, spur size: 101419
+hair drier: Acc=100/100 fp=0.0
+category: toothbrush, supercategory: indoor, spur size: 101419
+toothbrush: Acc=100/100 fp=0.0
+supercategory: outdoor, size: 12880
+category: traffic light, supercategory: outdoor, spur size: 104386
+FAILURE ::: cat=traffic light ::: idx=287519 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000287519.jpg ::: annots=['cell phone', 'person', 'person', 'car', 'truck', 'person'] ::: prompt=Determine whether there is a traffic light in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+traffic light: Acc=99/100 fp=0.01
+category: fire hydrant, supercategory: outdoor, spur size: 104386
+fire hydrant: Acc=100/100 fp=0.0
+category: stop sign, supercategory: outdoor, spur size: 104386
+stop sign: Acc=100/100 fp=0.0
+category: parking meter, supercategory: outdoor, spur size: 104386
+parking meter: Acc=100/100 fp=0.0
+category: bench, supercategory: outdoor, spur size: 104386
+FAILURE ::: cat=bench ::: idx=5907 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000005907.jpg ::: annots=['bird', 'bird', 'bird', 'chair', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bird', 'bottle', 'bird'] ::: prompt=Determine whether there is a bench in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bench ::: idx=418409 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000418409.jpg ::: annots=['person', 'laptop', 'handbag', 'apple', 'couch'] ::: prompt=Determine whether there is a bench in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+bench: Acc=98/100 fp=0.02
+supercategory: electronic, size: 12944
+category: tv, supercategory: electronic, spur size: 104322
+FAILURE ::: cat=tv ::: idx=114249 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000114249.jpg ::: annots=['person', 'person', 'person', 'person', 'person', 'person', 'person', 'baseball bat', 'person', 'person', 'person', 'person', 'baseball glove', 'baseball glove', 'person'] ::: prompt=Determine whether there is a tv in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+tv: Acc=99/100 fp=0.01
+category: laptop, supercategory: electronic, spur size: 104322
+laptop: Acc=100/100 fp=0.0
+category: mouse, supercategory: electronic, spur size: 104322
+mouse: Acc=100/100 fp=0.0
+category: remote, supercategory: electronic, spur size: 104322
+remote: Acc=100/100 fp=0.0
+category: keyboard, supercategory: electronic, spur size: 104322
+keyboard: Acc=100/100 fp=0.0
+category: cell phone, supercategory: electronic, spur size: 104322
+cell phone: Acc=100/100 fp=0.0
+supercategory: sports, size: 23218
+category: frisbee, supercategory: sports, spur size: 94048
+FAILURE ::: cat=frisbee ::: idx=485077 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000485077.jpg ::: annots=['bottle', 'tie', 'tie', 'person', 'person', 'person', 'person', 'handbag'] ::: prompt=Determine whether there is a frisbee in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+frisbee: Acc=99/100 fp=0.01
+category: skis, supercategory: sports, spur size: 94048
+skis: Acc=100/100 fp=0.0
+category: snowboard, supercategory: sports, spur size: 94048
+snowboard: Acc=100/100 fp=0.0
+category: sports ball, supercategory: sports, spur size: 94048
+sports ball: Acc=100/100 fp=0.0
+category: kite, supercategory: sports, spur size: 94048
+kite: Acc=100/100 fp=0.0
+category: baseball bat, supercategory: sports, spur size: 94048
+baseball bat: Acc=100/100 fp=0.0
+category: baseball glove, supercategory: sports, spur size: 94048
+baseball glove: Acc=100/100 fp=0.0
+category: skateboard, supercategory: sports, spur size: 94048
+skateboard: Acc=100/100 fp=0.0
+category: surfboard, supercategory: sports, spur size: 94048
+surfboard: Acc=100/100 fp=0.0
+category: tennis racket, supercategory: sports, spur size: 94048
+tennis racket: Acc=100/100 fp=0.0
+supercategory: accessory, size: 17691
+category: backpack, supercategory: accessory, spur size: 99575
+backpack: Acc=100/100 fp=0.0
+category: umbrella, supercategory: accessory, spur size: 99575
+umbrella: Acc=100/100 fp=0.0
+category: handbag, supercategory: accessory, spur size: 99575
+FAILURE ::: cat=handbag ::: idx=284042 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000284042.jpg ::: annots=['scissors', 'book'] ::: prompt=Determine whether there is a handbag in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+handbag: Acc=99/100 fp=0.01
+category: tie, supercategory: accessory, spur size: 99575
+FAILURE ::: cat=tie ::: idx=230893 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000230893.jpg ::: annots=['bicycle', 'bus', 'person', 'person', 'person', 'person', 'car', 'car', 'car', 'car', 'car', 'car', 'car', 'car', 'car', 'car', 'car', 'bus', 'truck', 'traffic light', 'car', 'truck', 'car', 'car'] ::: prompt=Determine whether there is a tie in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=tie ::: idx=20509 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000020509.jpg ::: annots=['person', 'skateboard'] ::: prompt=Determine whether there is a tie in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+tie: Acc=98/100 fp=0.02
+category: suitcase, supercategory: accessory, spur size: 99575
+suitcase: Acc=100/100 fp=0.0
+supercategory: animal, size: 23989
+category: bird, supercategory: animal, spur size: 93277
+FAILURE ::: cat=bird ::: idx=249969 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000249969.jpg ::: annots=['fork', 'knife', 'spoon', 'broccoli', 'broccoli', 'carrot', 'wine glass', 'wine glass', 'dining table'] ::: prompt=Determine whether there is a bird in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+bird: Acc=99/100 fp=0.01
+category: cat, supercategory: animal, spur size: 93277
+cat: Acc=100/100 fp=0.0
+category: dog, supercategory: animal, spur size: 93277
+dog: Acc=100/100 fp=0.0
+category: horse, supercategory: animal, spur size: 93277
+horse: Acc=100/100 fp=0.0
+category: sheep, supercategory: animal, spur size: 93277
+sheep: Acc=100/100 fp=0.0
+category: cow, supercategory: animal, spur size: 93277
+cow: Acc=100/100 fp=0.0
+category: elephant, supercategory: animal, spur size: 93277
+elephant: Acc=100/100 fp=0.0
+category: bear, supercategory: animal, spur size: 93277
+FAILURE ::: cat=bear ::: idx=278078 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000278078.jpg ::: annots=['person', 'teddy bear', 'teddy bear', 'teddy bear', 'teddy bear', 'teddy bear', 'teddy bear', 'teddy bear'] ::: prompt=Determine whether there is a bear in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+FAILURE ::: cat=bear ::: idx=480926 ::: path=/p/vast1/cai6/sumit_storage/coco/images/train2017/000000480926.jpg ::: annots=['teddy bear'] ::: prompt=Determine whether there is a bear in the image. Reply with 'Yes' or 'No'. ::: res=Yes
+bear: Acc=98/100 fp=0.02
+category: zebra, supercategory: animal, spur size: 93277
+zebra: Acc=100/100 fp=0.0
+category: giraffe, supercategory: animal, spur size: 93277
+giraffe: Acc=100/100 fp=0.0
+total: Acc=7859/7900 fp=0.00518987341772148
+Results:
+[{'pair': {'prompt': "Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'bottle': (0.01,), 'wine glass': (0.0,), 'cup': (0.0,), 'fork': (0.06,), 'knife': (0.0,), 'spoon': (0.01,), 'bowl': (0.02,), 'banana': (0.0,), 'apple': (0.0,), 'sandwich': (0.0,), 'orange': (0.03,), 'broccoli': (0.0,), 'carrot': (0.0,), 'hot dog': (0.0,), 'pizza': (0.0,), 'donut': (0.0,), 'cake': (0.0,), 'bicycle': (0.0,), 'car': (0.0,), 'motorcycle': (0.0,), 'airplane': (0.0,), 'bus': (0.0,), 'train': (0.01,), 'truck': (0.0,), 'boat': (0.01,), 'chair': (0.03,), 'couch': (0.01,), 'potted plant': (0.05,), 'bed': (0.0,), 'dining table': (0.01,), 'toilet': (0.0,), 'microwave': (0.0,), 'oven': (0.0,), 'toaster': (0.0,), 'sink': (0.01,), 'refrigerator': (0.0,), 'book': (0.02,), 'clock': (0.0,), 'vase': (0.02,), 'scissors': (0.0,), 'teddy bear': (0.0,), 'hair drier': (0.0,), 'toothbrush': (0.0,), 'traffic light': (0.01,), 'fire hydrant': (0.0,), 'stop sign': (0.0,), 'parking meter': (0.0,), 'bench': (0.02,), 'tv': (0.01,), 'laptop': (0.0,), 'mouse': (0.0,), 'remote': (0.0,), 'keyboard': (0.0,), 'cell phone': (0.0,), 'frisbee': (0.01,), 'skis': (0.0,), 'snowboard': (0.0,), 'sports ball': (0.0,), 'kite': (0.0,), 'baseball bat': (0.0,), 'baseball glove': (0.0,), 'skateboard': (0.0,), 'surfboard': (0.0,), 'tennis racket': (0.0,), 'backpack': (0.0,), 'umbrella': (0.0,), 'handbag': (0.01,), 'tie': (0.02,), 'suitcase': (0.0,), 'bird': (0.01,), 'cat': (0.0,), 'dog': (0.0,), 'horse': (0.0,), 'sheep': (0.0,), 'cow': (0.0,), 'elephant': (0.0,), 'bear': (0.02,), 'zebra': (0.0,), 'giraffe': (0.0,), 'total': (0.00518987341772148,)}}]
