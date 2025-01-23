@@ -1,0 +1,6 @@
+type(model)=<class 'transformers.models.mllama.modeling_mllama.MllamaForConditionalGeneration'>
+type(processor)=<class 'transformers.models.mllama.processing_mllama.MllamaProcessor'>
+Prompt: Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.
+Target: Yes
+supercategory: kitchen, size: 20792
+category: bottle, supercategory: kitchen, spur size: 12291
