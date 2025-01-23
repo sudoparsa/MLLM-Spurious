@@ -25,10 +25,10 @@ from token_dropping.ModifiedLlava import ModifiedLlavaNextForConditionalGenerati
 
 device = 'cuda'
 _MASK_ROOT = '/workspace/MLLM-Spurious/hardImageNet'
-_IMAGENET_ROOT = '/workspace/MLLM-Spurious/HardImageNet_Images'
+_IMAGENET_ROOT = '/var/tmp/cai6/parsahs/imagenet'
 HARD_IMAGE_NET_DIR = '/workspace/MLLM-Spurious/hardImageNet'
 CACHE_DIR = "/p/vast1/cai6/parsahs/huggingface/hub"
-SPURIOUS_IMAGENET_DIR = "/workspace/MLLM-Spurious/images"
+SPURIOUS_IMAGENET_DIR = "/var/tmp/cai6/parsahs/images"
 COCO_PATH = "/p/vast1/cai6/sumit_storage/coco"
 
 
@@ -287,13 +287,13 @@ def vllm_decoding(inputs, output_ids, processor) -> str:
     return output_text[0]
 
 
-def get_vllm_output(model, processor, prompt, image):
+def get_vllm_output(model, processor, prompt, image, max_new_tokens=2048):
     if model == 'gpt-4o':
         return get_gpt_output(processor, prompt, image)
     # package inputs in expected format
     inputs = vllm_standard_preprocessing(model, processor, prompt, image)
     # Inference: Generation of the output
-    output_ids = model.generate(**inputs, max_new_tokens=2048)
+    output_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
     # decoding
     return vllm_decoding(inputs, output_ids, processor)
 

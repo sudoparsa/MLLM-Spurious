@@ -6,9 +6,7 @@ import shutil
 log_path = '/p/vast1/cai6/parsahs/MLLM-Spurious/results/coco/qwen/unbiased-noobject_spur.log'
 out_dir = '/p/vast1/cai6/parsahs/MLLM-Spurious/results_images/coco/qwen'
 
-f = open(log_path)
 
-results = []
 
 with open(log_path, 'r') as file:
     for line in file:
