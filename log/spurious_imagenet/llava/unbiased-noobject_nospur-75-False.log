@@ -1,0 +1,834 @@
+hard_imagenet_idx: [537, 379, 785, 795, 837, 433, 416, 602, 706, 746, 655, 810, 890, 981, 801]
+imagenet_classnames: 1000
+idx_to_wnid: 1000
+paths_by_rank: dict_keys([379, 416, 433, 537, 602, 655, 706, 746, 785, 795, 801, 810, 837, 890, 981])
+img_rankings_by_idx_tr: 1000 : dict_keys(['bot', 'top']) 300
+537 dog sled n03218198
+379 howler monkey n02492660
+785 seat belt n04162706
+795 ski n04228054
+837 sunglasses n04356056
+433 swimming cap n02807133
+416 balance beam n02777292
+602 gymnastic horizontal bar n03535780
+706 patio n03899768
+746 hockey puck n04019541
+655 miniskirt n03770439
+810 keyboard space bar n04264628
+890 volleyball n04540053
+981 baseball player n09835506
+801 snorkel n04251144
+type(model)=<class 'transformers.models.llava_next.modeling_llava_next.LlavaNextForConditionalGeneration'>
+type(processor)=<class 'transformers.models.llava_next.processing_llava_next.LlavaNextProcessor'>
+Loading ImageNet... (Be patient!)
+Prompt: Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.
+Target: Yes
+FAILURE ::: class_name='tench' ::: idx=690 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03868242/n03868242_12656.JPEG
+FAILURE ::: class_name='tench' ::: idx=892 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04548280/n04548280_6209.JPEG
+FAILURE ::: class_name='tench' ::: idx=10 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01530575/n01530575_3667.JPEG
+FAILURE ::: class_name='tench' ::: idx=691 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03868863/n03868863_12377.JPEG
+FAILURE ::: class_name='tench' ::: idx=586 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03478589/n03478589_17864.JPEG
+FAILURE ::: class_name='tench' ::: idx=988 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n12267677/n12267677_23737.JPEG
+FAILURE ::: class_name='tench' ::: idx=432 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02804610/n02804610_16012.JPEG
+FAILURE ::: class_name='tench' ::: idx=70 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01770081/n01770081_19523.JPEG
+FAILURE ::: class_name='tench' ::: idx=752 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04039381/n04039381_16362.JPEG
+FAILURE ::: class_name='tench' ::: idx=904 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04589890/n04589890_2916.JPEG
+FAILURE ::: class_name='tench' ::: idx=115 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01950731/n01950731_252.JPEG
+FAILURE ::: class_name='tench' ::: idx=997 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n13054560/n13054560_12201.JPEG
+FAILURE ::: class_name='tench' ::: idx=280 ::: prompt="Do you see a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02120505/n02120505_8579.JPEG
+0 tench 13/75
+2 great white shark 0/75
+FAILURE ::: class_name='cowboy hat' ::: idx=391 ::: prompt="Do you see a cowboy hat in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02536864/n02536864_20509.JPEG
+FAILURE ::: class_name='cowboy hat' ::: idx=346 ::: prompt="Do you see a cowboy hat in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02408429/n02408429_4700.JPEG
+FAILURE ::: class_name='cowboy hat' ::: idx=665 ::: prompt="Do you see a cowboy hat in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03785016/n03785016_2230.JPEG
+515 cowboy hat 3/75
+FAILURE ::: class_name='cradle' ::: idx=554 ::: prompt="Do you see a cradle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03344393/n03344393_4071.JPEG
+516 cradle 1/75
+FAILURE ::: class_name='dam' ::: idx=132 ::: prompt="Do you see a dam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02009912/n02009912_5732.JPEG
+FAILURE ::: class_name='dam' ::: idx=513 ::: prompt="Do you see a dam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03110669/n03110669_12356.JPEG
+FAILURE ::: class_name='dam' ::: idx=258 ::: prompt="Do you see a dam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02111889/n02111889_5603.JPEG
+525 dam 3/75
+14 indigo bunting 0/75
+537 dog sled 0/75
+FAILURE ::: class_name='dumbbell' ::: idx=540 ::: prompt="Do you see a dumbbell in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03240683/n03240683_2238.JPEG
+543 dumbbell 1/75
+554 fireboat 0/75
+FAILURE ::: class_name='agama' ::: idx=46 ::: prompt="Do you see a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01693334/n01693334_2330.JPEG
+FAILURE ::: class_name='agama' ::: idx=138 ::: prompt="Do you see a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02018795/n02018795_4634.JPEG
+FAILURE ::: class_name='agama' ::: idx=27 ::: prompt="Do you see a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01631663/n01631663_7856.JPEG
+42 agama 3/75
+FAILURE ::: class_name='flagpole' ::: idx=768 ::: prompt="Do you see a flagpole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04118538/n04118538_2645.JPEG
+FAILURE ::: class_name='flagpole' ::: idx=405 ::: prompt="Do you see a flagpole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02692877/n02692877_4043.JPEG
+FAILURE ::: class_name='flagpole' ::: idx=724 ::: prompt="Do you see a flagpole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03947888/n03947888_27605.JPEG
+557 flagpole 3/75
+50 American alligator 0/75
+563 fountain pen 0/75
+565 freight car 0/75
+58 water snake 0/75
+FAILURE ::: class_name='gondola' ::: idx=788 ::: prompt="Do you see a gondola in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04200800/n04200800_39908.JPEG
+FAILURE ::: class_name='gondola' ::: idx=644 ::: prompt="Do you see a gondola in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03729826/n03729826_7866.JPEG
+FAILURE ::: class_name='gondola' ::: idx=432 ::: prompt="Do you see a gondola in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02804610/n02804610_12689.JPEG
+576 gondola 3/75
+585 hair spray 0/75
+FAILURE ::: class_name='hamper' ::: idx=243 ::: prompt="Do you see a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108422/n02108422_224.JPEG
+FAILURE ::: class_name='hamper' ::: idx=827 ::: prompt="Do you see a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04330267/n04330267_7040.JPEG
+588 hamper 2/75
+FAILURE ::: class_name='black grouse' ::: idx=85 ::: prompt="Do you see a black grouse in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01806567/n01806567_13768.JPEG
+FAILURE ::: class_name='black grouse' ::: idx=334 ::: prompt="Do you see a black grouse in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02346627/n02346627_329.JPEG
+80 black grouse 2/75
+FAILURE ::: class_name='ptarmigan' ::: idx=362 ::: prompt="Do you see a ptarmigan in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02447366/n02447366_203.JPEG
+FAILURE ::: class_name='ptarmigan' ::: idx=250 ::: prompt="Do you see a ptarmigan in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02110185/n02110185_5285.JPEG
+81 ptarmigan 2/75
+82 ruffed grouse 0/75
+FAILURE ::: class_name='hard disk drive' ::: idx=831 ::: prompt="Do you see a hard disk drive in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04344873/n04344873_16600.JPEG
+592 hard disk drive 1/75
+89 sulphur-crested cockatoo 0/75
+FAILURE ::: class_name='gymnastic horizontal bar' ::: idx=830 ::: prompt="Do you see a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04336792/n04336792_6244.JPEG
+FAILURE ::: class_name='gymnastic horizontal bar' ::: idx=694 ::: prompt="Do you see a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03874293/n03874293_12691.JPEG
+602 gymnastic horizontal bar 2/75
+FAILURE ::: class_name='coucal' ::: idx=41 ::: prompt="Do you see a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01685808/n01685808_7395.JPEG
+FAILURE ::: class_name='coucal' ::: idx=425 ::: prompt="Do you see a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02793495/n02793495_15668.JPEG
+FAILURE ::: class_name='coucal' ::: idx=351 ::: prompt="Do you see a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02422106/n02422106_11583.JPEG
+FAILURE ::: class_name='coucal' ::: idx=142 ::: prompt="Do you see a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02033041/n02033041_13331.JPEG
+91 coucal 4/75
+FAILURE ::: class_name='hummingbird' ::: idx=565 ::: prompt="Do you see a hummingbird in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03393912/n03393912_16275.JPEG
+FAILURE ::: class_name='hummingbird' ::: idx=448 ::: prompt="Do you see a hummingbird in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02843684/n02843684_1703.JPEG
+94 hummingbird 2/75
+103 platypus 0/75
+FAILURE ::: class_name='koala' ::: idx=748 ::: prompt="Do you see a koala in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04026417/n04026417_21843.JPEG
+FAILURE ::: class_name='koala' ::: idx=520 ::: prompt="Do you see a koala in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03131574/n03131574_16088.JPEG
+FAILURE ::: class_name='koala' ::: idx=541 ::: prompt="Do you see a koala in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03249569/n03249569_18677.JPEG
+105 koala 3/75
+FAILURE ::: class_name='lighter' ::: idx=849 ::: prompt="Do you see a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04398044/n04398044_1876.JPEG
+FAILURE ::: class_name='lighter' ::: idx=860 ::: prompt="Do you see a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04443257/n04443257_34310.JPEG
+FAILURE ::: class_name='lighter' ::: idx=918 ::: prompt="Do you see a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n06785654/n06785654_12009.JPEG
+626 lighter 3/75
+FAILURE ::: class_name='miniskirt' ::: idx=882 ::: prompt="Do you see a miniskirt in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04517823/n04517823_13193.JPEG
+655 miniskirt 1/75
+147 grey whale 0/75
+FAILURE ::: class_name='graduation cap' ::: idx=468 ::: prompt="Do you see a graduation cap in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02930766/n02930766_37860.JPEG
+FAILURE ::: class_name='graduation cap' ::: idx=668 ::: prompt="Do you see a graduation cap in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03788195/n03788195_2295.JPEG
+FAILURE ::: class_name='graduation cap' ::: idx=642 ::: prompt="Do you see a graduation cap in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03721384/n03721384_27382.JPEG
+667 graduation cap 3/75
+671 mountain bike 0/75
+FAILURE ::: class_name='neck brace' ::: idx=523 ::: prompt="Do you see a neck brace in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03141823/n03141823_10041.JPEG
+FAILURE ::: class_name='neck brace' ::: idx=676 ::: prompt="Do you see a neck brace in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03803284/n03803284_5192.JPEG
+678 neck brace 2/75
+680 baby pacifier 0/75
+FAILURE ::: class_name='obelisk' ::: idx=715 ::: prompt="Do you see a obelisk in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03929855/n03929855_2180.JPEG
+FAILURE ::: class_name='obelisk' ::: idx=517 ::: prompt="Do you see a obelisk in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03126707/n03126707_14973.JPEG
+FAILURE ::: class_name='obelisk' ::: idx=503 ::: prompt="Do you see a obelisk in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03062245/n03062245_281.JPEG
+682 obelisk 3/75
+FAILURE ::: class_name='ocarina' ::: idx=542 ::: prompt="Do you see a ocarina in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03250847/n03250847_5360.JPEG
+684 ocarina 1/75
+695 padlock 0/75
+FAILURE ::: class_name='parallel bars' ::: idx=680 ::: prompt="Do you see a parallel bars in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03825788/n03825788_15506.JPEG
+702 parallel bars 1/75
+709 pencil case 0/75
+FAILURE ::: class_name='pill bottle' ::: idx=526 ::: prompt="Do you see a pill bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03179701/n03179701_10338.JPEG
+FAILURE ::: class_name='pill bottle' ::: idx=438 ::: prompt="Do you see a pill bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02815834/n02815834_835.JPEG
+720 pill bottle 2/75
+FAILURE ::: class_name='ping-pong ball' ::: idx=794 ::: prompt="Do you see a ping-pong ball in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04209239/n04209239_1646.JPEG
+FAILURE ::: class_name='ping-pong ball' ::: idx=260 ::: prompt="Do you see a ping-pong ball in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02112137/n02112137_5696.JPEG
+FAILURE ::: class_name='ping-pong ball' ::: idx=154 ::: prompt="Do you see a ping-pong ball in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02086079/n02086079_3245.JPEG
+722 ping-pong ball 3/75
+FAILURE ::: class_name='plastic bag' ::: idx=999 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n15075141/n15075141_1183.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=513 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03110669/n03110669_73015.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=492 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03014705/n03014705_22729.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=391 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02536864/n02536864_13548.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=283 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02123394/n02123394_4776.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=771 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04125021/n04125021_10100.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=961 ::: prompt="Do you see a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07860988/n07860988_889.JPEG
+728 plastic bag 7/75
+731 plunger 0/75
+FAILURE ::: class_name='pole' ::: idx=625 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03662601/n03662601_8787.JPEG
+FAILURE ::: class_name='pole' ::: idx=905 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04590129/n04590129_4483.JPEG
+FAILURE ::: class_name='pole' ::: idx=367 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02481823/n02481823_1287.JPEG
+FAILURE ::: class_name='pole' ::: idx=525 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03160309/n03160309_34743.JPEG
+FAILURE ::: class_name='pole' ::: idx=609 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03594945/n03594945_18030.JPEG
+FAILURE ::: class_name='pole' ::: idx=460 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02894605/n02894605_79925.JPEG
+FAILURE ::: class_name='pole' ::: idx=12 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01532829/n01532829_5642.JPEG
+FAILURE ::: class_name='pole' ::: idx=603 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03538406/n03538406_10207.JPEG
+FAILURE ::: class_name='pole' ::: idx=807 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04258138/n04258138_3014.JPEG
+FAILURE ::: class_name='pole' ::: idx=246 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02109047/n02109047_7463.JPEG
+FAILURE ::: class_name='pole' ::: idx=547 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03272562/n03272562_18008.JPEG
+FAILURE ::: class_name='pole' ::: idx=614 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03617480/n03617480_8534.JPEG
+FAILURE ::: class_name='pole' ::: idx=686 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03843555/n03843555_2161.JPEG
+FAILURE ::: class_name='pole' ::: idx=96 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01843383/n01843383_9500.JPEG
+FAILURE ::: class_name='pole' ::: idx=675 ::: prompt="Do you see a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03796401/n03796401_15240.JPEG
+733 pole 15/75
+FAILURE ::: class_name='soda bottle' ::: idx=585 ::: prompt="Do you see a soda bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03476991/n03476991_14059.JPEG
+FAILURE ::: class_name='soda bottle' ::: idx=910 ::: prompt="Do you see a soda bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04597913/n04597913_5879.JPEG
+FAILURE ::: class_name='soda bottle' ::: idx=363 ::: prompt="Do you see a soda bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02454379/n02454379_3448.JPEG
+737 soda bottle 3/75
+FAILURE ::: class_name='plant pot' ::: idx=816 ::: prompt="Do you see a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04277352/n04277352_8123.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=225 ::: prompt="Do you see a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02105162/n02105162_3353.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=407 ::: prompt="Do you see a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02701002/n02701002_1662.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=358 ::: prompt="Do you see a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02443114/n02443114_17282.JPEG
+738 plant pot 4/75
+FAILURE ::: class_name="potter's wheel" ::: idx=618 ::: prompt="Do you see a potter's wheel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03633091/n03633091_14842.JPEG
+739 potter's wheel 1/75
+746 hockey puck 0/75
+FAILURE ::: class_name='quill' ::: idx=41 ::: prompt="Do you see a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01685808/n01685808_5453.JPEG
+FAILURE ::: class_name='quill' ::: idx=432 ::: prompt="Do you see a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02804610/n02804610_5267.JPEG
+FAILURE ::: class_name='quill' ::: idx=623 ::: prompt="Do you see a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03658185/n03658185_168.JPEG
+FAILURE ::: class_name='quill' ::: idx=632 ::: prompt="Do you see a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03691459/n03691459_59706.JPEG
+FAILURE ::: class_name='quill' ::: idx=855 ::: prompt="Do you see a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04423845/n04423845_43483.JPEG
+749 quill 5/75
+FAILURE ::: class_name='racket' ::: idx=522 ::: prompt="Do you see a racket in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03134739/n03134739_1670.JPEG
+752 racket 1/75
+755 radio telescope 0/75
+FAILURE ::: class_name='rain barrel' ::: idx=167 ::: prompt="Do you see a rain barrel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02089973/n02089973_2404.JPEG
+756 rain barrel 1/75
+766 rotisserie 0/75
+FAILURE ::: class_name='eraser' ::: idx=509 ::: prompt="Do you see a eraser in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03089624/n03089624_55894.JPEG
+FAILURE ::: class_name='eraser' ::: idx=413 ::: prompt="Do you see a eraser in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02749479/n02749479_10203.JPEG
+FAILURE ::: class_name='eraser' ::: idx=688 ::: prompt="Do you see a eraser in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03857828/n03857828_19652.JPEG
+767 eraser 3/75
+FAILURE ::: class_name='safe' ::: idx=482 ::: prompt="Do you see a safe in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02979186/n02979186_1200.JPEG
+771 safe 1/75
+FAILURE ::: class_name='saxophone' ::: idx=513 ::: prompt="Do you see a saxophone in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03110669/n03110669_144203.JPEG
+776 saxophone 1/75
+785 seat belt 0/75
+788 shoe store 0/75
+FAILURE ::: class_name='shovel' ::: idx=827 ::: prompt="Do you see a shovel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04330267/n04330267_1474.JPEG
+792 shovel 1/75
+793 shower cap 0/75
+FAILURE ::: class_name='sleeping bag' ::: idx=609 ::: prompt="Do you see a sleeping bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03594945/n03594945_5747.JPEG
+FAILURE ::: class_name='sleeping bag' ::: idx=516 ::: prompt="Do you see a sleeping bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03125729/n03125729_3013.JPEG
+797 sleeping bag 2/75
+FAILURE ::: class_name='leopard' ::: idx=293 ::: prompt="Do you see a leopard in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02130308/n02130308_68.JPEG
+288 leopard 1/75
+801 snorkel 0/75
+802 snowmobile 0/75
+803 snowplow 0/75
+297 sloth bear 0/75
+309 bee 0/75
+FAILURE ::: class_name='steel drum' ::: idx=771 ::: prompt="Do you see a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04125021/n04125021_28309.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=598 ::: prompt="Do you see a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03529860/n03529860_13124.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=909 ::: prompt="Do you see a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04596742/n04596742_42929.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=706 ::: prompt="Do you see a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03899768/n03899768_65860.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=874 ::: prompt="Do you see a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04487081/n04487081_41118.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=489 ::: prompt="Do you see a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03000134/n03000134_3754.JPEG
+822 steel drum 6/75
+313 stick insect 0/75
+FAILURE ::: class_name='stove' ::: idx=567 ::: prompt="Do you see a stove in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03400231/n03400231_12553.JPEG
+FAILURE ::: class_name='stove' ::: idx=876 ::: prompt="Do you see a stove in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04493381/n04493381_2545.JPEG
+827 stove 2/75
+FAILURE ::: class_name='small white butterfly' ::: idx=558 ::: prompt="Do you see a small white butterfly in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03372029/n03372029_44141.JPEG
+FAILURE ::: class_name='small white butterfly' ::: idx=326 ::: prompt="Do you see a small white butterfly in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02281787/n02281787_2390.JPEG
+324 small white butterfly 2/75
+FAILURE ::: class_name='sulphur butterfly' ::: idx=96 ::: prompt="Do you see a sulphur butterfly in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01843383/n01843383_7232.JPEG
+FAILURE ::: class_name='sulphur butterfly' ::: idx=619 ::: prompt="Do you see a sulphur butterfly in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03637318/n03637318_1861.JPEG
+325 sulphur butterfly 2/75
+335 fox squirrel 0/75
+FAILURE ::: class_name='hartebeest' ::: idx=350 ::: prompt="Do you see a hartebeest in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02417914/n02417914_1060.JPEG
+FAILURE ::: class_name='hartebeest' ::: idx=355 ::: prompt="Do you see a hartebeest in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02437616/n02437616_4511.JPEG
+351 hartebeest 2/75
+FAILURE ::: class_name='semi-trailer truck' ::: idx=363 ::: prompt="Do you see a semi-trailer truck in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02454379/n02454379_13257.JPEG
+867 semi-trailer truck 1/75
+FAILURE ::: class_name='three-toed sloth' ::: idx=377 ::: prompt="Do you see a three-toed sloth in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02490219/n02490219_6979.JPEG
+364 three-toed sloth 1/75
+FAILURE ::: class_name='howler monkey' ::: idx=368 ::: prompt="Do you see a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02483362/n02483362_7599.JPEG
+FAILURE ::: class_name='howler monkey' ::: idx=371 ::: prompt="Do you see a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02486261/n02486261_7126.JPEG
+379 howler monkey 2/75
+FAILURE ::: class_name='indri' ::: idx=379 ::: prompt="Do you see a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02492660/n02492660_370.JPEG
+FAILURE ::: class_name='indri' ::: idx=377 ::: prompt="Do you see a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02490219/n02490219_3909.JPEG
+FAILURE ::: class_name='indri' ::: idx=586 ::: prompt="Do you see a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03478589/n03478589_8332.JPEG
+FAILURE ::: class_name='indri' ::: idx=369 ::: prompt="Do you see a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02483708/n02483708_8328.JPEG
+FAILURE ::: class_name='indri' ::: idx=530 ::: prompt="Do you see a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03196217/n03196217_4970.JPEG
+FAILURE ::: class_name='indri' ::: idx=403 ::: prompt="Do you see a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02687172/n02687172_32715.JPEG
+384 indri 6/75
+FAILURE ::: class_name='snoek fish' ::: idx=529 ::: prompt="Do you see a snoek fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03188531/n03188531_16107.JPEG
+389 snoek fish 1/75
+FAILURE ::: class_name='sturgeon' ::: idx=150 ::: prompt="Do you see a sturgeon in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02077923/n02077923_7412.JPEG
+FAILURE ::: class_name='sturgeon' ::: idx=863 ::: prompt="Do you see a sturgeon in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04458633/n04458633_1481.JPEG
+394 sturgeon 2/75
+FAILURE ::: class_name='gar fish' ::: idx=921 ::: prompt="Do you see a gar fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07248320/n07248320_5195.JPEG
+FAILURE ::: class_name='gar fish' ::: idx=317 ::: prompt="Do you see a gar fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02259212/n02259212_1494.JPEG
+FAILURE ::: class_name='gar fish' ::: idx=50 ::: prompt="Do you see a gar fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01698640/n01698640_2566.JPEG
+395 gar fish 3/75
+908 airplane wing 0/75
+400 academic gown 0/75
+415 bakery 0/75
+FAILURE ::: class_name='balance beam' ::: idx=835 ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04355338/n04355338_6058.JPEG
+FAILURE ::: class_name='balance beam' ::: idx=777 ::: prompt="Do you see a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04141327/n04141327_3289.JPEG
+416 balance beam 2/75
+FAILURE ::: class_name='Band-Aid' ::: idx=761 ::: prompt="Do you see a Band-Aid in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04074963/n04074963_15152.JPEG
+419 Band-Aid 1/75
+FAILURE ::: class_name='cheeseburger' ::: idx=87 ::: prompt="Do you see a cheeseburger in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01817953/n01817953_964.JPEG
+933 cheeseburger 1/75
+FAILURE ::: class_name='barbershop' ::: idx=423 ::: prompt="Do you see a barbershop in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02791124/n02791124_15566.JPEG
+424 barbershop 1/75
+FAILURE ::: class_name='barn' ::: idx=586 ::: prompt="Do you see a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03478589/n03478589_8332.JPEG
+FAILURE ::: class_name='barn' ::: idx=716 ::: prompt="Do you see a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03930313/n03930313_21422.JPEG
+425 barn 2/75
+433 swimming cap 0/75
+FAILURE ::: class_name='bath towel' ::: idx=358 ::: prompt="Do you see a bath towel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02443114/n02443114_4028.JPEG
+FAILURE ::: class_name='bath towel' ::: idx=244 ::: prompt="Do you see a bath towel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108551/n02108551_5132.JPEG
+434 bath towel 2/75
+435 bathtub 0/75
+440 beer bottle 0/75
+FAILURE ::: class_name='bikini' ::: idx=638 ::: prompt="Do you see a bikini in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03710637/n03710637_5271.JPEG
+445 bikini 1/75
+454 bookstore 0/75
+465 bulletproof vest 0/75
+466 high-speed train 0/75
+FAILURE ::: class_name='chain mail' ::: idx=694 ::: prompt="Do you see a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03874293/n03874293_5317.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=183 ::: prompt="Do you see a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02093859/n02093859_22.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=819 ::: prompt="Do you see a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04296562/n04296562_45893.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=826 ::: prompt="Do you see a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04328186/n04328186_5456.JPEG
+490 chain mail 4/75
+FAILURE ::: class_name='chainsaw' ::: idx=223 ::: prompt="Do you see a chainsaw in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02104365/n02104365_2205.JPEG
+491 chainsaw 1/75
+Acc: 158/7500
+Prompt: Is there a CLASSNAME in the image? Answer with 'Yes' or 'No'.
+Target: Yes
+FAILURE ::: class_name='tench' ::: idx=654 ::: prompt="Is there a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03769881/n03769881_2435.JPEG
+FAILURE ::: class_name='tench' ::: idx=455 ::: prompt="Is there a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02877765/n02877765_1919.JPEG
+FAILURE ::: class_name='tench' ::: idx=293 ::: prompt="Is there a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02130308/n02130308_5086.JPEG
+FAILURE ::: class_name='tench' ::: idx=427 ::: prompt="Is there a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02795169/n02795169_30579.JPEG
+FAILURE ::: class_name='tench' ::: idx=494 ::: prompt="Is there a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03017168/n03017168_47328.JPEG
+FAILURE ::: class_name='tench' ::: idx=769 ::: prompt="Is there a tench in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04118776/n04118776_14573.JPEG
+0 tench 6/75
+2 great white shark 0/75
+FAILURE ::: class_name='cowboy hat' ::: idx=433 ::: prompt="Is there a cowboy hat in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02807133/n02807133_1389.JPEG
+FAILURE ::: class_name='cowboy hat' ::: idx=385 ::: prompt="Is there a cowboy hat in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02504013/n02504013_7538.JPEG
+515 cowboy hat 2/75
+FAILURE ::: class_name='cradle' ::: idx=507 ::: prompt="Is there a cradle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03075370/n03075370_12889.JPEG
+FAILURE ::: class_name='cradle' ::: idx=713 ::: prompt="Is there a cradle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03924679/n03924679_20565.JPEG
+FAILURE ::: class_name='cradle' ::: idx=422 ::: prompt="Is there a cradle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02790996/n02790996_11697.JPEG
+FAILURE ::: class_name='cradle' ::: idx=453 ::: prompt="Is there a cradle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02870880/n02870880_3568.JPEG
+FAILURE ::: class_name='cradle' ::: idx=802 ::: prompt="Is there a cradle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04252077/n04252077_5556.JPEG
+516 cradle 5/75
+FAILURE ::: class_name='dam' ::: idx=718 ::: prompt="Is there a dam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03933933/n03933933_10491.JPEG
+525 dam 1/75
+FAILURE ::: class_name='indigo bunting' ::: idx=136 ::: prompt="Is there a indigo bunting in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02017213/n02017213_5636.JPEG
+FAILURE ::: class_name='indigo bunting' ::: idx=982 ::: prompt="Is there a indigo bunting in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n10148035/n10148035_2522.JPEG
+14 indigo bunting 2/75
+537 dog sled 0/75
+FAILURE ::: class_name='dumbbell' ::: idx=267 ::: prompt="Is there a dumbbell in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02113799/n02113799_1837.JPEG
+543 dumbbell 1/75
+554 fireboat 0/75
+FAILURE ::: class_name='agama' ::: idx=494 ::: prompt="Is there a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03017168/n03017168_21186.JPEG
+FAILURE ::: class_name='agama' ::: idx=25 ::: prompt="Is there a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01629819/n01629819_3653.JPEG
+FAILURE ::: class_name='agama' ::: idx=43 ::: prompt="Is there a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01688243/n01688243_2566.JPEG
+FAILURE ::: class_name='agama' ::: idx=312 ::: prompt="Is there a agama in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02229544/n02229544_7417.JPEG
+42 agama 4/75
+FAILURE ::: class_name='flagpole' ::: idx=554 ::: prompt="Is there a flagpole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03344393/n03344393_1637.JPEG
+557 flagpole 1/75
+50 American alligator 0/75
+563 fountain pen 0/75
+FAILURE ::: class_name='freight car' ::: idx=694 ::: prompt="Is there a freight car in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03874293/n03874293_8462.JPEG
+565 freight car 1/75
+58 water snake 0/75
+576 gondola 0/75
+585 hair spray 0/75
+FAILURE ::: class_name='hamper' ::: idx=284 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02123597/n02123597_7138.JPEG
+FAILURE ::: class_name='hamper' ::: idx=984 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n11879895/n11879895_4498.JPEG
+FAILURE ::: class_name='hamper' ::: idx=313 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02231487/n02231487_7833.JPEG
+FAILURE ::: class_name='hamper' ::: idx=181 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02093647/n02093647_959.JPEG
+FAILURE ::: class_name='hamper' ::: idx=105 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01882714/n01882714_21327.JPEG
+FAILURE ::: class_name='hamper' ::: idx=424 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02791270/n02791270_1491.JPEG
+FAILURE ::: class_name='hamper' ::: idx=37 ::: prompt="Is there a hamper in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01669191/n01669191_2049.JPEG
+588 hamper 7/75
+FAILURE ::: class_name='black grouse' ::: idx=205 ::: prompt="Is there a black grouse in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02099267/n02099267_1160.JPEG
+80 black grouse 1/75
+FAILURE ::: class_name='ptarmigan' ::: idx=155 ::: prompt="Is there a ptarmigan in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02086240/n02086240_5683.JPEG
+FAILURE ::: class_name='ptarmigan' ::: idx=938 ::: prompt="Is there a ptarmigan in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07715103/n07715103_9174.JPEG
+FAILURE ::: class_name='ptarmigan' ::: idx=916 ::: prompt="Is there a ptarmigan in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n06359193/n06359193_31569.JPEG
+81 ptarmigan 3/75
+FAILURE ::: class_name='ruffed grouse' ::: idx=336 ::: prompt="Is there a ruffed grouse in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02361337/n02361337_1673.JPEG
+FAILURE ::: class_name='ruffed grouse' ::: idx=15 ::: prompt="Is there a ruffed grouse in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01558993/n01558993_9167.JPEG
+82 ruffed grouse 2/75
+592 hard disk drive 0/75
+FAILURE ::: class_name='sulphur-crested cockatoo' ::: idx=372 ::: prompt="Is there a sulphur-crested cockatoo in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02486410/n02486410_2267.JPEG
+FAILURE ::: class_name='sulphur-crested cockatoo' ::: idx=139 ::: prompt="Is there a sulphur-crested cockatoo in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02025239/n02025239_10453.JPEG
+89 sulphur-crested cockatoo 2/75
+FAILURE ::: class_name='gymnastic horizontal bar' ::: idx=93 ::: prompt="Is there a gymnastic horizontal bar in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01829413/n01829413_1138.JPEG
+602 gymnastic horizontal bar 1/75
+FAILURE ::: class_name='coucal' ::: idx=684 ::: prompt="Is there a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03840681/n03840681_12239.JPEG
+FAILURE ::: class_name='coucal' ::: idx=635 ::: prompt="Is there a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03706229/n03706229_8347.JPEG
+FAILURE ::: class_name='coucal' ::: idx=706 ::: prompt="Is there a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03899768/n03899768_5925.JPEG
+FAILURE ::: class_name='coucal' ::: idx=751 ::: prompt="Is there a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04037443/n04037443_3334.JPEG
+FAILURE ::: class_name='coucal' ::: idx=287 ::: prompt="Is there a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02127052/n02127052_2060.JPEG
+FAILURE ::: class_name='coucal' ::: idx=199 ::: prompt="Is there a coucal in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02097298/n02097298_15793.JPEG
+91 coucal 6/75
+94 hummingbird 0/75
+FAILURE ::: class_name='platypus' ::: idx=360 ::: prompt="Is there a platypus in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02444819/n02444819_6500.JPEG
+103 platypus 1/75
+FAILURE ::: class_name='koala' ::: idx=336 ::: prompt="Is there a koala in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02361337/n02361337_9480.JPEG
+FAILURE ::: class_name='koala' ::: idx=104 ::: prompt="Is there a koala in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01877812/n01877812_694.JPEG
+FAILURE ::: class_name='koala' ::: idx=697 ::: prompt="Is there a koala in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03877472/n03877472_13156.JPEG
+105 koala 3/75
+FAILURE ::: class_name='lighter' ::: idx=275 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02116738/n02116738_34369.JPEG
+FAILURE ::: class_name='lighter' ::: idx=691 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03868863/n03868863_16765.JPEG
+FAILURE ::: class_name='lighter' ::: idx=788 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04200800/n04200800_9646.JPEG
+FAILURE ::: class_name='lighter' ::: idx=698 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03877845/n03877845_8925.JPEG
+FAILURE ::: class_name='lighter' ::: idx=6 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01498041/n01498041_6670.JPEG
+FAILURE ::: class_name='lighter' ::: idx=963 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07873807/n07873807_20705.JPEG
+FAILURE ::: class_name='lighter' ::: idx=204 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02098413/n02098413_258.JPEG
+FAILURE ::: class_name='lighter' ::: idx=713 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03924679/n03924679_627.JPEG
+FAILURE ::: class_name='lighter' ::: idx=799 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04239074/n04239074_7441.JPEG
+FAILURE ::: class_name='lighter' ::: idx=629 ::: prompt="Is there a lighter in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03676483/n03676483_48894.JPEG
+626 lighter 10/75
+655 miniskirt 0/75
+FAILURE ::: class_name='grey whale' ::: idx=5 ::: prompt="Is there a grey whale in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01496331/n01496331_11170.JPEG
+147 grey whale 1/75
+FAILURE ::: class_name='graduation cap' ::: idx=875 ::: prompt="Is there a graduation cap in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04487394/n04487394_21728.JPEG
+667 graduation cap 1/75
+671 mountain bike 0/75
+678 neck brace 0/75
+FAILURE ::: class_name='baby pacifier' ::: idx=56 ::: prompt="Is there a baby pacifier in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01734418/n01734418_474.JPEG
+FAILURE ::: class_name='baby pacifier' ::: idx=691 ::: prompt="Is there a baby pacifier in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03868863/n03868863_8717.JPEG
+680 baby pacifier 2/75
+FAILURE ::: class_name='obelisk' ::: idx=563 ::: prompt="Is there a obelisk in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03388183/n03388183_7961.JPEG
+682 obelisk 1/75
+FAILURE ::: class_name='ocarina' ::: idx=822 ::: prompt="Is there a ocarina in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04311174/n04311174_3250.JPEG
+684 ocarina 1/75
+FAILURE ::: class_name='padlock' ::: idx=709 ::: prompt="Is there a padlock in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03908618/n03908618_6024.JPEG
+695 padlock 1/75
+FAILURE ::: class_name='parallel bars' ::: idx=374 ::: prompt="Is there a parallel bars in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02488291/n02488291_743.JPEG
+702 parallel bars 1/75
+709 pencil case 0/75
+FAILURE ::: class_name='pill bottle' ::: idx=209 ::: prompt="Is there a pill bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02099849/n02099849_8859.JPEG
+FAILURE ::: class_name='pill bottle' ::: idx=438 ::: prompt="Is there a pill bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02815834/n02815834_3929.JPEG
+720 pill bottle 2/75
+FAILURE ::: class_name='ping-pong ball' ::: idx=255 ::: prompt="Is there a ping-pong ball in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02111129/n02111129_3800.JPEG
+FAILURE ::: class_name='ping-pong ball' ::: idx=151 ::: prompt="Is there a ping-pong ball in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02085620/n02085620_595.JPEG
+722 ping-pong ball 2/75
+FAILURE ::: class_name='plastic bag' ::: idx=786 ::: prompt="Is there a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04179913/n04179913_14443.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=890 ::: prompt="Is there a plastic bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04540053/n04540053_1668.JPEG
+728 plastic bag 2/75
+FAILURE ::: class_name='plunger' ::: idx=209 ::: prompt="Is there a plunger in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02099849/n02099849_3802.JPEG
+FAILURE ::: class_name='plunger' ::: idx=684 ::: prompt="Is there a plunger in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03840681/n03840681_23639.JPEG
+FAILURE ::: class_name='plunger' ::: idx=914 ::: prompt="Is there a plunger in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04612504/n04612504_4806.JPEG
+731 plunger 3/75
+FAILURE ::: class_name='pole' ::: idx=90 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01820546/n01820546_4117.JPEG
+FAILURE ::: class_name='pole' ::: idx=616 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03627232/n03627232_5904.JPEG
+FAILURE ::: class_name='pole' ::: idx=694 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03874293/n03874293_26893.JPEG
+FAILURE ::: class_name='pole' ::: idx=87 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01817953/n01817953_4222.JPEG
+FAILURE ::: class_name='pole' ::: idx=780 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04147183/n04147183_3626.JPEG
+FAILURE ::: class_name='pole' ::: idx=972 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n09246464/n09246464_38741.JPEG
+FAILURE ::: class_name='pole' ::: idx=48 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01695060/n01695060_6016.JPEG
+FAILURE ::: class_name='pole' ::: idx=240 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02107908/n02107908_9457.JPEG
+FAILURE ::: class_name='pole' ::: idx=231 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02106030/n02106030_7977.JPEG
+FAILURE ::: class_name='pole' ::: idx=932 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07695742/n07695742_3049.JPEG
+FAILURE ::: class_name='pole' ::: idx=863 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04458633/n04458633_8261.JPEG
+FAILURE ::: class_name='pole' ::: idx=672 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03792972/n03792972_6566.JPEG
+FAILURE ::: class_name='pole' ::: idx=255 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02111129/n02111129_6412.JPEG
+FAILURE ::: class_name='pole' ::: idx=97 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01847000/n01847000_12549.JPEG
+FAILURE ::: class_name='pole' ::: idx=51 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01704323/n01704323_9811.JPEG
+FAILURE ::: class_name='pole' ::: idx=743 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04005630/n04005630_91541.JPEG
+FAILURE ::: class_name='pole' ::: idx=907 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04591713/n04591713_6667.JPEG
+FAILURE ::: class_name='pole' ::: idx=421 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02788148/n02788148_4497.JPEG
+FAILURE ::: class_name='pole' ::: idx=641 ::: prompt="Is there a pole in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03720891/n03720891_14781.JPEG
+733 pole 19/75
+FAILURE ::: class_name='soda bottle' ::: idx=977 ::: prompt="Is there a soda bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n09421951/n09421951_3217.JPEG
+FAILURE ::: class_name='soda bottle' ::: idx=933 ::: prompt="Is there a soda bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07697313/n07697313_8702.JPEG
+FAILURE ::: class_name='soda bottle' ::: idx=158 ::: prompt="Is there a soda bottle in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02087046/n02087046_17750.JPEG
+737 soda bottle 3/75
+FAILURE ::: class_name='plant pot' ::: idx=231 ::: prompt="Is there a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02106030/n02106030_15074.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=553 ::: prompt="Is there a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03337140/n03337140_8248.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=668 ::: prompt="Is there a plant pot in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03788195/n03788195_3952.JPEG
+738 plant pot 3/75
+FAILURE ::: class_name="potter's wheel" ::: idx=766 ::: prompt="Is there a potter's wheel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04111531/n04111531_8959.JPEG
+FAILURE ::: class_name="potter's wheel" ::: idx=775 ::: prompt="Is there a potter's wheel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04136333/n04136333_11698.JPEG
+739 potter's wheel 2/75
+746 hockey puck 0/75
+FAILURE ::: class_name='quill' ::: idx=623 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03658185/n03658185_2463.JPEG
+FAILURE ::: class_name='quill' ::: idx=715 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03929855/n03929855_6643.JPEG
+FAILURE ::: class_name='quill' ::: idx=26 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01630670/n01630670_4948.JPEG
+FAILURE ::: class_name='quill' ::: idx=572 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03443371/n03443371_3926.JPEG
+FAILURE ::: class_name='quill' ::: idx=25 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01629819/n01629819_10961.JPEG
+FAILURE ::: class_name='quill' ::: idx=910 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04597913/n04597913_3494.JPEG
+FAILURE ::: class_name='quill' ::: idx=946 ::: prompt="Is there a quill in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07730033/n07730033_3212.JPEG
+749 quill 7/75
+752 racket 0/75
+755 radio telescope 0/75
+FAILURE ::: class_name='rain barrel' ::: idx=187 ::: prompt="Is there a rain barrel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02094433/n02094433_9739.JPEG
+FAILURE ::: class_name='rain barrel' ::: idx=463 ::: prompt="Is there a rain barrel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02909870/n02909870_10367.JPEG
+756 rain barrel 2/75
+766 rotisserie 0/75
+FAILURE ::: class_name='eraser' ::: idx=798 ::: prompt="Is there a eraser in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04238763/n04238763_12274.JPEG
+767 eraser 1/75
+FAILURE ::: class_name='safe' ::: idx=745 ::: prompt="Is there a safe in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04009552/n04009552_1991.JPEG
+771 safe 1/75
+776 saxophone 0/75
+785 seat belt 0/75
+788 shoe store 0/75
+792 shovel 0/75
+FAILURE ::: class_name='shower cap' ::: idx=452 ::: prompt="Is there a shower cap in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02869837/n02869837_14174.JPEG
+793 shower cap 1/75
+FAILURE ::: class_name='sleeping bag' ::: idx=230 ::: prompt="Is there a sleeping bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02105855/n02105855_560.JPEG
+FAILURE ::: class_name='sleeping bag' ::: idx=575 ::: prompt="Is there a sleeping bag in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03445924/n03445924_12359.JPEG
+797 sleeping bag 2/75
+288 leopard 0/75
+FAILURE ::: class_name='snorkel' ::: idx=408 ::: prompt="Is there a snorkel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02704792/n02704792_20948.JPEG
+FAILURE ::: class_name='snorkel' ::: idx=717 ::: prompt="Is there a snorkel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03930630/n03930630_24644.JPEG
+FAILURE ::: class_name='snorkel' ::: idx=408 ::: prompt="Is there a snorkel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02704792/n02704792_7883.JPEG
+801 snorkel 3/75
+802 snowmobile 0/75
+803 snowplow 0/75
+FAILURE ::: class_name='sloth bear' ::: idx=377 ::: prompt="Is there a sloth bear in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02490219/n02490219_3709.JPEG
+FAILURE ::: class_name='sloth bear' ::: idx=376 ::: prompt="Is there a sloth bear in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02489166/n02489166_356.JPEG
+297 sloth bear 2/75
+FAILURE ::: class_name='bee' ::: idx=712 ::: prompt="Is there a bee in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03920288/n03920288_4866.JPEG
+309 bee 1/75
+FAILURE ::: class_name='steel drum' ::: idx=485 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02988304/n02988304_18821.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=924 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07583066/n07583066_1229.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=627 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03670208/n03670208_5270.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=155 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02086240/n02086240_759.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=904 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04589890/n04589890_4516.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=604 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03544143/n03544143_10254.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=727 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03956157/n03956157_15051.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=706 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03899768/n03899768_8271.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=807 ::: prompt="Is there a steel drum in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04258138/n04258138_17556.JPEG
+822 steel drum 9/75
+FAILURE ::: class_name='stick insect' ::: idx=312 ::: prompt="Is there a stick insect in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02229544/n02229544_10167.JPEG
+313 stick insect 1/75
+FAILURE ::: class_name='stove' ::: idx=651 ::: prompt="Is there a stove in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03761084/n03761084_30017.JPEG
+FAILURE ::: class_name='stove' ::: idx=544 ::: prompt="Is there a stove in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03259280/n03259280_3530.JPEG
+827 stove 2/75
+324 small white butterfly 0/75
+325 sulphur butterfly 0/75
+FAILURE ::: class_name='fox squirrel' ::: idx=334 ::: prompt="Is there a fox squirrel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02346627/n02346627_4345.JPEG
+335 fox squirrel 1/75
+FAILURE ::: class_name='hartebeest' ::: idx=276 ::: prompt="Is there a hartebeest in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02117135/n02117135_10902.JPEG
+FAILURE ::: class_name='hartebeest' ::: idx=349 ::: prompt="Is there a hartebeest in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02415577/n02415577_7325.JPEG
+351 hartebeest 2/75
+867 semi-trailer truck 0/75
+FAILURE ::: class_name='three-toed sloth' ::: idx=559 ::: prompt="Is there a three-toed sloth in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03376595/n03376595_10451.JPEG
+364 three-toed sloth 1/75
+FAILURE ::: class_name='howler monkey' ::: idx=357 ::: prompt="Is there a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02442845/n02442845_10406.JPEG
+FAILURE ::: class_name='howler monkey' ::: idx=306 ::: prompt="Is there a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02174001/n02174001_5217.JPEG
+FAILURE ::: class_name='howler monkey' ::: idx=382 ::: prompt="Is there a howler monkey in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02494079/n02494079_8320.JPEG
+379 howler monkey 3/75
+FAILURE ::: class_name='indri' ::: idx=611 ::: prompt="Is there a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03598930/n03598930_5786.JPEG
+FAILURE ::: class_name='indri' ::: idx=376 ::: prompt="Is there a indri in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02489166/n02489166_10952.JPEG
+384 indri 2/75
+389 snoek fish 0/75
+FAILURE ::: class_name='sturgeon' ::: idx=65 ::: prompt="Is there a sturgeon in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01751748/n01751748_8666.JPEG
+394 sturgeon 1/75
+FAILURE ::: class_name='gar fish' ::: idx=29 ::: prompt="Is there a gar fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01632777/n01632777_14186.JPEG
+FAILURE ::: class_name='gar fish' ::: idx=103 ::: prompt="Is there a gar fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01873310/n01873310_16583.JPEG
+FAILURE ::: class_name='gar fish' ::: idx=679 ::: prompt="Is there a gar fish in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03814906/n03814906_22375.JPEG
+395 gar fish 3/75
+908 airplane wing 0/75
+400 academic gown 0/75
+FAILURE ::: class_name='bakery' ::: idx=955 ::: prompt="Is there a bakery in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07754684/n07754684_19956.JPEG
+FAILURE ::: class_name='bakery' ::: idx=860 ::: prompt="Is there a bakery in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04443257/n04443257_17686.JPEG
+415 bakery 2/75
+FAILURE ::: class_name='balance beam' ::: idx=494 ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03017168/n03017168_18414.JPEG
+FAILURE ::: class_name='balance beam' ::: idx=398 ::: prompt="Is there a balance beam in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02666196/n02666196_4016.JPEG
+416 balance beam 2/75
+FAILURE ::: class_name='Band-Aid' ::: idx=407 ::: prompt="Is there a Band-Aid in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02701002/n02701002_10092.JPEG
+FAILURE ::: class_name='Band-Aid' ::: idx=489 ::: prompt="Is there a Band-Aid in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03000134/n03000134_4018.JPEG
+FAILURE ::: class_name='Band-Aid' ::: idx=259 ::: prompt="Is there a Band-Aid in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02112018/n02112018_10803.JPEG
+419 Band-Aid 3/75
+933 cheeseburger 0/75
+424 barbershop 0/75
+FAILURE ::: class_name='barn' ::: idx=297 ::: prompt="Is there a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02134418/n02134418_5551.JPEG
+FAILURE ::: class_name='barn' ::: idx=267 ::: prompt="Is there a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02113799/n02113799_7824.JPEG
+FAILURE ::: class_name='barn' ::: idx=580 ::: prompt="Is there a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03457902/n03457902_25291.JPEG
+FAILURE ::: class_name='barn' ::: idx=341 ::: prompt="Is there a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02395406/n02395406_26401.JPEG
+FAILURE ::: class_name='barn' ::: idx=621 ::: prompt="Is there a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03649909/n03649909_25741.JPEG
+425 barn 5/75
+FAILURE ::: class_name='swimming cap' ::: idx=678 ::: prompt="Is there a swimming cap in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03814639/n03814639_6303.JPEG
+433 swimming cap 1/75
+FAILURE ::: class_name='bath towel' ::: idx=153 ::: prompt="Is there a bath towel in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02085936/n02085936_8745.JPEG
+434 bath towel 1/75
+435 bathtub 0/75
+440 beer bottle 0/75
+445 bikini 0/75
+454 bookstore 0/75
+FAILURE ::: class_name='bulletproof vest' ::: idx=917 ::: prompt="Is there a bulletproof vest in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n06596364/n06596364_13370.JPEG
+FAILURE ::: class_name='bulletproof vest' ::: idx=447 ::: prompt="Is there a bulletproof vest in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02841315/n02841315_14265.JPEG
+465 bulletproof vest 2/75
+466 high-speed train 0/75
+FAILURE ::: class_name='chain mail' ::: idx=370 ::: prompt="Is there a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02484975/n02484975_5447.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=609 ::: prompt="Is there a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03594945/n03594945_6534.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=2 ::: prompt="Is there a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01484850/n01484850_5356.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=290 ::: prompt="Is there a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02128925/n02128925_21958.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=244 ::: prompt="Is there a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108551/n02108551_12071.JPEG
+490 chain mail 5/75
+FAILURE ::: class_name='chainsaw' ::: idx=499 ::: prompt="Is there a chainsaw in the image? Answer with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03041632/n03041632_22777.JPEG
+491 chainsaw 1/75
+Acc: 170/7500
+Prompt: Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.
+Target: Yes
+FAILURE ::: class_name='tench' ::: idx=304 ::: prompt="Determine whether there is a tench in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02169497/n02169497_3614.JPEG
+FAILURE ::: class_name='tench' ::: idx=623 ::: prompt="Determine whether there is a tench in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03658185/n03658185_18091.JPEG
+FAILURE ::: class_name='tench' ::: idx=607 ::: prompt="Determine whether there is a tench in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03590841/n03590841_5689.JPEG
+FAILURE ::: class_name='tench' ::: idx=402 ::: prompt="Determine whether there is a tench in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02676566/n02676566_6343.JPEG
+FAILURE ::: class_name='tench' ::: idx=310 ::: prompt="Determine whether there is a tench in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02219486/n02219486_26944.JPEG
+0 tench 5/75
+2 great white shark 0/75
+FAILURE ::: class_name='cowboy hat' ::: idx=548 ::: prompt="Determine whether there is a cowboy hat in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03290653/n03290653_4510.JPEG
+FAILURE ::: class_name='cowboy hat' ::: idx=401 ::: prompt="Determine whether there is a cowboy hat in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02672831/n02672831_4363.JPEG
+FAILURE ::: class_name='cowboy hat' ::: idx=875 ::: prompt="Determine whether there is a cowboy hat in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04487394/n04487394_16626.JPEG
+FAILURE ::: class_name='cowboy hat' ::: idx=705 ::: prompt="Determine whether there is a cowboy hat in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03895866/n03895866_93617.JPEG
+515 cowboy hat 4/75
+FAILURE ::: class_name='cradle' ::: idx=657 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03773504/n03773504_22321.JPEG
+FAILURE ::: class_name='cradle' ::: idx=726 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03954731/n03954731_3245.JPEG
+FAILURE ::: class_name='cradle' ::: idx=758 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04067472/n04067472_8729.JPEG
+FAILURE ::: class_name='cradle' ::: idx=897 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04554684/n04554684_9.JPEG
+FAILURE ::: class_name='cradle' ::: idx=612 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03599486/n03599486_21720.JPEG
+FAILURE ::: class_name='cradle' ::: idx=847 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04389033/n04389033_27784.JPEG
+FAILURE ::: class_name='cradle' ::: idx=282 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02123159/n02123159_7716.JPEG
+FAILURE ::: class_name='cradle' ::: idx=105 ::: prompt="Determine whether there is a cradle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01882714/n01882714_8577.JPEG
+516 cradle 8/75
+FAILURE ::: class_name='dam' ::: idx=777 ::: prompt="Determine whether there is a dam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04141327/n04141327_7500.JPEG
+FAILURE ::: class_name='dam' ::: idx=920 ::: prompt="Determine whether there is a dam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n06874185/n06874185_22881.JPEG
+FAILURE ::: class_name='dam' ::: idx=678 ::: prompt="Determine whether there is a dam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03814639/n03814639_72.JPEG
+FAILURE ::: class_name='dam' ::: idx=957 ::: prompt="Determine whether there is a dam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07768694/n07768694_9341.JPEG
+525 dam 4/75
+FAILURE ::: class_name='indigo bunting' ::: idx=84 ::: prompt="Determine whether there is a indigo bunting in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01806143/n01806143_13842.JPEG
+FAILURE ::: class_name='indigo bunting' ::: idx=17 ::: prompt="Determine whether there is a indigo bunting in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01580077/n01580077_14164.JPEG
+14 indigo bunting 2/75
+537 dog sled 0/75
+543 dumbbell 0/75
+554 fireboat 0/75
+FAILURE ::: class_name='agama' ::: idx=316 ::: prompt="Determine whether there is a agama in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02256656/n02256656_2277.JPEG
+FAILURE ::: class_name='agama' ::: idx=308 ::: prompt="Determine whether there is a agama in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02190166/n02190166_3626.JPEG
+FAILURE ::: class_name='agama' ::: idx=40 ::: prompt="Determine whether there is a agama in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01682714/n01682714_6491.JPEG
+FAILURE ::: class_name='agama' ::: idx=46 ::: prompt="Determine whether there is a agama in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01693334/n01693334_5469.JPEG
+FAILURE ::: class_name='agama' ::: idx=27 ::: prompt="Determine whether there is a agama in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01631663/n01631663_3065.JPEG
+42 agama 5/75
+FAILURE ::: class_name='flagpole' ::: idx=781 ::: prompt="Determine whether there is a flagpole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04149813/n04149813_12244.JPEG
+FAILURE ::: class_name='flagpole' ::: idx=654 ::: prompt="Determine whether there is a flagpole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03769881/n03769881_6982.JPEG
+557 flagpole 2/75
+50 American alligator 0/75
+FAILURE ::: class_name='fountain pen' ::: idx=749 ::: prompt="Determine whether there is a fountain pen in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04033901/n04033901_4864.JPEG
+563 fountain pen 1/75
+FAILURE ::: class_name='freight car' ::: idx=600 ::: prompt="Determine whether there is a freight car in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03532672/n03532672_29635.JPEG
+565 freight car 1/75
+58 water snake 0/75
+FAILURE ::: class_name='gondola' ::: idx=775 ::: prompt="Determine whether there is a gondola in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04136333/n04136333_16511.JPEG
+576 gondola 1/75
+585 hair spray 0/75
+FAILURE ::: class_name='hamper' ::: idx=905 ::: prompt="Determine whether there is a hamper in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04590129/n04590129_8174.JPEG
+FAILURE ::: class_name='hamper' ::: idx=428 ::: prompt="Determine whether there is a hamper in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02797295/n02797295_7551.JPEG
+FAILURE ::: class_name='hamper' ::: idx=523 ::: prompt="Determine whether there is a hamper in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03141823/n03141823_2378.JPEG
+FAILURE ::: class_name='hamper' ::: idx=209 ::: prompt="Determine whether there is a hamper in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02099849/n02099849_1755.JPEG
+588 hamper 4/75
+FAILURE ::: class_name='black grouse' ::: idx=334 ::: prompt="Determine whether there is a black grouse in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02346627/n02346627_44659.JPEG
+80 black grouse 1/75
+FAILURE ::: class_name='ptarmigan' ::: idx=182 ::: prompt="Determine whether there is a ptarmigan in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02093754/n02093754_6623.JPEG
+81 ptarmigan 1/75
+82 ruffed grouse 0/75
+FAILURE ::: class_name='hard disk drive' ::: idx=620 ::: prompt="Determine whether there is a hard disk drive in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03642806/n03642806_10806.JPEG
+592 hard disk drive 1/75
+89 sulphur-crested cockatoo 0/75
+FAILURE ::: class_name='gymnastic horizontal bar' ::: idx=600 ::: prompt="Determine whether there is a gymnastic horizontal bar in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03532672/n03532672_4369.JPEG
+FAILURE ::: class_name='gymnastic horizontal bar' ::: idx=233 ::: prompt="Determine whether there is a gymnastic horizontal bar in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02106382/n02106382_4969.JPEG
+602 gymnastic horizontal bar 2/75
+FAILURE ::: class_name='coucal' ::: idx=533 ::: prompt="Determine whether there is a coucal in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03207743/n03207743_21918.JPEG
+FAILURE ::: class_name='coucal' ::: idx=82 ::: prompt="Determine whether there is a coucal in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01797886/n01797886_224.JPEG
+FAILURE ::: class_name='coucal' ::: idx=539 ::: prompt="Determine whether there is a coucal in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03223299/n03223299_2807.JPEG
+91 coucal 3/75
+FAILURE ::: class_name='hummingbird' ::: idx=92 ::: prompt="Determine whether there is a hummingbird in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01828970/n01828970_13211.JPEG
+94 hummingbird 1/75
+103 platypus 0/75
+105 koala 0/75
+FAILURE ::: class_name='lighter' ::: idx=375 ::: prompt="Determine whether there is a lighter in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02488702/n02488702_174.JPEG
+FAILURE ::: class_name='lighter' ::: idx=648 ::: prompt="Determine whether there is a lighter in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03742115/n03742115_5326.JPEG
+FAILURE ::: class_name='lighter' ::: idx=446 ::: prompt="Determine whether there is a lighter in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02840245/n02840245_8882.JPEG
+FAILURE ::: class_name='lighter' ::: idx=821 ::: prompt="Determine whether there is a lighter in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04311004/n04311004_3459.JPEG
+FAILURE ::: class_name='lighter' ::: idx=349 ::: prompt="Determine whether there is a lighter in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02415577/n02415577_1902.JPEG
+626 lighter 5/75
+FAILURE ::: class_name='miniskirt' ::: idx=471 ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02950826/n02950826_20225.JPEG
+FAILURE ::: class_name='miniskirt' ::: idx=199 ::: prompt="Determine whether there is a miniskirt in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02097298/n02097298_5533.JPEG
+655 miniskirt 2/75
+147 grey whale 0/75
+FAILURE ::: class_name='graduation cap' ::: idx=439 ::: prompt="Determine whether there is a graduation cap in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02817516/n02817516_31023.JPEG
+667 graduation cap 1/75
+671 mountain bike 0/75
+FAILURE ::: class_name='neck brace' ::: idx=751 ::: prompt="Determine whether there is a neck brace in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04037443/n04037443_15116.JPEG
+678 neck brace 1/75
+FAILURE ::: class_name='baby pacifier' ::: idx=865 ::: prompt="Determine whether there is a baby pacifier in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04462240/n04462240_15137.JPEG
+680 baby pacifier 1/75
+FAILURE ::: class_name='obelisk' ::: idx=453 ::: prompt="Determine whether there is a obelisk in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02870880/n02870880_19839.JPEG
+FAILURE ::: class_name='obelisk' ::: idx=775 ::: prompt="Determine whether there is a obelisk in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04136333/n04136333_2691.JPEG
+682 obelisk 2/75
+FAILURE ::: class_name='ocarina' ::: idx=832 ::: prompt="Determine whether there is a ocarina in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04346328/n04346328_214.JPEG
+684 ocarina 1/75
+FAILURE ::: class_name='padlock' ::: idx=451 ::: prompt="Determine whether there is a padlock in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02865351/n02865351_17340.JPEG
+FAILURE ::: class_name='padlock' ::: idx=607 ::: prompt="Determine whether there is a padlock in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03590841/n03590841_2024.JPEG
+FAILURE ::: class_name='padlock' ::: idx=577 ::: prompt="Determine whether there is a padlock in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03447721/n03447721_14304.JPEG
+FAILURE ::: class_name='padlock' ::: idx=242 ::: prompt="Determine whether there is a padlock in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108089/n02108089_39051.JPEG
+FAILURE ::: class_name='padlock' ::: idx=246 ::: prompt="Determine whether there is a padlock in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02109047/n02109047_7790.JPEG
+695 padlock 5/75
+FAILURE ::: class_name='parallel bars' ::: idx=440 ::: prompt="Determine whether there is a parallel bars in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02823428/n02823428_11686.JPEG
+FAILURE ::: class_name='parallel bars' ::: idx=753 ::: prompt="Determine whether there is a parallel bars in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04040759/n04040759_13765.JPEG
+702 parallel bars 2/75
+709 pencil case 0/75
+FAILURE ::: class_name='pill bottle' ::: idx=534 ::: prompt="Determine whether there is a pill bottle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03207941/n03207941_9079.JPEG
+720 pill bottle 1/75
+FAILURE ::: class_name='ping-pong ball' ::: idx=851 ::: prompt="Determine whether there is a ping-pong ball in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04404412/n04404412_10399.JPEG
+722 ping-pong ball 1/75
+FAILURE ::: class_name='plastic bag' ::: idx=332 ::: prompt="Determine whether there is a plastic bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02328150/n02328150_3428.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=287 ::: prompt="Determine whether there is a plastic bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02127052/n02127052_9702.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=415 ::: prompt="Determine whether there is a plastic bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02776631/n02776631_12789.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=713 ::: prompt="Determine whether there is a plastic bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03924679/n03924679_4620.JPEG
+FAILURE ::: class_name='plastic bag' ::: idx=601 ::: prompt="Determine whether there is a plastic bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03534580/n03534580_8672.JPEG
+728 plastic bag 5/75
+731 plunger 0/75
+FAILURE ::: class_name='pole' ::: idx=398 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02666196/n02666196_5364.JPEG
+FAILURE ::: class_name='pole' ::: idx=227 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02105412/n02105412_4168.JPEG
+FAILURE ::: class_name='pole' ::: idx=919 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n06794110/n06794110_1672.JPEG
+FAILURE ::: class_name='pole' ::: idx=28 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01632458/n01632458_1851.JPEG
+FAILURE ::: class_name='pole' ::: idx=563 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03388183/n03388183_10930.JPEG
+FAILURE ::: class_name='pole' ::: idx=998 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n13133613/n13133613_40199.JPEG
+FAILURE ::: class_name='pole' ::: idx=557 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03355925/n03355925_31728.JPEG
+FAILURE ::: class_name='pole' ::: idx=48 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01695060/n01695060_23008.JPEG
+FAILURE ::: class_name='pole' ::: idx=241 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108000/n02108000_4550.JPEG
+FAILURE ::: class_name='pole' ::: idx=967 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07920052/n07920052_10418.JPEG
+FAILURE ::: class_name='pole' ::: idx=902 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04579432/n04579432_10998.JPEG
+FAILURE ::: class_name='pole' ::: idx=625 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03662601/n03662601_11862.JPEG
+FAILURE ::: class_name='pole' ::: idx=665 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03785016/n03785016_15648.JPEG
+FAILURE ::: class_name='pole' ::: idx=354 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02437312/n02437312_26647.JPEG
+FAILURE ::: class_name='pole' ::: idx=865 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04462240/n04462240_2824.JPEG
+FAILURE ::: class_name='pole' ::: idx=244 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108551/n02108551_1724.JPEG
+FAILURE ::: class_name='pole' ::: idx=833 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04347754/n04347754_42815.JPEG
+FAILURE ::: class_name='pole' ::: idx=269 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02114367/n02114367_6131.JPEG
+FAILURE ::: class_name='pole' ::: idx=365 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02480495/n02480495_7474.JPEG
+FAILURE ::: class_name='pole' ::: idx=983 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n10565667/n10565667_10527.JPEG
+FAILURE ::: class_name='pole' ::: idx=89 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01819313/n01819313_2896.JPEG
+733 pole 21/75
+FAILURE ::: class_name='soda bottle' ::: idx=225 ::: prompt="Determine whether there is a soda bottle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02105162/n02105162_2909.JPEG
+FAILURE ::: class_name='soda bottle' ::: idx=805 ::: prompt="Determine whether there is a soda bottle in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04254680/n04254680_4515.JPEG
+737 soda bottle 2/75
+FAILURE ::: class_name='plant pot' ::: idx=165 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02089078/n02089078_7635.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=268 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02113978/n02113978_10054.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=620 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03642806/n03642806_24507.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=358 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02443114/n02443114_10306.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=765 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04099969/n04099969_4816.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=432 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02804610/n02804610_17182.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=835 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04355338/n04355338_2763.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=177 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02092002/n02092002_45.JPEG
+738 plant pot 8/75
+FAILURE ::: class_name="potter's wheel" ::: idx=686 ::: prompt="Determine whether there is a potter's wheel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03843555/n03843555_3039.JPEG
+FAILURE ::: class_name="potter's wheel" ::: idx=883 ::: prompt="Determine whether there is a potter's wheel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04522168/n04522168_24514.JPEG
+739 potter's wheel 2/75
+746 hockey puck 0/75
+FAILURE ::: class_name='quill' ::: idx=84 ::: prompt="Determine whether there is a quill in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01806143/n01806143_1041.JPEG
+FAILURE ::: class_name='quill' ::: idx=857 ::: prompt="Determine whether there is a quill in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04429376/n04429376_2511.JPEG
+FAILURE ::: class_name='quill' ::: idx=363 ::: prompt="Determine whether there is a quill in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02454379/n02454379_19362.JPEG
+FAILURE ::: class_name='quill' ::: idx=894 ::: prompt="Determine whether there is a quill in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04550184/n04550184_57884.JPEG
+749 quill 4/75
+752 racket 0/75
+755 radio telescope 0/75
+FAILURE ::: class_name='rain barrel' ::: idx=463 ::: prompt="Determine whether there is a rain barrel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02909870/n02909870_28110.JPEG
+FAILURE ::: class_name='rain barrel' ::: idx=236 ::: prompt="Determine whether there is a rain barrel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02107142/n02107142_27443.JPEG
+FAILURE ::: class_name='rain barrel' ::: idx=219 ::: prompt="Determine whether there is a rain barrel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02102318/n02102318_1835.JPEG
+756 rain barrel 3/75
+766 rotisserie 0/75
+FAILURE ::: class_name='eraser' ::: idx=594 ::: prompt="Determine whether there is a eraser in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03495258/n03495258_15408.JPEG
+FAILURE ::: class_name='eraser' ::: idx=807 ::: prompt="Determine whether there is a eraser in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04258138/n04258138_11310.JPEG
+767 eraser 2/75
+771 safe 0/75
+776 saxophone 0/75
+785 seat belt 0/75
+788 shoe store 0/75
+FAILURE ::: class_name='shovel' ::: idx=731 ::: prompt="Determine whether there is a shovel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03970156/n03970156_4617.JPEG
+792 shovel 1/75
+FAILURE ::: class_name='shower cap' ::: idx=434 ::: prompt="Determine whether there is a shower cap in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02808304/n02808304_6467.JPEG
+FAILURE ::: class_name='shower cap' ::: idx=405 ::: prompt="Determine whether there is a shower cap in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02692877/n02692877_4711.JPEG
+FAILURE ::: class_name='shower cap' ::: idx=714 ::: prompt="Determine whether there is a shower cap in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03929660/n03929660_6828.JPEG
+FAILURE ::: class_name='shower cap' ::: idx=431 ::: prompt="Determine whether there is a shower cap in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02804414/n02804414_4922.JPEG
+793 shower cap 4/75
+FAILURE ::: class_name='sleeping bag' ::: idx=259 ::: prompt="Determine whether there is a sleeping bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02112018/n02112018_6497.JPEG
+FAILURE ::: class_name='sleeping bag' ::: idx=240 ::: prompt="Determine whether there is a sleeping bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02107908/n02107908_4453.JPEG
+797 sleeping bag 2/75
+FAILURE ::: class_name='leopard' ::: idx=290 ::: prompt="Determine whether there is a leopard in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02128925/n02128925_29032.JPEG
+FAILURE ::: class_name='leopard' ::: idx=837 ::: prompt="Determine whether there is a leopard in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04356056/n04356056_7471.JPEG
+288 leopard 2/75
+801 snorkel 0/75
+802 snowmobile 0/75
+803 snowplow 0/75
+FAILURE ::: class_name='sloth bear' ::: idx=374 ::: prompt="Determine whether there is a sloth bear in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02488291/n02488291_2035.JPEG
+297 sloth bear 1/75
+FAILURE ::: class_name='bee' ::: idx=410 ::: prompt="Determine whether there is a bee in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02727426/n02727426_32211.JPEG
+309 bee 1/75
+FAILURE ::: class_name='steel drum' ::: idx=577 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03447721/n03447721_40339.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=827 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04330267/n04330267_15330.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=467 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02927161/n02927161_792.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=415 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02776631/n02776631_5148.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=427 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02795169/n02795169_2930.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=427 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02795169/n02795169_7983.JPEG
+FAILURE ::: class_name='steel drum' ::: idx=876 ::: prompt="Determine whether there is a steel drum in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04493381/n04493381_24126.JPEG
+822 steel drum 7/75
+FAILURE ::: class_name='stick insect' ::: idx=79 ::: prompt="Determine whether there is a stick insect in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01784675/n01784675_9939.JPEG
+FAILURE ::: class_name='stick insect' ::: idx=946 ::: prompt="Determine whether there is a stick insect in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n07730033/n07730033_9088.JPEG
+313 stick insect 2/75
+FAILURE ::: class_name='stove' ::: idx=521 ::: prompt="Determine whether there is a stove in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03133878/n03133878_3932.JPEG
+FAILURE ::: class_name='stove' ::: idx=505 ::: prompt="Determine whether there is a stove in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03063689/n03063689_14718.JPEG
+827 stove 2/75
+FAILURE ::: class_name='small white butterfly' ::: idx=318 ::: prompt="Determine whether there is a small white butterfly in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02264363/n02264363_8342.JPEG
+324 small white butterfly 1/75
+325 sulphur butterfly 0/75
+335 fox squirrel 0/75
+FAILURE ::: class_name='hartebeest' ::: idx=349 ::: prompt="Determine whether there is a hartebeest in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02415577/n02415577_129.JPEG
+351 hartebeest 1/75
+FAILURE ::: class_name='semi-trailer truck' ::: idx=634 ::: prompt="Determine whether there is a semi-trailer truck in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03697007/n03697007_11027.JPEG
+867 semi-trailer truck 1/75
+FAILURE ::: class_name='three-toed sloth' ::: idx=71 ::: prompt="Determine whether there is a three-toed sloth in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01770393/n01770393_10978.JPEG
+364 three-toed sloth 1/75
+FAILURE ::: class_name='howler monkey' ::: idx=367 ::: prompt="Determine whether there is a howler monkey in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02481823/n02481823_882.JPEG
+FAILURE ::: class_name='howler monkey' ::: idx=750 ::: prompt="Determine whether there is a howler monkey in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04033995/n04033995_5212.JPEG
+379 howler monkey 2/75
+FAILURE ::: class_name='indri' ::: idx=886 ::: prompt="Determine whether there is a indri in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04525305/n04525305_11095.JPEG
+FAILURE ::: class_name='indri' ::: idx=377 ::: prompt="Determine whether there is a indri in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02490219/n02490219_4356.JPEG
+FAILURE ::: class_name='indri' ::: idx=756 ::: prompt="Determine whether there is a indri in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04049303/n04049303_3879.JPEG
+FAILURE ::: class_name='indri' ::: idx=368 ::: prompt="Determine whether there is a indri in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02483362/n02483362_9083.JPEG
+FAILURE ::: class_name='indri' ::: idx=276 ::: prompt="Determine whether there is a indri in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02117135/n02117135_1750.JPEG
+384 indri 5/75
+FAILURE ::: class_name='snoek fish' ::: idx=709 ::: prompt="Determine whether there is a snoek fish in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03908618/n03908618_18096.JPEG
+FAILURE ::: class_name='snoek fish' ::: idx=453 ::: prompt="Determine whether there is a snoek fish in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02870880/n02870880_10424.JPEG
+389 snoek fish 2/75
+FAILURE ::: class_name='sturgeon' ::: idx=58 ::: prompt="Determine whether there is a sturgeon in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01737021/n01737021_21174.JPEG
+FAILURE ::: class_name='sturgeon' ::: idx=115 ::: prompt="Determine whether there is a sturgeon in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01950731/n01950731_11796.JPEG
+394 sturgeon 2/75
+FAILURE ::: class_name='gar fish' ::: idx=65 ::: prompt="Determine whether there is a gar fish in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01751748/n01751748_7673.JPEG
+FAILURE ::: class_name='gar fish' ::: idx=58 ::: prompt="Determine whether there is a gar fish in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01737021/n01737021_27299.JPEG
+395 gar fish 2/75
+908 airplane wing 0/75
+FAILURE ::: class_name='academic gown' ::: idx=451 ::: prompt="Determine whether there is a academic gown in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02865351/n02865351_1054.JPEG
+400 academic gown 1/75
+415 bakery 0/75
+FAILURE ::: class_name='balance beam' ::: idx=370 ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02484975/n02484975_6455.JPEG
+FAILURE ::: class_name='balance beam' ::: idx=247 ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02109525/n02109525_16667.JPEG
+FAILURE ::: class_name='balance beam' ::: idx=370 ::: prompt="Determine whether there is a balance beam in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02484975/n02484975_5229.JPEG
+416 balance beam 3/75
+FAILURE ::: class_name='Band-Aid' ::: idx=622 ::: prompt="Determine whether there is a Band-Aid in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03657121/n03657121_4623.JPEG
+FAILURE ::: class_name='Band-Aid' ::: idx=529 ::: prompt="Determine whether there is a Band-Aid in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03188531/n03188531_32360.JPEG
+419 Band-Aid 2/75
+933 cheeseburger 0/75
+424 barbershop 0/75
+425 barn 0/75
+433 swimming cap 0/75
+FAILURE ::: class_name='bath towel' ::: idx=243 ::: prompt="Determine whether there is a bath towel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02108422/n02108422_290.JPEG
+FAILURE ::: class_name='bath towel' ::: idx=423 ::: prompt="Determine whether there is a bath towel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02791124/n02791124_6109.JPEG
+FAILURE ::: class_name='bath towel' ::: idx=77 ::: prompt="Determine whether there is a bath towel in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01775062/n01775062_8380.JPEG
+434 bath towel 3/75
+435 bathtub 0/75
+440 beer bottle 0/75
+FAILURE ::: class_name='bikini' ::: idx=879 ::: prompt="Determine whether there is a bikini in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04507155/n04507155_16884.JPEG
+445 bikini 1/75
+FAILURE ::: class_name='bookstore' ::: idx=611 ::: prompt="Determine whether there is a bookstore in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03598930/n03598930_441.JPEG
+454 bookstore 1/75
+465 bulletproof vest 0/75
+466 high-speed train 0/75
+FAILURE ::: class_name='chain mail' ::: idx=263 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02113023/n02113023_9397.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=358 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02443114/n02443114_4798.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=533 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03207743/n03207743_30403.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=96 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n01843383/n01843383_4682.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=269 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02114367/n02114367_19125.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=748 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04026417/n04026417_9482.JPEG
+FAILURE ::: class_name='chain mail' ::: idx=791 ::: prompt="Determine whether there is a chain mail in the image. Reply with 'Yes' or 'No'." ::: res='Yes ' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04204347/n04204347_5586.JPEG
+490 chain mail 7/75
+491 chainsaw 0/75
+Acc: 172/7500
+Results:
+[{'pair': {'prompt': "Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'tench': (0.17333333333333334,), 'great white shark': (0.0,), 'cowboy hat': (0.04,), 'cradle': (0.013333333333333334,), 'dam': (0.04,), 'indigo bunting': (0.0,), 'dog sled': (0.0,), 'dumbbell': (0.013333333333333334,), 'fireboat': (0.0,), 'agama': (0.04,), 'flagpole': (0.04,), 'American alligator': (0.0,), 'fountain pen': (0.0,), 'freight car': (0.0,), 'water snake': (0.0,), 'gondola': (0.04,), 'hair spray': (0.0,), 'hamper': (0.02666666666666667,), 'black grouse': (0.02666666666666667,), 'ptarmigan': (0.02666666666666667,), 'ruffed grouse': (0.0,), 'hard disk drive': (0.013333333333333334,), 'sulphur-crested cockatoo': (0.0,), 'gymnastic horizontal bar': (0.02666666666666667,), 'coucal': (0.05333333333333334,), 'hummingbird': (0.02666666666666667,), 'platypus': (0.0,), 'koala': (0.04,), 'lighter': (0.04,), 'miniskirt': (0.013333333333333334,), 'grey whale': (0.0,), 'graduation cap': (0.04,), 'mountain bike': (0.0,), 'neck brace': (0.02666666666666667,), 'baby pacifier': (0.0,), 'obelisk': (0.04,), 'ocarina': (0.013333333333333334,), 'padlock': (0.0,), 'parallel bars': (0.013333333333333334,), 'pencil case': (0.0,), 'pill bottle': (0.02666666666666667,), 'ping-pong ball': (0.04,), 'plastic bag': (0.09333333333333334,), 'plunger': (0.0,), 'pole': (0.2,), 'soda bottle': (0.04,), 'plant pot': (0.05333333333333334,), "potter's wheel": (0.013333333333333334,), 'hockey puck': (0.0,), 'quill': (0.06666666666666667,), 'racket': (0.013333333333333334,), 'radio telescope': (0.0,), 'rain barrel': (0.013333333333333334,), 'rotisserie': (0.0,), 'eraser': (0.04,), 'safe': (0.013333333333333334,), 'saxophone': (0.013333333333333334,), 'seat belt': (0.0,), 'shoe store': (0.0,), 'shovel': (0.013333333333333334,), 'shower cap': (0.0,), 'sleeping bag': (0.02666666666666667,), 'leopard': (0.013333333333333334,), 'snorkel': (0.0,), 'snowmobile': (0.0,), 'snowplow': (0.0,), 'sloth bear': (0.0,), 'bee': (0.0,), 'steel drum': (0.08,), 'stick insect': (0.0,), 'stove': (0.02666666666666667,), 'small white butterfly': (0.02666666666666667,), 'sulphur butterfly': (0.02666666666666667,), 'fox squirrel': (0.0,), 'hartebeest': (0.02666666666666667,), 'semi-trailer truck': (0.013333333333333334,), 'three-toed sloth': (0.013333333333333334,), 'howler monkey': (0.02666666666666667,), 'indri': (0.08,), 'snoek fish': (0.013333333333333334,), 'sturgeon': (0.02666666666666667,), 'gar fish': (0.04,), 'airplane wing': (0.0,), 'academic gown': (0.0,), 'bakery': (0.0,), 'balance beam': (0.02666666666666667,), 'Band-Aid': (0.013333333333333334,), 'cheeseburger': (0.013333333333333334,), 'barbershop': (0.013333333333333334,), 'barn': (0.02666666666666667,), 'swimming cap': (0.0,), 'bath towel': (0.02666666666666667,), 'bathtub': (0.0,), 'beer bottle': (0.0,), 'bikini': (0.013333333333333334,), 'bookstore': (0.0,), 'bulletproof vest': (0.0,), 'high-speed train': (0.0,), 'chain mail': (0.05333333333333334,), 'chainsaw': (0.013333333333333334,), 'total': (0.021066666666666668,)}}, {'pair': {'prompt': "Is there a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'tench': (0.08,), 'great white shark': (0.0,), 'cowboy hat': (0.02666666666666667,), 'cradle': (0.06666666666666667,), 'dam': (0.013333333333333334,), 'indigo bunting': (0.02666666666666667,), 'dog sled': (0.0,), 'dumbbell': (0.013333333333333334,), 'fireboat': (0.0,), 'agama': (0.05333333333333334,), 'flagpole': (0.013333333333333334,), 'American alligator': (0.0,), 'fountain pen': (0.0,), 'freight car': (0.013333333333333334,), 'water snake': (0.0,), 'gondola': (0.0,), 'hair spray': (0.0,), 'hamper': (0.09333333333333334,), 'black grouse': (0.013333333333333334,), 'ptarmigan': (0.04,), 'ruffed grouse': (0.02666666666666667,), 'hard disk drive': (0.0,), 'sulphur-crested cockatoo': (0.02666666666666667,), 'gymnastic horizontal bar': (0.013333333333333334,), 'coucal': (0.08,), 'hummingbird': (0.0,), 'platypus': (0.013333333333333334,), 'koala': (0.04,), 'lighter': (0.13333333333333333,), 'miniskirt': (0.0,), 'grey whale': (0.013333333333333334,), 'graduation cap': (0.013333333333333334,), 'mountain bike': (0.0,), 'neck brace': (0.0,), 'baby pacifier': (0.02666666666666667,), 'obelisk': (0.013333333333333334,), 'ocarina': (0.013333333333333334,), 'padlock': (0.013333333333333334,), 'parallel bars': (0.013333333333333334,), 'pencil case': (0.0,), 'pill bottle': (0.02666666666666667,), 'ping-pong ball': (0.02666666666666667,), 'plastic bag': (0.02666666666666667,), 'plunger': (0.04,), 'pole': (0.25333333333333335,), 'soda bottle': (0.04,), 'plant pot': (0.04,), "potter's wheel": (0.02666666666666667,), 'hockey puck': (0.0,), 'quill': (0.09333333333333334,), 'racket': (0.0,), 'radio telescope': (0.0,), 'rain barrel': (0.02666666666666667,), 'rotisserie': (0.0,), 'eraser': (0.013333333333333334,), 'safe': (0.013333333333333334,), 'saxophone': (0.0,), 'seat belt': (0.0,), 'shoe store': (0.0,), 'shovel': (0.0,), 'shower cap': (0.013333333333333334,), 'sleeping bag': (0.02666666666666667,), 'leopard': (0.0,), 'snorkel': (0.04,), 'snowmobile': (0.0,), 'snowplow': (0.0,), 'sloth bear': (0.02666666666666667,), 'bee': (0.013333333333333334,), 'steel drum': (0.12,), 'stick insect': (0.013333333333333334,), 'stove': (0.02666666666666667,), 'small white butterfly': (0.0,), 'sulphur butterfly': (0.0,), 'fox squirrel': (0.013333333333333334,), 'hartebeest': (0.02666666666666667,), 'semi-trailer truck': (0.0,), 'three-toed sloth': (0.013333333333333334,), 'howler monkey': (0.04,), 'indri': (0.02666666666666667,), 'snoek fish': (0.0,), 'sturgeon': (0.013333333333333334,), 'gar fish': (0.04,), 'airplane wing': (0.0,), 'academic gown': (0.0,), 'bakery': (0.02666666666666667,), 'balance beam': (0.02666666666666667,), 'Band-Aid': (0.04,), 'cheeseburger': (0.0,), 'barbershop': (0.0,), 'barn': (0.06666666666666667,), 'swimming cap': (0.013333333333333334,), 'bath towel': (0.013333333333333334,), 'bathtub': (0.0,), 'beer bottle': (0.0,), 'bikini': (0.0,), 'bookstore': (0.0,), 'bulletproof vest': (0.02666666666666667,), 'high-speed train': (0.0,), 'chain mail': (0.06666666666666667,), 'chainsaw': (0.013333333333333334,), 'total': (0.02266666666666667,)}}, {'pair': {'prompt': "Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'tench': (0.06666666666666667,), 'great white shark': (0.0,), 'cowboy hat': (0.05333333333333334,), 'cradle': (0.10666666666666667,), 'dam': (0.05333333333333334,), 'indigo bunting': (0.02666666666666667,), 'dog sled': (0.0,), 'dumbbell': (0.0,), 'fireboat': (0.0,), 'agama': (0.06666666666666667,), 'flagpole': (0.02666666666666667,), 'American alligator': (0.0,), 'fountain pen': (0.013333333333333334,), 'freight car': (0.013333333333333334,), 'water snake': (0.0,), 'gondola': (0.013333333333333334,), 'hair spray': (0.0,), 'hamper': (0.05333333333333334,), 'black grouse': (0.013333333333333334,), 'ptarmigan': (0.013333333333333334,), 'ruffed grouse': (0.0,), 'hard disk drive': (0.013333333333333334,), 'sulphur-crested cockatoo': (0.0,), 'gymnastic horizontal bar': (0.02666666666666667,), 'coucal': (0.04,), 'hummingbird': (0.013333333333333334,), 'platypus': (0.0,), 'koala': (0.0,), 'lighter': (0.06666666666666667,), 'miniskirt': (0.02666666666666667,), 'grey whale': (0.0,), 'graduation cap': (0.013333333333333334,), 'mountain bike': (0.0,), 'neck brace': (0.013333333333333334,), 'baby pacifier': (0.013333333333333334,), 'obelisk': (0.02666666666666667,), 'ocarina': (0.013333333333333334,), 'padlock': (0.06666666666666667,), 'parallel bars': (0.02666666666666667,), 'pencil case': (0.0,), 'pill bottle': (0.013333333333333334,), 'ping-pong ball': (0.013333333333333334,), 'plastic bag': (0.06666666666666667,), 'plunger': (0.0,), 'pole': (0.28,), 'soda bottle': (0.02666666666666667,), 'plant pot': (0.10666666666666667,), "potter's wheel": (0.02666666666666667,), 'hockey puck': (0.0,), 'quill': (0.05333333333333334,), 'racket': (0.0,), 'radio telescope': (0.0,), 'rain barrel': (0.04,), 'rotisserie': (0.0,), 'eraser': (0.02666666666666667,), 'safe': (0.0,), 'saxophone': (0.0,), 'seat belt': (0.0,), 'shoe store': (0.0,), 'shovel': (0.013333333333333334,), 'shower cap': (0.05333333333333334,), 'sleeping bag': (0.02666666666666667,), 'leopard': (0.02666666666666667,), 'snorkel': (0.0,), 'snowmobile': (0.0,), 'snowplow': (0.0,), 'sloth bear': (0.013333333333333334,), 'bee': (0.013333333333333334,), 'steel drum': (0.09333333333333334,), 'stick insect': (0.02666666666666667,), 'stove': (0.02666666666666667,), 'small white butterfly': (0.013333333333333334,), 'sulphur butterfly': (0.0,), 'fox squirrel': (0.0,), 'hartebeest': (0.013333333333333334,), 'semi-trailer truck': (0.013333333333333334,), 'three-toed sloth': (0.013333333333333334,), 'howler monkey': (0.02666666666666667,), 'indri': (0.06666666666666667,), 'snoek fish': (0.02666666666666667,), 'sturgeon': (0.02666666666666667,), 'gar fish': (0.02666666666666667,), 'airplane wing': (0.0,), 'academic gown': (0.013333333333333334,), 'bakery': (0.0,), 'balance beam': (0.04,), 'Band-Aid': (0.02666666666666667,), 'cheeseburger': (0.0,), 'barbershop': (0.0,), 'barn': (0.0,), 'swimming cap': (0.0,), 'bath towel': (0.04,), 'bathtub': (0.0,), 'beer bottle': (0.0,), 'bikini': (0.013333333333333334,), 'bookstore': (0.013333333333333334,), 'bulletproof vest': (0.0,), 'high-speed train': (0.0,), 'chain mail': (0.09333333333333334,), 'chainsaw': (0.0,), 'total': (0.022933333333333333,)}}]
