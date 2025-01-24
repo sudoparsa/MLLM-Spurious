@@ -143,27 +143,48 @@ def regex_coco(file_path):
     
     return results
 
-def analyze_coco(args, logger):
+
+def regex_spnet(file_path):
+    results = []
+    pattern = (
+        r"^FAILURE ::: class_name=(?P<cat>.*?) ::: idx=\d+ ::: i=\d+ ::: "
+        r"prompt=.* ::: res=.* ::: path=(?P<path>.*?)$")
+    
+    with open(file_path, 'r') as file:
+        for line in file:
+            match = re.match(pattern, line.strip())
+            if match:
+                results.append({
+                    'cat': match.group('cat'),
+                    'path': match.group('path'),
+                })
+    return results
+
+def analyze(args, logger):
     logs_dir = f"log/{args.dataset}/{args.model}/"
     prompt = f"Is there a CLASSNAME in the image? Explain."
+    if args.dataset == 'coco':
+        regex = regex_coco
+    if args.dataset == 'spurious_imagenet':
+        regex = regex_spnet
 
 
     failures = []
     for filename in os.listdir(logs_dir):
         if filename.startswith(f"{args.mode}-{args.experiment}") and filename.endswith('.log'):
-            failures += regex_coco(os.path.join(logs_dir, filename))
+            failures += regex(os.path.join(logs_dir, filename))
     
     cat_path_dict = {}
     for failure in failures:
         cat = failure['cat']
         path = failure['path']
-        annots = failure['annots']
+        # annots = failure['annots']
         if cat in cat_path_dict.keys():
             if path not in cat_path_dict[cat]['path']:
                 cat_path_dict[cat]['path'] += [path]
-                cat_path_dict[cat]['annots'] += [annots]
+                # cat_path_dict[cat]['annots'] += [annots]
         else:
-            cat_path_dict[cat] = {'path': [path], 'annots': [annots]}
+            cat_path_dict[cat] = {'path': [path]}
     
     model, processor = get_model(args)
 
@@ -180,9 +201,6 @@ def analyze_coco(args, logger):
         logger.info('\n')
 
 
-def analyze(args, logger):
-    if args.dataset == 'coco':
-        return analyze_coco(args, logger)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Seeing What's Not There")
