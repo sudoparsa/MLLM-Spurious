@@ -242,3 +242,165 @@ FAILURE ::: class_name='shovel' ::: idx=473 ::: prompt="Is there a shovel in the
 297 sloth bear 0/75
 309 bee 0/75
 822 steel drum 0/75
+313 stick insect 0/75
+FAILURE ::: class_name='stove' ::: idx=651 ::: prompt="Is there a stove in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03761084/n03761084_30017.JPEG
+FAILURE ::: class_name='stove' ::: idx=544 ::: prompt="Is there a stove in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03259280/n03259280_3530.JPEG
+827 stove 2/75
+324 small white butterfly 0/75
+325 sulphur butterfly 0/75
+335 fox squirrel 0/75
+351 hartebeest 0/75
+867 semi-trailer truck 0/75
+364 three-toed sloth 0/75
+379 howler monkey 0/75
+384 indri 0/75
+389 snoek fish 0/75
+394 sturgeon 0/75
+395 gar fish 0/75
+908 airplane wing 0/75
+FAILURE ::: class_name='academic gown' ::: idx=198 ::: prompt="Is there a academic gown in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02097209/n02097209_7070.JPEG
+400 academic gown 1/75
+FAILURE ::: class_name='bakery' ::: idx=860 ::: prompt="Is there a bakery in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04443257/n04443257_17686.JPEG
+415 bakery 1/75
+416 balance beam 0/75
+419 Band-Aid 0/75
+933 cheeseburger 0/75
+FAILURE ::: class_name='barbershop' ::: idx=423 ::: prompt="Is there a barbershop in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02791124/n02791124_16352.JPEG
+424 barbershop 1/75
+FAILURE ::: class_name='barn' ::: idx=267 ::: prompt="Is there a barn in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02113799/n02113799_7824.JPEG
+425 barn 1/75
+433 swimming cap 0/75
+434 bath towel 0/75
+435 bathtub 0/75
+440 beer bottle 0/75
+445 bikini 0/75
+454 bookstore 0/75
+465 bulletproof vest 0/75
+466 high-speed train 0/75
+FAILURE ::: class_name='chain mail' ::: idx=609 ::: prompt="Is there a chain mail in the image? Answer with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03594945/n03594945_6534.JPEG
+490 chain mail 1/75
+491 chainsaw 0/75
+Acc: 28/7500
+Prompt: Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.
+Target: Yes
+0 tench 0/75
+2 great white shark 0/75
+FAILURE ::: class_name='cowboy hat' ::: idx=753 ::: prompt="Determine whether there is a cowboy hat in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04040759/n04040759_11160.JPEG
+515 cowboy hat 1/75
+516 cradle 0/75
+525 dam 0/75
+14 indigo bunting 0/75
+537 dog sled 0/75
+543 dumbbell 0/75
+554 fireboat 0/75
+42 agama 0/75
+557 flagpole 0/75
+50 American alligator 0/75
+563 fountain pen 0/75
+565 freight car 0/75
+58 water snake 0/75
+576 gondola 0/75
+585 hair spray 0/75
+588 hamper 0/75
+80 black grouse 0/75
+81 ptarmigan 0/75
+82 ruffed grouse 0/75
+592 hard disk drive 0/75
+89 sulphur-crested cockatoo 0/75
+602 gymnastic horizontal bar 0/75
+91 coucal 0/75
+94 hummingbird 0/75
+103 platypus 0/75
+105 koala 0/75
+626 lighter 0/75
+655 miniskirt 0/75
+147 grey whale 0/75
+667 graduation cap 0/75
+671 mountain bike 0/75
+678 neck brace 0/75
+680 baby pacifier 0/75
+682 obelisk 0/75
+684 ocarina 0/75
+695 padlock 0/75
+702 parallel bars 0/75
+709 pencil case 0/75
+720 pill bottle 0/75
+722 ping-pong ball 0/75
+FAILURE ::: class_name='plastic bag' ::: idx=287 ::: prompt="Determine whether there is a plastic bag in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02127052/n02127052_9702.JPEG
+728 plastic bag 1/75
+731 plunger 0/75
+FAILURE ::: class_name='pole' ::: idx=557 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03355925/n03355925_31728.JPEG
+FAILURE ::: class_name='pole' ::: idx=563 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03388183/n03388183_115.JPEG
+FAILURE ::: class_name='pole' ::: idx=131 ::: prompt="Determine whether there is a pole in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02009229/n02009229_4222.JPEG
+733 pole 3/75
+FAILURE ::: class_name='soda bottle' ::: idx=805 ::: prompt="Determine whether there is a soda bottle in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n04254680/n04254680_4515.JPEG
+737 soda bottle 1/75
+FAILURE ::: class_name='plant pot' ::: idx=739 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03992509/n03992509_4229.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=335 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02356798/n02356798_346.JPEG
+FAILURE ::: class_name='plant pot' ::: idx=177 ::: prompt="Determine whether there is a plant pot in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02092002/n02092002_45.JPEG
+738 plant pot 3/75
+739 potter's wheel 0/75
+746 hockey puck 0/75
+FAILURE ::: class_name='quill' ::: idx=205 ::: prompt="Determine whether there is a quill in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02099267/n02099267_1150.JPEG
+749 quill 1/75
+752 racket 0/75
+755 radio telescope 0/75
+FAILURE ::: class_name='rain barrel' ::: idx=463 ::: prompt="Determine whether there is a rain barrel in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02909870/n02909870_28110.JPEG
+756 rain barrel 1/75
+766 rotisserie 0/75
+FAILURE ::: class_name='eraser' ::: idx=522 ::: prompt="Determine whether there is a eraser in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03134739/n03134739_9332.JPEG
+767 eraser 1/75
+771 safe 0/75
+776 saxophone 0/75
+785 seat belt 0/75
+788 shoe store 0/75
+792 shovel 0/75
+793 shower cap 0/75
+797 sleeping bag 0/75
+FAILURE ::: class_name='leopard' ::: idx=290 ::: prompt="Determine whether there is a leopard in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02128925/n02128925_29032.JPEG
+FAILURE ::: class_name='leopard' ::: idx=741 ::: prompt="Determine whether there is a leopard in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03998194/n03998194_9742.JPEG
+288 leopard 2/75
+801 snorkel 0/75
+802 snowmobile 0/75
+803 snowplow 0/75
+297 sloth bear 0/75
+FAILURE ::: class_name='bee' ::: idx=410 ::: prompt="Determine whether there is a bee in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02727426/n02727426_32211.JPEG
+309 bee 1/75
+822 steel drum 0/75
+313 stick insect 0/75
+FAILURE ::: class_name='stove' ::: idx=521 ::: prompt="Determine whether there is a stove in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03133878/n03133878_3932.JPEG
+FAILURE ::: class_name='stove' ::: idx=505 ::: prompt="Determine whether there is a stove in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n03063689/n03063689_14718.JPEG
+827 stove 2/75
+324 small white butterfly 0/75
+325 sulphur butterfly 0/75
+335 fox squirrel 0/75
+351 hartebeest 0/75
+867 semi-trailer truck 0/75
+364 three-toed sloth 0/75
+379 howler monkey 0/75
+384 indri 0/75
+389 snoek fish 0/75
+394 sturgeon 0/75
+395 gar fish 0/75
+908 airplane wing 0/75
+400 academic gown 0/75
+415 bakery 0/75
+416 balance beam 0/75
+419 Band-Aid 0/75
+933 cheeseburger 0/75
+424 barbershop 0/75
+425 barn 0/75
+433 swimming cap 0/75
+434 bath towel 0/75
+FAILURE ::: class_name='bathtub' ::: idx=358 ::: prompt="Determine whether there is a bathtub in the image. Reply with 'Yes' or 'No'." ::: res='Yes' ::: path=/var/tmp/cai6/parsahs/imagenet/train/n02443114/n02443114_9032.JPEG
+435 bathtub 1/75
+440 beer bottle 0/75
+445 bikini 0/75
+454 bookstore 0/75
+465 bulletproof vest 0/75
+466 high-speed train 0/75
+490 chain mail 0/75
+491 chainsaw 0/75
+Acc: 18/7500
+Results:
+[{'pair': {'prompt': "Do you see a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'tench': (0.0,), 'great white shark': (0.0,), 'cowboy hat': (0.0,), 'cradle': (0.0,), 'dam': (0.0,), 'indigo bunting': (0.0,), 'dog sled': (0.0,), 'dumbbell': (0.0,), 'fireboat': (0.0,), 'agama': (0.0,), 'flagpole': (0.02666666666666667,), 'American alligator': (0.0,), 'fountain pen': (0.0,), 'freight car': (0.0,), 'water snake': (0.013333333333333334,), 'gondola': (0.0,), 'hair spray': (0.0,), 'hamper': (0.0,), 'black grouse': (0.0,), 'ptarmigan': (0.0,), 'ruffed grouse': (0.0,), 'hard disk drive': (0.0,), 'sulphur-crested cockatoo': (0.0,), 'gymnastic horizontal bar': (0.0,), 'coucal': (0.0,), 'hummingbird': (0.0,), 'platypus': (0.0,), 'koala': (0.013333333333333334,), 'lighter': (0.013333333333333334,), 'miniskirt': (0.0,), 'grey whale': (0.0,), 'graduation cap': (0.0,), 'mountain bike': (0.0,), 'neck brace': (0.013333333333333334,), 'baby pacifier': (0.0,), 'obelisk': (0.0,), 'ocarina': (0.0,), 'padlock': (0.0,), 'parallel bars': (0.0,), 'pencil case': (0.0,), 'pill bottle': (0.0,), 'ping-pong ball': (0.013333333333333334,), 'plastic bag': (0.02666666666666667,), 'plunger': (0.0,), 'pole': (0.09333333333333334,), 'soda bottle': (0.013333333333333334,), 'plant pot': (0.013333333333333334,), "potter's wheel": (0.0,), 'hockey puck': (0.0,), 'quill': (0.0,), 'racket': (0.0,), 'radio telescope': (0.0,), 'rain barrel': (0.013333333333333334,), 'rotisserie': (0.0,), 'eraser': (0.013333333333333334,), 'safe': (0.0,), 'saxophone': (0.0,), 'seat belt': (0.0,), 'shoe store': (0.0,), 'shovel': (0.0,), 'shower cap': (0.0,), 'sleeping bag': (0.0,), 'leopard': (0.0,), 'snorkel': (0.0,), 'snowmobile': (0.0,), 'snowplow': (0.0,), 'sloth bear': (0.0,), 'bee': (0.0,), 'steel drum': (0.0,), 'stick insect': (0.0,), 'stove': (0.0,), 'small white butterfly': (0.0,), 'sulphur butterfly': (0.0,), 'fox squirrel': (0.0,), 'hartebeest': (0.0,), 'semi-trailer truck': (0.0,), 'three-toed sloth': (0.0,), 'howler monkey': (0.013333333333333334,), 'indri': (0.0,), 'snoek fish': (0.0,), 'sturgeon': (0.0,), 'gar fish': (0.0,), 'airplane wing': (0.0,), 'academic gown': (0.0,), 'bakery': (0.0,), 'balance beam': (0.0,), 'Band-Aid': (0.0,), 'cheeseburger': (0.013333333333333334,), 'barbershop': (0.013333333333333334,), 'barn': (0.0,), 'swimming cap': (0.0,), 'bath towel': (0.013333333333333334,), 'bathtub': (0.0,), 'beer bottle': (0.0,), 'bikini': (0.013333333333333334,), 'bookstore': (0.0,), 'bulletproof vest': (0.0,), 'high-speed train': (0.0,), 'chain mail': (0.013333333333333334,), 'chainsaw': (0.0,), 'total': (0.0034666666666666665,)}}, {'pair': {'prompt': "Is there a CLASSNAME in the image? Answer with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'tench': (0.0,), 'great white shark': (0.0,), 'cowboy hat': (0.0,), 'cradle': (0.013333333333333334,), 'dam': (0.0,), 'indigo bunting': (0.0,), 'dog sled': (0.0,), 'dumbbell': (0.0,), 'fireboat': (0.0,), 'agama': (0.013333333333333334,), 'flagpole': (0.013333333333333334,), 'American alligator': (0.0,), 'fountain pen': (0.0,), 'freight car': (0.0,), 'water snake': (0.0,), 'gondola': (0.013333333333333334,), 'hair spray': (0.0,), 'hamper': (0.0,), 'black grouse': (0.0,), 'ptarmigan': (0.0,), 'ruffed grouse': (0.0,), 'hard disk drive': (0.0,), 'sulphur-crested cockatoo': (0.0,), 'gymnastic horizontal bar': (0.0,), 'coucal': (0.0,), 'hummingbird': (0.0,), 'platypus': (0.0,), 'koala': (0.0,), 'lighter': (0.013333333333333334,), 'miniskirt': (0.0,), 'grey whale': (0.0,), 'graduation cap': (0.0,), 'mountain bike': (0.0,), 'neck brace': (0.0,), 'baby pacifier': (0.0,), 'obelisk': (0.0,), 'ocarina': (0.0,), 'padlock': (0.0,), 'parallel bars': (0.0,), 'pencil case': (0.0,), 'pill bottle': (0.0,), 'ping-pong ball': (0.0,), 'plastic bag': (0.0,), 'plunger': (0.0,), 'pole': (0.12,), 'soda bottle': (0.013333333333333334,), 'plant pot': (0.04,), "potter's wheel": (0.0,), 'hockey puck': (0.0,), 'quill': (0.013333333333333334,), 'racket': (0.0,), 'radio telescope': (0.0,), 'rain barrel': (0.0,), 'rotisserie': (0.0,), 'eraser': (0.0,), 'safe': (0.013333333333333334,), 'saxophone': (0.0,), 'seat belt': (0.0,), 'shoe store': (0.0,), 'shovel': (0.013333333333333334,), 'shower cap': (0.0,), 'sleeping bag': (0.0,), 'leopard': (0.0,), 'snorkel': (0.0,), 'snowmobile': (0.0,), 'snowplow': (0.0,), 'sloth bear': (0.0,), 'bee': (0.0,), 'steel drum': (0.0,), 'stick insect': (0.0,), 'stove': (0.02666666666666667,), 'small white butterfly': (0.0,), 'sulphur butterfly': (0.0,), 'fox squirrel': (0.0,), 'hartebeest': (0.0,), 'semi-trailer truck': (0.0,), 'three-toed sloth': (0.0,), 'howler monkey': (0.0,), 'indri': (0.0,), 'snoek fish': (0.0,), 'sturgeon': (0.0,), 'gar fish': (0.0,), 'airplane wing': (0.0,), 'academic gown': (0.013333333333333334,), 'bakery': (0.013333333333333334,), 'balance beam': (0.0,), 'Band-Aid': (0.0,), 'cheeseburger': (0.0,), 'barbershop': (0.013333333333333334,), 'barn': (0.013333333333333334,), 'swimming cap': (0.0,), 'bath towel': (0.0,), 'bathtub': (0.0,), 'beer bottle': (0.0,), 'bikini': (0.0,), 'bookstore': (0.0,), 'bulletproof vest': (0.0,), 'high-speed train': (0.0,), 'chain mail': (0.013333333333333334,), 'chainsaw': (0.0,), 'total': (0.0037333333333333333,)}}, {'pair': {'prompt': "Determine whether there is a CLASSNAME in the image. Reply with 'Yes' or 'No'.", 'target': 'Yes'}, 'result': {'tench': (0.0,), 'great white shark': (0.0,), 'cowboy hat': (0.013333333333333334,), 'cradle': (0.0,), 'dam': (0.0,), 'indigo bunting': (0.0,), 'dog sled': (0.0,), 'dumbbell': (0.0,), 'fireboat': (0.0,), 'agama': (0.0,), 'flagpole': (0.0,), 'American alligator': (0.0,), 'fountain pen': (0.0,), 'freight car': (0.0,), 'water snake': (0.0,), 'gondola': (0.0,), 'hair spray': (0.0,), 'hamper': (0.0,), 'black grouse': (0.0,), 'ptarmigan': (0.0,), 'ruffed grouse': (0.0,), 'hard disk drive': (0.0,), 'sulphur-crested cockatoo': (0.0,), 'gymnastic horizontal bar': (0.0,), 'coucal': (0.0,), 'hummingbird': (0.0,), 'platypus': (0.0,), 'koala': (0.0,), 'lighter': (0.0,), 'miniskirt': (0.0,), 'grey whale': (0.0,), 'graduation cap': (0.0,), 'mountain bike': (0.0,), 'neck brace': (0.0,), 'baby pacifier': (0.0,), 'obelisk': (0.0,), 'ocarina': (0.0,), 'padlock': (0.0,), 'parallel bars': (0.0,), 'pencil case': (0.0,), 'pill bottle': (0.0,), 'ping-pong ball': (0.0,), 'plastic bag': (0.013333333333333334,), 'plunger': (0.0,), 'pole': (0.04,), 'soda bottle': (0.013333333333333334,), 'plant pot': (0.04,), "potter's wheel": (0.0,), 'hockey puck': (0.0,), 'quill': (0.013333333333333334,), 'racket': (0.0,), 'radio telescope': (0.0,), 'rain barrel': (0.013333333333333334,), 'rotisserie': (0.0,), 'eraser': (0.013333333333333334,), 'safe': (0.0,), 'saxophone': (0.0,), 'seat belt': (0.0,), 'shoe store': (0.0,), 'shovel': (0.0,), 'shower cap': (0.0,), 'sleeping bag': (0.0,), 'leopard': (0.02666666666666667,), 'snorkel': (0.0,), 'snowmobile': (0.0,), 'snowplow': (0.0,), 'sloth bear': (0.0,), 'bee': (0.013333333333333334,), 'steel drum': (0.0,), 'stick insect': (0.0,), 'stove': (0.02666666666666667,), 'small white butterfly': (0.0,), 'sulphur butterfly': (0.0,), 'fox squirrel': (0.0,), 'hartebeest': (0.0,), 'semi-trailer truck': (0.0,), 'three-toed sloth': (0.0,), 'howler monkey': (0.0,), 'indri': (0.0,), 'snoek fish': (0.0,), 'sturgeon': (0.0,), 'gar fish': (0.0,), 'airplane wing': (0.0,), 'academic gown': (0.0,), 'bakery': (0.0,), 'balance beam': (0.0,), 'Band-Aid': (0.0,), 'cheeseburger': (0.0,), 'barbershop': (0.0,), 'barn': (0.0,), 'swimming cap': (0.0,), 'bath towel': (0.0,), 'bathtub': (0.013333333333333334,), 'beer bottle': (0.0,), 'bikini': (0.0,), 'bookstore': (0.0,), 'bulletproof vest': (0.0,), 'high-speed train': (0.0,), 'chain mail': (0.0,), 'chainsaw': (0.0,), 'total': (0.0024,)}}]
