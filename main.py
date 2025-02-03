@@ -54,7 +54,7 @@ def parse_args():
         "--mode",
         type=str,
         default="sycophantic",
-        choices=["unbiased", "sycophantic", "cot"],
+        choices=["unbiased", "sycophantic", "twostepv1", "twostepv2"],
         help="prompt's type",
     )
     parser.add_argument(
@@ -94,7 +94,6 @@ def parse_args():
 #################################
 
 # ANALYZE_PROMPT = "Describe everything you see in the image in as much detail as possible."
-ANALYZE_PROMPT = "Describe the most prominent objects in this image. Pay attention to their shape, texture, and distinctive parts"
 
 
 def get_unbiased_prompts(class_name):
@@ -131,10 +130,19 @@ def get_syco_prompts_no_object(class_name):
     return syco_prompts
 
 
-def get_cot_prompts(class_name):
+def get_twostepv1_prompts(class_name):
+    first_step = "Describe the most prominent objects in this image."
     target = 'Yes'
     
-    unbiased_prompts = [{'prompt':f"Is there a {class_name} in the image? Answer with 'Yes' or 'No'.", 'target':target},
+    unbiased_prompts = [{'prompt':f"Is there a {class_name} in the image? Answer with 'Yes' or 'No'.", 'target':target, 'first_step':first_step},
+                        ]
+    return unbiased_prompts
+
+def get_twostepv2_prompts(class_name):
+    first_step = f"Describe the most prominent objects in this image. We are particularly interested in whether there is a {class_name} in the image."
+    target = 'Yes'
+    
+    unbiased_prompts = [{'prompt':f"Is there a {class_name} in the image? Answer with 'Yes' or 'No'.", 'target':target, 'first_step':first_step},
                         ]
     return unbiased_prompts
 
@@ -273,10 +281,10 @@ def get_messages(prompt, image, history):
         messages = [
             {"role": "user", "content": [
                 {"type": "image"},
-                {"type": "text", "text": ANALYZE_PROMPT}
+                {"type": "text", "text": history['first_step']}
                 ]},
             {"role": "assistant", "content": [
-                {"type": "text", "text": history}
+                {"type": "text", "text": history['res']}
                 ]},
             {"role": "user", "content": [
                 # {"type": "image"},
@@ -496,9 +504,12 @@ def is_mask_viable(mask, args, processor=None) -> bool:
 
 	
 
-def get_acc_for_prompt(model, processor, prompt, target, args, wnid, idx, K, spur_present=-1, mask_object=False, blank_image=False, drop_mask=False):
+def get_acc_for_prompt(model, processor, pair, args, wnid, idx, K, spur_present=-1, mask_object=False, blank_image=False, drop_mask=False):
     acc = 0
     tot = 0
+    class_name = imagenet_classnames[idx]
+    prompt = pair['prompt'].replace('CLASSNAME', class_name)
+    target = pair['target']
     for i in range(K):
         fname = paths_by_rank[idx][-spur_present*i + (-spur_present - 1) // 2].split('/')[-1].split('_')[1].split('.')[0]
         image = Image.open(os.path.join(_IMAGENET_ROOT, args.split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
@@ -517,22 +528,25 @@ def get_acc_for_prompt(model, processor, prompt, target, args, wnid, idx, K, spu
             image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
         if mask_object and drop_mask:
             history = ""
-            if args.mode == "cot":
-                history = get_vllm_output_with_tok_dropping(model, processor, ANALYZE_PROMPT, image, mask, args)
+            if args.mode == "twostepv1" or args.mode == "twostepv2":
+                first_step = pair['first_step'].replace('CLASSNAME', class_name)
+                res = get_vllm_output_with_tok_dropping(model, processor, first_step, image, mask, args)
+                history = {'first_step': first_step, 'res':res}
             res = get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask, args, history)
         else:
             history = ""
-            if args.mode == 'cot':
-                history = get_vllm_output(model, processor, ANALYZE_PROMPT, image)
-            
+            if args.mode == "twostepv1" or args.mode == "twostepv2":
+                first_step = pair['first_step'].replace('CLASSNAME', class_name)
+                res = get_vllm_output(model, processor, first_step, image)
+                history = {'first_step': first_step, 'res':res}
             res = get_vllm_output(model, processor, prompt, image, history)
         # logger.debug(f"{prompt=}, {res=}")
         if target in res:
             acc += 1
             if mask_object or drop_mask or blank_image:
-                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')} ::: history={history.replace('\n', ' ')}")
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')} ::: history={history['first_step']} {history['res'].replace('\n', ' ')}")
         elif not mask_object and not blank_image and not drop_mask:
-                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')} ::: history={history.replace('\n', ' ')}")
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')} ::: history={history['first_step']} {history['res'].replace('\n', ' ')}")
         tot += 1
     return acc, tot
 
@@ -546,11 +560,8 @@ def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False,
         class_name = imagenet_classnames[idx]
         wnid = idx_to_wnid[idx]
         logger.debug(f"{idx=}, {class_name=}")
-        
-        prompt = pair['prompt'].replace('CLASSNAME', class_name)
-        target = pair['target']
 
-        acc, tot = get_acc_for_prompt(model, processor, prompt, target, args, wnid, idx, K, spur_present=spur_present, mask_object=mask_object, blank_image=blank_image, drop_mask=drop_mask)
+        acc, tot = get_acc_for_prompt(model, processor, pair, args, wnid, idx, K, spur_present=spur_present, mask_object=mask_object, blank_image=blank_image, drop_mask=drop_mask)
 
         logger.info(f"{idx} {class_name} {acc}/{tot}")
 
@@ -589,8 +600,10 @@ def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_
                 # Very small images are not compatible with qwen
                 if image.size[0] >= 28 and image.size[1] >= 28:
                     history = ""
-                    if args.mode == 'cot':
-                        history = get_vllm_output(model, processor, ANALYZE_PROMPT, image)
+                    if args.mode == "twostepv1" or args.mode == "twostepv2":
+                        first_step = pair['first_step'].replace('CLASSNAME', class_name)
+                        res = get_vllm_output(model, processor, first_step, image)
+                        history = {'first_step': first_step, 'res': res}
                     res = get_vllm_output(model, processor, prompt, image, history)
                     if target in res:
                         acc += 1
@@ -752,8 +765,10 @@ def run(args):
         prompts = get_syco_prompts('CLASSNAME')
         if mask_object:
             prompts = get_syco_prompts_no_object('CLASSNAME')
-    if args.mode == 'cot':
-        prompts = get_cot_prompts('CLASSNAME')
+    if args.mode == "twostepv1":
+        prompts = get_twostepv1_prompts('CLASSNAME')
+    if args.mode == "twostepv2":
+        prompts = get_twostepv2_prompts('CLASSNAME')
     
     if args.prompt_idx >= 0:
         prompts = [prompts[args.prompt_idx]]
