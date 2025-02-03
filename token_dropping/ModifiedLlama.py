@@ -61,6 +61,8 @@ class ModifiedMllamaVisionModel(MllamaVisionModel):
 
         # Compute the number of tokens to pad
         num_padding_patches = (8 - (hidden_state.shape[-2] % 8)) % 8
+        if num_padding_patches == 0:
+            num_padding_patches = 8
         # Compute padding tuple for pad function
         padding = (0, 0, 0, num_padding_patches)  # (pad_left, pad_right, pad_left for dim -2, pad_right for dim -2)
         # Pad the tensor
