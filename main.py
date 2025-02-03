@@ -24,12 +24,12 @@ from token_dropping.ModifiedLlava import ModifiedLlavaNextForConditionalGenerati
 
 
 device = 'cuda'
-_MASK_ROOT = '/p/vast1/cai6/parsahs/hardImageNet'
-_IMAGENET_ROOT = '/var/tmp/cai6/parsahs/imagenet'
-HARD_IMAGE_NET_DIR = '/p/vast1/cai6/parsahs/hardImageNet'
-CACHE_DIR = "/p/vast1/cai6/parsahs/huggingface/hub"
-SPURIOUS_IMAGENET_DIR = "/var/tmp/cai6/parsahs/images"
-COCO_PATH = "/p/vast1/cai6/sumit_storage/coco"
+_MASK_ROOT = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
+_IMAGENET_ROOT = '/fs/cml-datasets/ImageNet/ILSVRC2012'
+HARD_IMAGE_NET_DIR = '/fs/nexus-scratch/parsahs/spurious/vlm/hardImageNet'
+CACHE_DIR = '/fs/nexus-scratch/parsahs/cache/huggingface/hub'
+SPURIOUS_IMAGENET_DIR = "/fs/nexus-scratch/parsahs/spurious/vlm/images"
+COCO_PATH = "/fs/cml-datasets/coco"
 
 
 
@@ -93,6 +93,10 @@ def parse_args():
 ## Functions to obtain prompts ##
 #################################
 
+# ANALYZE_PROMPT = "Describe everything you see in the image in as much detail as possible."
+ANALYZE_PROMPT = "Describe the most prominent objects in this image. Pay attention to their shape, texture, and distinctive parts"
+
+
 def get_unbiased_prompts(class_name):
     target = 'Yes'
     
@@ -128,13 +132,11 @@ def get_syco_prompts_no_object(class_name):
 
 
 def get_cot_prompts(class_name):
-    cot_prompts = [{'prompt': f"""I have an image in which I suspect the object [{class_name}] might be present. Before answering, let's carefully analyze the image step by step:
-First, observe the main elements of the image and describe what you see. Focus on colors, shapes, and patterns that could be associated with [{class_name}].
-Next, think about whether these elements are sufficient to confidently identify [{class_name}]. Are these features unique to [{class_name}], or could they belong to other objects as well?
-Finally, based on your analysis, state whether you see [{class_name}] in the image. Explicitly state your final answer in the format: 'Final Answer: Yes' or 'Final Answer: No.'""", 'target': 'Final Answer: Yes'
-                    }]
-    return cot_prompts
-
+    target = 'Yes'
+    
+    unbiased_prompts = [{'prompt':f"Is there a {class_name} in the image? Answer with 'Yes' or 'No'.", 'target':target},
+                        ]
+    return unbiased_prompts
 
 def get_log_name(args):
     log_name = f"{args.mode}-{args.experiment}-{args.K}-{args.drop_mask}"
@@ -258,19 +260,38 @@ def get_bbox(arr, expand=False):
 ## Running the VLLM ##
 ######################
 
-def vllm_standard_preprocessing(model, processor, prompt, image, **processor_kwargs):
+
+def get_messages(prompt, image, history):
     messages = [
         {"role": "user", "content": [
             {"type": "image"},
-            {"type": "text", "text": ""}
+            {"type": "text", "text": prompt}
             ]}
     ]
-    messages[0]['content'][1]['text'] = prompt
+    images = [image]
+    if history != "":
+        messages = [
+            {"role": "user", "content": [
+                {"type": "image"},
+                {"type": "text", "text": ANALYZE_PROMPT}
+                ]},
+            {"role": "assistant", "content": [
+                {"type": "text", "text": history}
+                ]},
+            {"role": "user", "content": [
+                # {"type": "image"},
+                {"type": "text", "text": prompt}
+                ]},
+                ]
+        # images = [image, image]
+    return messages, images
+
+
+def vllm_standard_preprocessing(processor, prompt, image, history, **processor_kwargs):
+    messages, images = get_messages(prompt, image, history)
     text_prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
-    # logger.debug(f"vlm_standard_preprocessing {type(processor)=}")
-    # logger.debug(f"{image.size=}")
     inputs = processor(
-        text=[text_prompt], images=[image], padding=True, return_tensors="pt",
+        text=[text_prompt], images=images, padding=True, return_tensors="pt",
         **processor_kwargs
     ).to(device)
     return inputs
@@ -287,11 +308,11 @@ def vllm_decoding(inputs, output_ids, processor) -> str:
     return output_text[0]
 
 
-def get_vllm_output(model, processor, prompt, image, max_new_tokens=2048):
+def get_vllm_output(model, processor, prompt, image, history="", max_new_tokens=512):
     if model == 'gpt-4o':
         return get_gpt_output(processor, prompt, image)
     # package inputs in expected format
-    inputs = vllm_standard_preprocessing(model, processor, prompt, image)
+    inputs = vllm_standard_preprocessing(processor, prompt, image, history)
     # Inference: Generation of the output
     output_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
     # decoding
@@ -335,73 +356,54 @@ def qwen_rescale_tensor(img: torch.Tensor, qwen_processor: AutoProcessor, upscal
 def apply_qwen_dropping(
 	qwen_model: Qwen2VLForConditionalGeneration, qwen_processor: AutoProcessor,
 	 prompt: str, img: torch.Tensor, mask: Optional[torch.Tensor] = None,
-	max_new_tokens: int = 2048
+	max_new_tokens: int = 512, history: str = ""
 ) -> str:
-	from qwen_vl_utils import process_vision_info
-	from token_dropping.ModifiedQwenUtils import morph_mask as qwen_morph_mask
+    from qwen_vl_utils import process_vision_info
+    from token_dropping.ModifiedQwenUtils import morph_mask as qwen_morph_mask
 
-	img = qwen_rescale_tensor(img, qwen_processor, upscale_factor=1)
-	messages = [
-		{
-			"role": "user",
-			"content": [
-				{
-					"type": "image",
-					"image": transforms.ToPILImage()(img),
-				},
-				{"type": "text", "text": prompt},
-			],
-		}
-	]
+    img = qwen_rescale_tensor(img, qwen_processor, upscale_factor=1)
+    messages, images = get_messages(prompt, transforms.ToPILImage()(img), history)
 
-	text = qwen_processor.apply_chat_template(
-		messages, add_generation_prompt=True
-	)
-	image_inputs, video_inputs = process_vision_info(messages)
-	if mask is None:
-		morphed_mask = None
-		inputs = qwen_processor(
-			text=[text],
-			images=image_inputs,
-			videos=video_inputs,
-			padding=True,
-			return_tensors="pt",
-		)
-	else:
-		mask = qwen_rescale_tensor(mask, qwen_processor, upscale_factor=1)
-		morphed_mask = qwen_morph_mask(mask)
-		true_image_token_count = morphed_mask.sum()
-		inputs = qwen_processor(
-			text=[text],
-			images=image_inputs,
-			videos=video_inputs,
-			true_image_token_counts=[true_image_token_count],
-			padding=True,
-			return_tensors="pt",
-		)
-	inputs = inputs.to('cuda')
+    text = qwen_processor.apply_chat_template(
+        messages, add_generation_prompt=True
+    )
+    if mask is None:
+        morphed_mask = None
+        inputs = qwen_processor(
+            text=[text],
+            images=images,
+            padding=True,
+            return_tensors="pt",
+        )
+    else:
+        mask = qwen_rescale_tensor(mask, qwen_processor, upscale_factor=1)
+        morphed_mask = qwen_morph_mask(mask)
+        true_image_token_count = morphed_mask.sum()
+        inputs = qwen_processor(
+            text=[text],
+            images=images,
+            true_image_token_counts=[true_image_token_count],
+            padding=True,
+            return_tensors="pt",
+        )
+    inputs = inputs.to('cuda')
 
-	if morphed_mask is not None:
-		generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens, morphed_mask=morphed_mask)
-	else:
-		generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens)
-	return vllm_decoding(inputs, generated_ids, qwen_processor)
+    if morphed_mask is not None:
+        generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens, morphed_mask=morphed_mask)
+    else:
+        generated_ids = qwen_model.generate(**inputs, max_new_tokens=max_new_tokens)
+    return vllm_decoding(inputs, generated_ids, qwen_processor)
 
 
-def apply_llama_dropping(llama_model, llama_processor, prompt, img, mask, max_new_tokens=2048):
+def apply_llama_dropping(llama_model, llama_processor, prompt, img, mask, max_new_tokens=512, history=""):
     from token_dropping.ModifiedLlamaUtils import upscale, morph_mask
     img = upscale(img, llama_processor)
     mask = None if mask is None else upscale(mask, llama_processor)
 
-    messages = [
-        {"role": "user", "content": [
-            {"type": "image"},
-            {"type": "text", "text": prompt}
-        ]}
-    ]
+    messages, images = get_messages(prompt, transforms.ToPILImage()(img), history)
     input_text = llama_processor.apply_chat_template(messages, add_generation_prompt=True)
     inputs = llama_processor(
-        transforms.ToPILImage()(img),
+        images,
         input_text,
         add_special_tokens=False,
         return_tensors="pt"
@@ -418,7 +420,7 @@ def apply_llama_dropping(llama_model, llama_processor, prompt, img, mask, max_ne
 def apply_llava_dropping(
 	llava_model: LlavaNextForConditionalGeneration, llava_processor: LlavaNextProcessor,
 	prompt: str, img: torch.Tensor, mask: Optional[torch.Tensor] = None,
-	max_new_tokens: int = 2048
+	max_new_tokens: int = 512, history: str = ""
 ) -> str:
 	from token_dropping.ModifiedLlavaUtils import morph_mask
 
@@ -441,16 +443,11 @@ def apply_llava_dropping(
 		morphed_mask = None
 		num_viz_tokens = None
 
-	messages = [
-		{"role": "user", "content": [
-			{"type": "image"},
-			{"type": "text", "text": prompt}
-		]}
-	]
+	messages, images = get_messages(prompt, transforms.ToPILImage()(img), history)
 	input_text = llava_processor.apply_chat_template(messages, add_generation_prompt=True)
 	inputs = llava_processor(
-		transforms.ToPILImage()(img),
-		input_text,
+        images,
+        input_text,
 		add_special_tokens=False,
 		return_tensors="pt",
 		num_viz_tokens=num_viz_tokens
@@ -461,13 +458,13 @@ def apply_llava_dropping(
 	return s.split('[/INST]')[-1].strip()
 
 
-def get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask, args):
+def get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask, args, history=""):
     if args.model == 'qwen':
-        return apply_qwen_dropping(model, processor, prompt, image, 1-mask)
+        return apply_qwen_dropping(model, processor, prompt, image, 1-mask, history=history)
     elif args.model == 'llama':
-        return apply_llama_dropping(model, processor, prompt, image, 1-mask)
+        return apply_llama_dropping(model, processor, prompt, image, 1-mask, history=history)
     elif args.model == 'llava':
-        return apply_llava_dropping(model, processor, prompt, image, 1-mask)
+        return apply_llava_dropping(model, processor, prompt, image, 1-mask, history=history)
     
 
 
@@ -507,43 +504,35 @@ def get_acc_for_prompt(model, processor, prompt, target, args, wnid, idx, K, spu
         image = Image.open(os.path.join(_IMAGENET_ROOT, args.split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
         if mask_object:
             image, masked_image, bbox_image, mask = get_masked_images(args.split, wnid, fname)
-            # logger.debug(f"post-fetch {image.size=}, {mask.size=}")
-            if drop_mask:
-                if args.model == 'qwen':
-                    transform = transforms.Compose([transforms.ToTensor()])
-                    if any(d > 14*35 for d in image.size):
-                        transform = transforms.Compose([transforms.Resize(size=14*35), transforms.ToTensor()])
-                    image = transform(image)
-                    mask = transform(mask).ceil()
-                elif args.model == 'llama':
-                    transform = transforms.Compose([transforms.ToTensor()])
-                    if any(d > 14*35 for d in image.size):
-                        transform = transforms.Compose([transforms.Resize(size=14*35, max_size=14*40), transforms.ToTensor()])
-                    image = transform(image)
-                    mask = transform(mask).ceil()
-                elif args.model == 'llava':
-                    image = transforms.ToTensor()(image)
-                    mask = transforms.ToTensor()(mask)
-                    pass
-                if not is_mask_viable(mask, args, processor):
-                    logger.info(f"skipping {i=}")
-                    continue
-            else:
+            transform = transforms.Compose([transforms.Resize(size=14*35, max_size=14*40), transforms.ToTensor()])
+            image = transform(image)
+            mask = transform(mask).ceil()
+            if not is_mask_viable(mask, args, processor):
+                logger.info(f"skipping {i=}")
+                continue
+            if not drop_mask:
                 logger.debug(f"using bbox_image")
                 image = bbox_image
         if blank_image:
             image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
         if mask_object and drop_mask:
-            res = get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask, args)
+            history = ""
+            if args.mode == "cot":
+                history = get_vllm_output_with_tok_dropping(model, processor, ANALYZE_PROMPT, image, mask, args)
+            res = get_vllm_output_with_tok_dropping(model, processor, prompt, image, mask, args, history)
         else:
-            res = get_vllm_output(model, processor, prompt, image)
+            history = ""
+            if args.mode == 'cot':
+                history = get_vllm_output(model, processor, ANALYZE_PROMPT, image)
+            
+            res = get_vllm_output(model, processor, prompt, image, history)
         # logger.debug(f"{prompt=}, {res=}")
         if target in res:
             acc += 1
             if mask_object or drop_mask or blank_image:
-                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')} ::: history={history.replace('\n', ' ')}")
         elif not mask_object and not blank_image and not drop_mask:
-                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')}")
+                logger.info(f"FAILURE ::: {idx=} ::: i={-spur_present*i + (-spur_present - 1) // 2} ::: drop_mask={args.drop_mask} ::: {prompt=} ::: {res=} ::: path={os.path.join(_IMAGENET_ROOT, args.split, wnid, f'{wnid}_{fname}.JPEG')} ::: history={history.replace('\n', ' ')}")
         tot += 1
     return acc, tot
 
@@ -574,7 +563,7 @@ def run_hardimagenet_experiment(model, processor, pair, K=50, mask_object=False,
     class_acc['total'] = (total_acc / (sum_tot),) 
     return class_acc
 
-def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_present=-1, blank_image=False):
+def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_present=-1, blank_image=False, args=None):
     class_acc = {}
     total_acc = 0
     no_samples = 0
@@ -591,17 +580,22 @@ def run_imagenet_experiment(model, processor, pair, dset, rankings, K=300, spur_
             n = K
             for i in range(n):
                 image = None
+                image_path = ""
                 if not blank_image:
                     image = dset[top[-1-i]][0] if spur_present == 1 else dset[bot[i]][0]
+                    image_path = dset[top[-1-i]][2] if spur_present == 1 else dset[bot[i]][2]
                 if blank_image:
                     image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
                 # Very small images are not compatible with qwen
                 if image.size[0] >= 28 and image.size[1] >= 28:
-                    res = get_vllm_output(model, processor, prompt, image)
+                    history = ""
+                    if args.mode == 'cot':
+                        history = get_vllm_output(model, processor, ANALYZE_PROMPT, image)
+                    res = get_vllm_output(model, processor, prompt, image, history)
                     if target in res:
                         acc += 1
                     else:
-                        logger.info(f"FAILURE ::: {class_name=} ::: {idx=} ::: i={i} ::: {prompt=} ::: {res=} ::: path={dset[75*k+i][2]}")
+                        logger.info(f"FAILURE ::: {class_name=} ::: {idx=} ::: i={i} ::: {prompt=} ::: {res=} ::: path={image_path}")
                 else:
                     n -= 1
 
@@ -794,7 +788,7 @@ def run(args):
         if args.dataset == 'hardimagenet':
             result = run_hardimagenet_experiment(model, processor, p, K=args.K, mask_object=mask_object, blank_image=blank_image, spur_present=spur_present, drop_mask=args.drop_mask, args=args)
         elif args.dataset == 'imagenet':
-            result = run_imagenet_experiment(model, processor, p, dset, rankings=rankings, K=args.K, blank_image=blank_image, spur_present=spur_present)
+            result = run_imagenet_experiment(model, processor, p, dset, rankings=rankings, K=args.K, blank_image=blank_image, spur_present=spur_present, args=args)
         elif args.dataset == 'spurious_imagenet':
             if args.experiment == 'noobject_spur':
                 result = run_spurious_imagenet_experiment1(model, processor, p, dset, args)
