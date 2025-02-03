@@ -513,7 +513,7 @@ def get_acc_for_prompt(model, processor, pair, args, wnid, idx, K, spur_present=
     for i in range(K):
         fname = paths_by_rank[idx][-spur_present*i + (-spur_present - 1) // 2].split('/')[-1].split('_')[1].split('.')[0]
         image = Image.open(os.path.join(_IMAGENET_ROOT, args.split, wnid, f"{wnid}_{fname}.JPEG")).convert('RGB')
-        if mask_object:
+        if mask_object and not blank_image:
             image, masked_image, bbox_image, mask = get_masked_images(args.split, wnid, fname)
             transform = transforms.Compose([transforms.Resize(size=14*35, max_size=14*40), transforms.ToTensor()])
             image = transform(image)
@@ -541,6 +541,8 @@ def get_acc_for_prompt(model, processor, pair, args, wnid, idx, K, spur_present=
                 history = {'first_step': first_step, 'res':res}
             res = get_vllm_output(model, processor, prompt, image, history)
         # logger.debug(f"{prompt=}, {res=}")
+        if history == "":
+            history = {'first_step':'', 'res':''}
         if target in res:
             acc += 1
             if mask_object or drop_mask or blank_image:
@@ -639,11 +641,19 @@ def run_spurious_imagenet_experiment1(model, processor, pair, dset, args):
             acc = 0
             for i in range(args.K):
                 image = dset[75*k+i][0]
-                res = get_vllm_output(model, processor, prompt, image)
-                logger.debug(f"DEBUG ::: {class_name=} ::: {idx=} ::: i={i} ::: res=\n{res}\n ::: path={dset[75*k+i][2]}")
+                if args.experiment == 'blank':
+                    image = Image.fromarray(np.zeros((16*28, 16*28)).astype("uint8")).convert('RGB')
+                history = ""
+                if args.mode == "twostepv1" or args.mode == "twostepv2":
+                    first_step = pair['first_step'].replace('CLASSNAME', class_name)
+                    res = get_vllm_output(model, processor, first_step, image)
+                    history = {'first_step': first_step, 'res':res}
+                res = get_vllm_output(model, processor, prompt, image, history)
                 if target in res:
-                        acc += 1
-                        logger.info(f"FAILURE ::: {class_name=} ::: {idx=} ::: i={i} ::: {prompt=} ::: {res=} ::: path={dset[75*k+i][2]}")
+                    acc += 1
+                    if history == "":
+                        history = {'first_step':'', 'res':''}
+                    logger.info(f"FAILURE ::: {class_name=} ::: {idx=} ::: i={i} ::: {prompt=} ::: {res=} ::: path={dset[75*k+i][2]} ::: history={history['first_step']} {history['res'].replace('\n', ' ')}")
 
 
             logger.info(f"{idx} {class_name} {acc}/{args.K}")
@@ -690,10 +700,17 @@ def run_spurious_imagenet_experiment2(model, processor, pair, dset, rankings, K,
             acc = 0
             images = get_random_images(idx, dset, rankings, K, object_present, blank_image, spur_present)
             for image in images:
-                res = get_vllm_output(model, processor, prompt, image[0])
+                history = ""
+                if args.mode == "twostepv1" or args.mode == "twostepv2":
+                    first_step = pair['first_step'].replace('CLASSNAME', class_name)
+                    res = get_vllm_output(model, processor, first_step, image[0])
+                    history = {'first_step': first_step, 'res':res}
+                res = get_vllm_output(model, processor, prompt, image[0], history)
                 if target in res:
-                        acc += 1
-                        logger.info(f"FAILURE ::: {class_name=} ::: idx={image[1]} ::: {prompt=} ::: {res=} ::: path={image[2]}")
+                    acc += 1
+                    if history == "":
+                        history = {'first_step':'', 'res':''}
+                    logger.info(f"FAILURE ::: {class_name=} ::: idx={image[1]} ::: {prompt=} ::: {res=} ::: path={image[2]} ::: history={history['first_step']} {history['res'].replace('\n', ' ')}")
 
 
             logger.info(f"{idx} {class_name} {acc}/{K}")
@@ -785,9 +802,9 @@ def run(args):
             dset = ImageNetWithPaths(root=_IMAGENET_ROOT, split=args.split, transform=None)
     
     if args.dataset == 'spurious_imagenet':
-        if args.experiment == 'noobject_spur':
+        if args.experiment in ['noobject_spur', 'blank']:
             dset = SpuriousDataset(SPURIOUS_IMAGENET_DIR)
-        else:
+        elif args.experiment == 'noobject_nospur':
             rankings = img_rankings_by_idx_val
             if args.split == 'train':
                 rankings = img_rankings_by_idx_tr 
@@ -805,7 +822,7 @@ def run(args):
         elif args.dataset == 'imagenet':
             result = run_imagenet_experiment(model, processor, p, dset, rankings=rankings, K=args.K, blank_image=blank_image, spur_present=spur_present, args=args)
         elif args.dataset == 'spurious_imagenet':
-            if args.experiment == 'noobject_spur':
+            if args.experiment in ['noobject_spur', 'blank']:
                 result = run_spurious_imagenet_experiment1(model, processor, p, dset, args)
             else:
                 result = run_spurious_imagenet_experiment2(model, processor, p, dset, rankings, K=args.K, object_present=not mask_object, blank_image=blank_image, spur_present=spur_present, select_classes=args.select_classes)
