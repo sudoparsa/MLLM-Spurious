@@ -80,12 +80,19 @@ if __name__ == '__main__':
 		default=0,
 		help="Index of chunk to run"
 	)
+	parser.add_argument(
+		"--respect_cache",
+		default=False,
+		action='store_true',
+		help="Skips values that have already been computed."
+	)
 	args = parser.parse_args()
 	dataset_name = args.dataset
 	model_name = args.model
 	spur_feat_file = args.spur_feat_file
 	num_tot_chunks = args.num_tot_chunks
 	chunk = args.chunk
+	respect_cache = args.respect_cache
 
 	device = "cuda" if torch.cuda.is_available() else "cpu"
 	if model_name == 'owl':
@@ -116,11 +123,15 @@ if __name__ == '__main__':
 		img = dataset.get_image(i)
 		if any(d > 14*35 for d in img.shape):
 			img = downsize(img)
+		filename = os.path.join(PIPELINE_STORAGE_DIR, 'object_detection', dataset_name, model_name, f"{i}.pkl")
+		if respect_cache and os.path.exists(filename):
+			continue
 		res = objdet_func(all_spur_features, img)
-		with open(os.path.join(PIPELINE_STORAGE_DIR, 'object_detection', dataset_name, model_name, f"{i}.pkl"), 'wb') as f:
+		with open(filename, 'wb') as f:
 			pkl.dump(res, f)
 		del img, res
 		if i % 30 == 0:
+			print(f"{i=}", flush=True)
 			gc.collect()
 			torch.cuda.empty_cache()
 

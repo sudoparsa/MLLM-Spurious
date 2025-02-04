@@ -30,7 +30,7 @@ def rank_images(
 		lst.append((score, j))
 	if randomize_before:
 		random.shuffle(lst)
-	lst.sort()
+	lst.sort(key=lambda t: t[0])
 	return list(map(lambda t: t[1], lst))
 
 
