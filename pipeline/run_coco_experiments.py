@@ -1,22 +1,14 @@
 import torch
-import transformers
 from torchvision import transforms
 from time import time
-from functools import partial
 from typing import List, Optional, Dict
 import gc
-import re
 import math
 import re
-from PIL import Image
 import numpy as np
-from utils import get_bbox
-from transformers import (
-	Qwen2VLForConditionalGeneration, Qwen2VLProcessor,
-	MllamaForConditionalGeneration, MllamaProcessor,
-	LlavaNextForConditionalGeneration, LlavaNextProcessor,
-	AutoProcessor
-)
+from utils import get_bbox, format_name
+import pickle as pkl
+from transformers import Qwen2VLForConditionalGeneration, Qwen2VLProcessor, MllamaForConditionalGeneration, MllamaProcessor, AutoProcessor
 
 #############
 ## Prompts ##
@@ -255,16 +247,20 @@ def qwen_is_mask_viable(mask: torch.Tensor, qwen_processor: Qwen2VLProcessor) ->
 ## Llama ##
 ###########
 
-llama_pat = re.compile(r"<\|start_header_id\|>assistant<\|end_header_id\|>(.*)<\|eot_id\|>", flags=re.DOTALL)
+# llama_pat = re.compile(r"<\|start_header_id\|>assistant<\|end_header_id\|>(.*)<\|eot_id\|>", flags=re.DOTALL)
+llama_pat = re.compile(r"<\|start_header_id\|>assistant<\|end_header_id\|>(.*)$", flags=re.DOTALL)
 
 def apply_llama_dropping(
 	llama_model: MllamaForConditionalGeneration, llama_processor: MllamaProcessor,
 	img: torch.Tensor, prompt: str, mask: Optional[torch.Tensor] = None,
-	max_new_tokens: int = 150, seed: Optional[int] = None
+	max_new_tokens: int = 32, seed: Optional[int] = 42
 ) -> str:
-	from token_dropping.ModifiedLlamaUtils import upscale, morph_mask
+	from token_dropping.ModifiedLlamaUtils import set_seeds, morph_mask, upscale
 	img = upscale(img, llama_processor)
-	mask = None if mask is None else upscale(mask, llama_processor)
+	mask = upscale(mask, llama_processor)
+
+	if type(seed) == int:
+		set_seeds(seed)
 
 	messages = [
 		{"role": "user", "content": [
@@ -272,28 +268,36 @@ def apply_llama_dropping(
 			{"type": "text", "text": prompt}
 		]}
 	]
-	input_text = processor.apply_chat_template(messages, add_generation_prompt=True)
+	input_text = llama_processor.apply_chat_template(messages, add_generation_prompt=True)
 	inputs = llama_processor(
 		transforms.ToPILImage()(img),
 		input_text,
 		add_special_tokens=False,
 		return_tensors="pt"
-	).to(model.device)
+	).to(llama_model.device)
 
 	if mask is not None:
 		morphed_mask = morph_mask(mask)
 
 	output = llama_model.generate(**inputs, max_new_tokens=max_new_tokens, morphed_mask=morphed_mask)
+	# s = llama_processor.decode(output[0])
+	# return llama_pat.search(s)[1].strip()
 	s = llama_processor.decode(output[0])
-	return llama_pat.search(s)[1].strip()
+	s = llama_pat.search(s)[1].strip()
+	if s[-len('<|eot_id|>'):] == '<|eot_id|>':
+		s = s[:-len('<|eot_id|>')]
+	return s
 
 def apply_llama(
 	llama_model: MllamaForConditionalGeneration, llama_processor: MllamaProcessor,
-	img: torch.Tensor, prompt: str, mask: Optional[torch.Tensor] = None,
-	max_new_tokens: int = 150, seed: Optional[int] = None
+	img: torch.Tensor, prompt: str,
+	max_new_tokens: int = 32, seed: Optional[int] = 42
 ) -> str:
-	from token_dropping.ModifiedLlamaUtils import upscale
+	from token_dropping.ModifiedLlamaUtils import set_seeds, morph_mask, upscale
 	img = upscale(img, llama_processor)
+
+	if type(seed) == int:
+		set_seeds(seed)
 
 	messages = [
 		{"role": "user", "content": [
@@ -301,17 +305,22 @@ def apply_llama(
 			{"type": "text", "text": prompt}
 		]}
 	]
-	input_text = processor.apply_chat_template(messages, add_generation_prompt=True)
+	input_text = llama_processor.apply_chat_template(messages, add_generation_prompt=True)
 	inputs = llama_processor(
 		transforms.ToPILImage()(img),
 		input_text,
 		add_special_tokens=False,
 		return_tensors="pt"
-	).to(model.device)
+	).to(llama_model.device)
 
 	output = llama_model.generate(**inputs, max_new_tokens=max_new_tokens)
+	# s = llama_processor.decode(output[0])
+	# return llama_pat.search(s)[1].strip()
 	s = llama_processor.decode(output[0])
-	return llama_pat.search(s)[1].strip()
+	s = llama_pat.search(s)[1].strip()
+	if s[-len('<|eot_id|>'):] == '<|eot_id|>':
+		s = s[:-len('<|eot_id|>')]
+	return s
 
 def llama_is_mask_viable(mask: torch.Tensor, llama_processor: MllamaProcessor) -> bool:
 	from token_dropping.ModifiedLlamaUtils import morph_mask, upscale
@@ -320,105 +329,6 @@ def llama_is_mask_viable(mask: torch.Tensor, llama_processor: MllamaProcessor) -
 	return (mm == 1).any()
 
 
-###########
-## Llava ##
-###########
-
-def apply_llava(
-	llava_model: LlavaNextForConditionalGeneration, llava_processor: LlavaNextProcessor,
-	img: torch.Tensor, prompt: str, mask: Optional[torch.Tensor] = None,
-	max_new_tokens: int = 150
-) -> str:
-	messages = [
-		{"role": "user", "content": [
-			{"type": "image"},
-			{"type": "text", "text": prompt}
-		]}
-	]
-	input_text = llava_processor.apply_chat_template(messages, add_generation_prompt=True)
-	inputs = llava_processor(
-		transforms.ToPILImage()(img),
-		input_text,
-		add_special_tokens=False,
-		return_tensors="pt"
-	).to(llava_model.device)
-
-	output = llava_model.generate(**inputs, max_new_tokens=max_new_tokens)
-	s = llava_processor.decode(output[0], skip_special_tokens=True)
-	return s.split('[/INST]')[-1].strip()
-
-def apply_llava_dropping(
-	llava_model: LlavaNextForConditionalGeneration, llava_processor: LlavaNextProcessor,
-	img: torch.Tensor, prompt: str, mask: Optional[torch.Tensor] = None,
-	max_new_tokens: int = 150
-) -> str:
-	from token_dropping.ModifiedLlavaUtils import morph_mask
-
-	if mask is not None:
-		from transformers.models.llava_next.image_processing_llava_next import select_best_resolution
-		new_mask_resolution = select_best_resolution(mask.squeeze().shape, llava_processor.image_processor.image_grid_pinpoints)
-		from transformers.image_utils import ChannelDimension
-		resized_mask = np.ceil(llava_processor.image_processor._resize_for_patching(mask.numpy(), new_mask_resolution, Image.Resampling.BICUBIC, ChannelDimension.FIRST)).astype(int)
-		padded_mask = llava_processor.image_processor._pad_for_patching(resized_mask, new_mask_resolution, ChannelDimension.FIRST)
-		from transformers.models.llava_next.image_processing_llava_next import divide_to_patches
-		crop_size = llava_processor.image_processor.crop_size['height']
-		mask_patches = divide_to_patches(padded_mask, crop_size, ChannelDimension.FIRST)
-		from transformers.models.llava_next.image_processing_llava_next import resize
-		shortest_edge = llava_processor.image_processor.size['shortest_edge']
-		mask_patches = [resize(mask.numpy(), (shortest_edge, shortest_edge), Image.Resampling.BICUBIC)] + mask_patches
-		morphed_mask_patches = list(map(morph_mask, mask_patches))
-		morphed_mask = morphed_mask_patches
-		num_viz_tokens = int(sum(x.sum() for x in morphed_mask)) + 1
-	else:
-		morphed_mask = None
-		num_viz_tokens = None
-
-	messages = [
-		{"role": "user", "content": [
-			{"type": "image"},
-			{"type": "text", "text": prompt}
-		]}
-	]
-	input_text = llava_processor.apply_chat_template(messages, add_generation_prompt=True)
-	inputs = llava_processor(
-		transforms.ToPILImage()(img),
-		input_text,
-		add_special_tokens=False,
-		return_tensors="pt",
-		num_viz_tokens=num_viz_tokens
-	).to(llava_model.device)
-
-	output = llava_model.generate(**inputs, max_new_tokens=max_new_tokens, morphed_mask=morphed_mask)
-	s = llava_processor.decode(output[0], skip_special_tokens=True)
-	return s.split('[/INST]')[-1].strip()
-
-def llava_is_mask_viable(mask: torch.Tensor, llama_processor: LlavaNextProcessor) -> bool:
-	from transformers.models.llava_next.image_processing_llava_next import resize
-	from token_dropping.ModifiedLlavaUtils import morph_mask
-	mask = resize((1-mask).numpy())
-	mm = morph_mask(mask)
-	return (mm == 1).any()
-
-#########
-## GPT ##
-#########
-
-def apply_gpt(
-	gpt_model: None, gpt_processor: None,
-	img: torch.Tensor, prompt: str,
-	max_new_tokens: int = 0
-) -> str:
-	pass
-
-
-#################
-## Main Method ##
-#################
-
-def set_seeds(seed: int = 42):
-	np.random.seed(seed)
-	torch.random.manual_seed(seed)
-	transformers.set_seed(seed)
 
 if __name__ == '__main__':
 	from env_vars import CACHE_DIR, PIPELINE_STORAGE_DIR
@@ -429,15 +339,14 @@ if __name__ == '__main__':
 	sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 	from token_dropping.ModifiedQwen import ModifiedQwen2VLForConditionalGeneration, ModifiedQwen2VLProcessor
 	from token_dropping.ModifiedLlama import ModifiedMllamaForConditionalGeneration
-	from token_dropping.ModifiedLlava import ModifiedLlavaNextForConditionalGeneration, ModifiedLlavaNextProcessor
 	from image_mask_datasets import get_image_mask_dataset
 	import argparse
 
-	parser = argparse.ArgumentParser(description="HardImageNet Experiments")
+	parser = argparse.ArgumentParser(description="COCO Experiments")
 	parser.add_argument(
-		"--dataset",
+		"--coco_idx",
 		type=str,
-		help="Dataset to run on (must be registered in `image_mask_dataset.py`)",
+		help="Class of COCO dataset",
 		required=True
 	)
 	parser.add_argument(
@@ -448,8 +357,8 @@ if __name__ == '__main__':
 	parser.add_argument(
 		"--mllm",
 		type=str,
-		choices=['qwen', 'llama', 'llava', 'llava-cot'],
-		help="Object detection model to use",
+		choices=['qwen', 'llama'],
+		help="Vision-language model to use",
 		required=True
 	)
 	parser.add_argument(
@@ -477,18 +386,24 @@ if __name__ == '__main__':
 		action='store_true',
 		help="Instead of appending to the log, this will overwrite it and begin the chunk from the beginning"
 	)
+	parser.add_argument(
+		"--K",
+		type=int,
+		default=50+5,
+	)
 	args = parser.parse_args()
-	dataset_name = args.dataset
+	coco_idx = args.coco_idx
 	class_name = args.class_name
 	mllm_name = args.mllm
 	img_type = args.img_type
 	num_tot_chunks = args.num_tot_chunks
 	chunk = args.chunk
 	respect_cache = (not args.no_respect_cache)
+	K = args.K
 
-	device = 'cuda' if torch.cuda.is_available() else 'cpu'
+	device = "cuda" if torch.cuda.is_available() else "cpu"
 	if mllm_name == 'qwen':
-		model_id = 'Qwen/Qwen2-VL-7B-Instruct'
+		model_id = "Qwen/Qwen2-VL-7B-Instruct"
 		min_pixels = 256*28*28
 		max_pixels = 2048*28*28
 		if img_type == 'dropped':
@@ -509,7 +424,7 @@ if __name__ == '__main__':
 			)
 			apply_model = apply_qwen
 	elif mllm_name == 'llama':
-		model_id = 'meta-llama/Llama-3.2-11B-Vision-Instruct'
+		model_id = "meta-llama/Llama-3.2-11B-Vision-Instruct"
 		if img_type == 'dropped':
 			model = ModifiedMllamaForConditionalGeneration.from_pretrained(
 				model_id, torch_dtype="auto", device_map=device,  cache_dir=CACHE_DIR
@@ -523,61 +438,40 @@ if __name__ == '__main__':
 			).to(device)
 			processor = AutoProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
 			apply_model = apply_llama
-	elif mllm_name == 'llava':
-		model_id = 'llava-hf/llava-v1.6-mistral-7b-hf'
-		if img_type == 'dropped':
-			model = ModifiedLlavaNextForConditionalGeneration.from_pretrained(
-				model_id, torch_dtype="auto", device_map=device,  cache_dir=CACHE_DIR
-			).to(device)
-			processor = ModifiedLlavaNextProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
-			apply_model = apply_llava_dropping
-			is_mask_viable = llava_is_mask_viable
-		else:
-			model = LlavaNextForConditionalGeneration.from_pretrained(
-				model_id, torch_dtype="auto", device_map=device,  cache_dir=CACHE_DIR
-			).to(device)
-			processor = LlavaNextProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
-			apply_model = apply_llava
-		processor.patch_size = model.config.vision_config.patch_size
-		processor.vision_feature_select_strategy = model.config.vision_feature_select_strategy
-	elif mllm_name == 'llava-cot':
-		model_id = 'Xkev/Llama-3.2V-11B-cot'
-		if img_type == 'dropped':
-			model = ModifiedMllamaForConditionalGeneration.from_pretrained(
-				model_id, torch_dtype="auto", device_map=device,  cache_dir=CACHE_DIR
-			).to(device)
-			processor = AutoProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
-			apply_model = partial(apply_llama_dropping, max_new_tokens=2048)
-			is_mask_viable = llama_is_mask_viable
-		else:
-			model = MllamaForConditionalGeneration.from_pretrained(
-				model_id, torch_dtype="auto", device_map=device,  cache_dir=CACHE_DIR
-			).to(device)
-			processor = AutoProcessor.from_pretrained(model_id, cache_dir=CACHE_DIR)
-			apply_model = partial(apply_llama, max_new_tokens=2048)
-	elif mllm_name == 'gpt-4o-mini':
-		if img_type == 'dropped':
-			raise Exception("Cannot run token-dropping experiments on GPT models")
-		model = None
-		processor = None
-		apply_model = None
 	else:
 		raise Exception(f"MLLM '{mllm_name}' is not supported")
 	
+	dataset_name = f"coco-{coco_idx}"
 	dataset = get_image_mask_dataset(dataset_name)
 	if class_name is None:
 		class_name = dataset.get_class_name()
-	num_samples = len(dataset)
+	
+	# use the ranking to determine what samples actually need to be computed
+	spur_feat_filename = os.path.join(PIPELINE_STORAGE_DIR, 'spurious_features', f"coco-{coco_idx}.txt")
+	with open(spur_feat_filename, 'r') as f:
+		spur_feat_lst = [line.strip() for line in f.readlines()]
+	extreme_idxs = set()
+	for spur_feat in spur_feat_lst:
+		filename = os.path.join(PIPELINE_STORAGE_DIR, 'rankings', f"coco-{coco_idx}", 'owl', f"{format_name(spur_feat)}.pkl")
+		with open(filename, 'rb') as f:
+			ranking = pkl.load(f)
+		for x in ranking[:K]:
+			extreme_idxs.add(x)
+		for x in ranking[-K:]:
+			extreme_idxs.add(x)
+	extreme_idxs = list(extreme_idxs)
+	extreme_idxs.sort()
+
+	num_samples = len(extreme_idxs)
 	num_samples_per_chunk = math.ceil(num_samples/num_tot_chunks)
 	chunk_start = num_samples_per_chunk * chunk
 	chunk_end = min(num_samples_per_chunk * (chunk + 1), num_samples)
 
-	if mllm_name in ['llama', 'llava-cot']:
+	downsize = transforms.Compose([transforms.Resize(size=14*35), transforms.ToPILImage(), transforms.ToTensor()])
+	if mllm_name == 'llama' and img_type == 'dropped':
 		downsize = transforms.Compose([transforms.Resize(size=14*35, max_size=14*40), transforms.ToPILImage(), transforms.ToTensor()])
-	else:
-		downsize = transforms.Compose([transforms.Resize(size=14*35), transforms.ToPILImage(), transforms.ToTensor()])
 	pathlib.Path(os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name)).mkdir(parents=True, exist_ok=True)
-	log_filepath = os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name, f"{img_type}_{chunk}.txt")
+	log_filepath = os.path.join(PIPELINE_STORAGE_DIR, 'experiment_results', dataset_name, mllm_name, f"essential_{img_type}_{chunk}.txt")
 	if respect_cache:
 		pat = re.compile(r"i=(\d+), img_type=(\w+), prompt_id=(\w+)-(\w+)-(\d+) :: res='(.*)'")
 		cache = set()
@@ -594,18 +488,19 @@ if __name__ == '__main__':
 		m = prompt.split('-')
 		return ((i, img_type, m[0], m[1], m[2]) in cache)
 
-	for i in range(chunk_start, chunk_end):
-		set_seeds()
+	print(f"{extreme_idxs[chunk_start:chunk_end]=}", flush=True)
+	for j in range(chunk_start, chunk_end):
+		i = extreme_idxs[j]
 		img = dataset.get_image(i)
 		if img_type == 'natural':
 			if any(d > 14*35 for d in img.shape):
 				img = downsize(img)
 			prompts = get_prompts(class_name, obj_present=True)
-			if respect_cache and in_cache(i, img_type, prompt):
-				continue
 			for prompt in prompts:
+				if respect_cache and in_cache(i, img_type, prompt['id']):
+					continue
 				res = apply_model(model, processor, img, prompt['prompt'])
-				print(f"{i=}, img_type=natural, prompt_id={prompt['id']} :: {res=}", file=f, flush=True)
+				print(f"{i=}, img_type=natural, prompt_id={prompt['id']} :: {res=}", file=f)
 		else:
 			prompts = get_prompts(class_name, obj_present=False)
 			mask = dataset.get_mask(i)
@@ -619,22 +514,22 @@ if __name__ == '__main__':
 
 			if img_type == 'masked':
 				for prompt in prompts:
-					if respect_cache and in_cache(i, img_type, prompt):
+					if respect_cache and in_cache(i, img_type, prompt['id']):
 						continue
 					res = apply_model(model, processor, bbox_img, prompt['prompt'])
 					print(f"{i=}, img_type=masked, prompt_id={prompt['id']} :: {res=}", file=f)
 			elif img_type == 'dropped':
 				if not is_mask_viable(mask, processor):
 					continue
-				if respect_cache and in_cache(i, img_type, prompt):
+				if respect_cache and in_cache(i, img_type, prompt['id']):
 					continue
 				for prompt in prompts:
 					res = apply_model(model, processor, img, prompt['prompt'], 1-mask)
 					print(f"{i=}, img_type=dropped, prompt_id={prompt['id']} :: {res=}", file=f)
 		
-		if i % 5 == 0:
+		if j % 5 == 0:
 			gc.collect()
 			torch.cuda.empty_cache()
-			print(f"{i=}", flush=True)
+			print(f"{j=}", flush=True)
 	f.close()
 

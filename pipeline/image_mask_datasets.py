@@ -64,7 +64,14 @@ class ImageMaskDataset():
 		return self.class_name
 
 
-class CocoImageMaskDataset(ImageMaskDataset):
+# class LargeImageMaskDataset(ImageMaskDataset):
+# 	def get_class_name(self, idx: int) -> str:
+# 		if self.class_name is None:
+# 			raise Exception('Dataset class name not set')
+# 		return self.class_name[idx]
+
+
+class CocoCategoryImageMaskDataset(ImageMaskDataset):
 	def __init__(self, coco_category_idx: int, split: Union[Literal['train'], Literal['val']] = 'train'):
 		self.coco_category_idx = coco_category_idx
 		annotation_file = os.path.join(COCO_PATH, 'annotations', f'instances_{split}2017.json')
@@ -229,7 +236,7 @@ def get_image_mask_dataset(name: str) -> ImageMaskDataset:
 	coco_res = coco_pat.match(name)
 	if coco_res is not None:
 		class_idx = int(coco_res[1])
-		return CocoImageMaskDataset(class_idx, 'train')
+		return CocoCategoryImageMaskDataset(class_idx, 'train')
 	
 	cityscape_pat = re.compile(r"cityscape-(\d+)")
 	cityscape_res = cityscape_pat.match(name)
