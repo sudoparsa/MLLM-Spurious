@@ -68,6 +68,8 @@ def parse_args():
     parser.add_argument("--K", type=int, default=50, help="Number of samples for each class")
     parser.add_argument("--seed", type=int, default=42, help="Seed for Random")
     parser.add_argument("--prompt_idx", type=int, default=-1, help="Prompt Index for Debug")
+    parser.add_argument("--chunks", type=int, default=0, help="Total No. of Chunks")
+    parser.add_argument("--chunk", type=int, default=0, help="Chunk Index")
 
 
 
@@ -82,7 +84,7 @@ def parse_args():
         choices=["train", "val"],
         help="train/val",
     )
-    parser.add_argument('--select_classes', action='store_true', help='Run on selected classes from spurious_imagenet ')
+    parser.add_argument('--select_classes', action='store_true', help='Run on selected classes from spurious_imagenet')
 
     args = parser.parse_args()
     return args
@@ -147,9 +149,11 @@ def get_twostepv2_prompts(class_name):
     return unbiased_prompts
 
 def get_log_name(args):
-    log_name = f"{args.mode}-{args.experiment}-{args.K}-{args.drop_mask}"
+    log_name = f"{args.K}-{args.drop_mask}"
     if args.prompt_idx >= 0:
         log_name += f"-{args.prompt_idx}"
+    if args.chunks > 0:
+        log_name += f"-{args.chunk}_{args.chunks}"
     return log_name
 
 
@@ -630,7 +634,13 @@ def run_spurious_imagenet_experiment1(model, processor, pair, dset, args):
     class_acc = {}
     total_acc = 0
     no_classes = 0
-    for k in range(100):
+    start_k = 0
+    end_k = 100
+    if args.chunks != 0:
+        start_k = (100 // args.chunks) * (args.chunk - 1)
+        end_k = min(start_k + 100 // args.chunks, 100)
+        logger.info(f"CHUNKS {start_k}-{end_k}")
+    for k in range(start_k, end_k):
         idx = dset[75*k][1]
         class_name = imagenet_classnames[idx]
 
@@ -691,7 +701,14 @@ def run_spurious_imagenet_experiment2(model, processor, pair, dset, rankings, K,
     class_acc = {}
     total_acc = 0
     no_classes = 0
-    for idx in idx_classes:
+    start_k = 0
+    end_k = 100
+    if args.chunks != 0:
+        start_k = (100 // args.chunks) * (args.chunk - 1)
+        end_k = min(start_k + 100 // args.chunks, 100)
+        logger.info(f"CHUNKS {start_k}-{end_k}")
+    for k in range(start_k, end_k):
+        idx = idx_classes[k]
         class_name = imagenet_classnames[idx]
         if class_name in selected_classes:
             prompt = pair['prompt'].replace('CLASSNAME', class_name)
@@ -844,13 +861,15 @@ if __name__=='__main__':
     os.makedirs(f"log", exist_ok=True)
     os.makedirs(f"log/{args.dataset}", exist_ok=True)
     os.makedirs(f"log/{args.dataset}/{args.model}", exist_ok=True)
+    os.makedirs(f"log/{args.dataset}/{args.model}/{args.experiment}", exist_ok=True)
+    os.makedirs(f"log/{args.dataset}/{args.model}/{args.experiment}/{args.mode}", exist_ok=True)
 
     logging.basicConfig(format="### %(message)s ###")  # level=logging_level,
 
     logger = logging.getLogger("SpurSyco")
     logger.setLevel(level=logging_level)
 
-    logger.addHandler(logging.FileHandler(f"log/{args.dataset}/{args.model}/{LOG_NAME}.log", mode='w'))
+    logger.addHandler(logging.FileHandler(f"log/{args.dataset}/{args.model}/{args.experiment}/{args.mode}/{LOG_NAME}.log", mode='w'))
 
     # Setting Seed
     random.seed(args.seed)
@@ -882,7 +901,7 @@ if __name__=='__main__':
     logger.info(results)
 
     table = get_table(results)
-    table.to_csv(f"log/{args.dataset}/{args.model}/{LOG_NAME}.csv", index=False)
+    table.to_csv(f"log/{args.dataset}/{args.model}/{args.experiment}/{args.mode}/{LOG_NAME}.csv", index=False)
 
 
 
